@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HYPED — Brand Home Site
+
+The front door of the Hyped ecosystem. One page that makes hyped.trade, hyped.launch, hyped.bet, and hyped.max feel like one inevitable thing.
+
+## Stack
+
+- **TypeScript** (strict)
+- **Next.js** App Router (SSG pages + one API route)
+- **Tailwind v4** (custom theme)
+- **Zod** (waitlist validation)
+- **Vitest** (unit tests)
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cp .env.example .env.local
+# Fill in SITE_URL, SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
+
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start dev server |
+| `npm run build` | Production build |
+| `npm run start` | Serve production build |
+| `npm run lint` | ESLint |
+| `npm test` | Run Vitest |
 
-## Learn More
+## Fonts
 
-To learn more about Next.js, take a look at the following resources:
+The site uses two typefaces loaded via `next/font/local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Inter** (body) — woff2 files in `public/fonts/`
+- **Clash Display** (display) — placeholder files included; replace with licensed woff2 when the brand decision is finalized
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Media Assets
 
-## Deploy on Vercel
+All video loops and poster images go in `public/media/`. The site is a picture frame — quality comes from the video assets.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Required assets (see spec for full details):
+- `hero-loop` (mp4 + webm + poster.webp)
+- `trade-loop`, `launch-loop`, `bet-loop`, `max-loop`
+- `waitlist-loop`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Environment Variables
+
+| Name | Required | Notes |
+|---|---|---|
+| `SITE_URL` | Yes | Public URL, no trailing slash |
+| `SUPABASE_URL` | Yes (for waitlist) | Supabase project URL |
+| `SUPABASE_SERVICE_ROLE_KEY` | Yes (for waitlist) | Server-only key |
+
+## Deployment
+
+Deploy to Vercel with root directory set to `hyped-site/`. The waitlist API runs as a serverless function automatically.

@@ -88,7 +88,7 @@ export function WaitlistCTA() {
             disabled={state === "loading" || state === "success"}
             className="rounded-lg bg-hyped-cyan px-6 py-3 text-sm font-bold text-hyped-black uppercase tracking-wide transition-opacity hover:opacity-90 disabled:opacity-50"
           >
-            {state === "loading" ? "..." : state === "success" ? "Joined" : "Join"}
+            {state === "loading" ? "..." : state === "success" ? "Locked In" : "Lock In"}
           </button>
         </form>
 

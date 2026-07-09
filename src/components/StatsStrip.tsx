@@ -5,9 +5,11 @@ import { Reveal } from "./Reveal";
 import { useInView } from "@/hooks/useInView";
 import { useEffect, useState } from "react";
 
+// Renders the REAL value on the server (SEO / scrapers / reduced-motion see
+// the truth), then replays the count-up when scrolled into view.
 function CountUp({ target, suffix }: { target: string; suffix: string }) {
   const { ref, inView } = useInView<HTMLSpanElement>({ threshold: 0.5, once: true });
-  const [display, setDisplay] = useState("0");
+  const [display, setDisplay] = useState(target);
 
   useEffect(() => {
     if (!inView) return;
@@ -16,17 +18,19 @@ function CountUp({ target, suffix }: { target: string; suffix: string }) {
       setDisplay(target);
       return;
     }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setDisplay(target);
+      return;
+    }
 
     const duration = 1200;
     const steps = 30;
     const increment = num / steps;
-    let current = 0;
     let step = 0;
 
     const interval = setInterval(() => {
       step++;
-      current = Math.min(Math.round(increment * step), num);
-      setDisplay(current.toString());
+      setDisplay(Math.min(Math.round(increment * step), num).toString());
       if (step >= steps) clearInterval(interval);
     }, duration / steps);
 

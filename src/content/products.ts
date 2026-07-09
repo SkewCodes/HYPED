@@ -14,6 +14,8 @@ export interface Product {
   status: "live" | "soon";
   video: MediaAsset;
   accentLabel: string;
+  /** per-product accent shift (brand system 2026-07) */
+  accent: string;
 }
 
 export const products: Product[] = [
@@ -32,6 +34,7 @@ export const products: Product[] = [
       aspect: "4/5",
     },
     accentLabel: "TRADE MAXXING",
+    accent: "#9D6BFF",
   },
   {
     id: "launch",
@@ -47,7 +50,8 @@ export const products: Product[] = [
       poster: "/media/launch-loop-poster.webp",
       aspect: "4/5",
     },
-    accentLabel: "LAUNCH MAXXING",
+    accentLabel: "TRENCH MAXXING",
+    accent: "#00E67A",
   },
   {
     id: "bet",
@@ -64,6 +68,7 @@ export const products: Product[] = [
       aspect: "4/5",
     },
     accentLabel: "BET MAXXING",
+    accent: "#FF3DA6",
   },
   {
     id: "max",
@@ -79,6 +84,7 @@ export const products: Product[] = [
       poster: "/media/max-loop-poster.webp",
       aspect: "4/5",
     },
-    accentLabel: "STREAK MAXXING",
+    accentLabel: "LOCKIN MAXXING",
+    accent: "#C6FF3D",
   },
 ];

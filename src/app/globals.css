@@ -1,15 +1,23 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-hyped-black: #050507;
-  --color-hyped-carbon: #0D0D12;
+  /* HYPED brand system — // + MAXX (2026-07) */
+  --color-hyped-black: #0B0414; /* ink */
+  --color-hyped-carbon: #1A0A2E; /* deep purple foundation */
   --color-hyped-white: #F4F4F6;
-  --color-hyped-muted: #8A8A93;
-  --color-hyped-cyan: #00E5FF;
-  --color-hyped-danger: #FF3B4E;
+  --color-hyped-muted: #9B8FAD;
+  --color-hyped-cyan: #00F0FF; /* signature — surgical use only */
+  --color-hyped-danger: #FF4D5E;
+
+  /* per-product accent shifts */
+  --color-accent-trade: #9D6BFF;
+  --color-accent-launch: #00E67A;
+  --color-accent-bet: #FF3DA6;
+  --color-accent-max: #C6FF3D;
 
   --font-display: var(--font-clash-display);
   --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
 
   --animate-marquee: marquee 30s linear infinite;
 }

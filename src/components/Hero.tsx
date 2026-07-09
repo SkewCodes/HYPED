@@ -17,14 +17,14 @@ export function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
-        <h1 className="font-display text-[clamp(2.5rem,8vw,7rem)] font-extrabold uppercase leading-none tracking-tight">
+        <h1 className="font-display text-[clamp(2.5rem,8vw,7rem)] font-bold uppercase leading-none tracking-tight">
           Everything.
           <br />
           Maxxed.
         </h1>
         <p className="mx-auto mt-6 max-w-lg text-lg text-hyped-muted">
-          The ecosystem for degens who refuse to settle. Trade, launch, bet, and
-          streak — all on one platform.
+          Where markets meet culture &amp; brands. Trade everything, bet
+          anything, build infinitely.
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -41,7 +41,7 @@ export function Hero() {
             href="#waitlist"
             className="rounded-lg border border-hyped-muted/30 px-8 py-3.5 text-sm font-semibold text-hyped-white uppercase tracking-wide transition-colors hover:border-hyped-cyan hover:text-hyped-cyan"
           >
-            Join the Waitlist
+            Lock In
           </a>
         </div>
 

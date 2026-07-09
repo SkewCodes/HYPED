@@ -1,24 +1,28 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
-const inter = localFont({
-  src: [
-    { path: "../../public/fonts/Inter-Regular.woff2", weight: "400" },
-    { path: "../../public/fonts/Inter-Medium.woff2", weight: "500" },
-    { path: "../../public/fonts/Inter-Bold.woff2", weight: "700" },
-  ],
+// Display: Space Grotesk 700 as stand-in until Tusker Grotesk is licensed.
+// Keeps the --font-clash-display variable name so nothing else changes.
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "700"],
+  variable: "--font-clash-display",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
   variable: "--font-inter",
   display: "swap",
 });
 
-const clashDisplay = localFont({
-  src: [
-    { path: "../../public/fonts/ClashDisplay-Bold.woff2", weight: "700" },
-    { path: "../../public/fonts/ClashDisplay-Extrabold.woff2", weight: "800" },
-  ],
-  variable: "--font-clash-display",
+const jetbrains = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -48,7 +52,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${clashDisplay.variable}`}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrains.variable}`}
+    >
       <head>
         <script
           defer

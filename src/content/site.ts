@@ -1,11 +1,11 @@
-const siteUrl = process.env.SITE_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://hyped.vercel.app";
+const siteUrl = process.env.SITE_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? "https://hyped-max.vercel.app";
 
 export const site = {
   name: "Hyped",
   url: siteUrl,
   title: "HYPED — Everything. Maxxed.",
   description:
-    "The ecosystem for degens who refuse to settle. Trade, launch, bet, and streak — all maxxed.",
+    "Where markets meet culture & brands. Trade everything. Bet anything. Build infinitely. Stay locked in.",
   ogImage: "/media/og.png",
   nav: {
     links: [
@@ -18,16 +18,16 @@ export const site = {
   footer: {
     products: [
       { label: "hyped.trade", href: "https://hyped.trade" },
-      { label: "hyped.launch", href: "https://hyped.launch" },
-      { label: "hyped.bet", href: "https://hyped.bet" },
-      { label: "hyped.max", href: "https://hyped.max" },
+      { label: "hyped.launch", href: "/#products" },
+      { label: "hyped.bet", href: "/#products" },
+      { label: "hyped.max", href: "/#products" },
     ],
     links: [
       { label: "Manifesto", href: "/manifesto" },
       { label: "X / Twitter", href: "https://x.com/hypedtrade" },
       { label: "YouTube", href: "https://youtube.com/@hypedtrade" },
     ],
-    legal: "© 2025 Hyped. All rights reserved.",
+    legal: "© 2026 Hyped. All rights reserved.",
   },
   social: {
     x: "https://x.com/hypedtrade",
@@ -38,7 +38,7 @@ export const site = {
     { label: "Markets", value: "140", suffix: "+" },
     { label: "Community", value: "12", suffix: "K+" },
   ],
-  statsAsOf: "2025-07",
+  statsAsOf: "2026-07",
   plausibleDomain: new URL(siteUrl).hostname,
   hypedTv: {
     videoId: "dQw4w9WgXcQ",

@@ -1,10 +1,12 @@
 export function CultureTicker() {
   const items = [
+    "Stay locked in",
     "12K+ degens locked in",
-    "4 products shipping",
+    "Still hyped",
     "140+ markets live",
-    "24/7 grind mode",
     "No VC. No shortcuts.",
+    "Ship > talk",
+    "Full hype",
     "Community-built alpha",
   ];
 

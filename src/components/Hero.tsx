@@ -1,4 +1,3 @@
-import { Slash } from "./Slash";
 import { HeroBackground } from "./HeroBackground";
 
 export function Hero() {
@@ -24,12 +23,7 @@ export function Hero() {
           </span>
         </div>
 
-        {/* Giant brand mark */}
-        <div className="mt-12 flex justify-center">
-          <Slash size="lg" className="!h-20 !w-14 md:!h-28 md:!w-20 drop-shadow-[0_0_30px_rgba(0,240,255,0.3)]" />
-        </div>
-
-        <h1 className="mt-8 font-display text-[clamp(3rem,10vw,8rem)] font-bold uppercase leading-[0.9] tracking-tight">
+        <h1 className="mt-10 font-display text-[clamp(3rem,10vw,8rem)] font-bold uppercase leading-[0.9] tracking-tight">
           Everything.
           <br />
           <span className="bg-gradient-to-r from-hyped-cyan to-accent-trade bg-clip-text text-transparent">

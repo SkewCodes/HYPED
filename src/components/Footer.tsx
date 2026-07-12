@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="bg-hyped-carbon py-16">
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="grid gap-12 sm:grid-cols-3">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <div className="flex items-center gap-2">
               <Slash size="sm" />
@@ -16,6 +16,17 @@ export function Footer() {
             <p className="mt-4 text-sm text-hyped-muted">
               Everything. Maxxed.
             </p>
+            <p className="mt-2 text-xs text-hyped-muted">
+              Built by{" "}
+              <a
+                href={site.team[0].x}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-hyped-white transition-colors hover:text-hyped-cyan"
+              >
+                {site.team[0].name}
+              </a>
+            </p>
           </div>
 
           <div>
@@ -24,6 +35,26 @@ export function Footer() {
             </h4>
             <ul className="mt-4 space-y-2">
               {site.footer.products.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target={link.href.startsWith("http") ? "_blank" : undefined}
+                    rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                    className="text-sm text-hyped-white transition-colors hover:text-hyped-cyan"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-xs font-semibold uppercase tracking-wider text-hyped-muted">
+              Ecosystem
+            </h4>
+            <ul className="mt-4 space-y-2">
+              {site.footer.ecosystem.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}

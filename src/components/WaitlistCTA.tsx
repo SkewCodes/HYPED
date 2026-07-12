@@ -54,10 +54,10 @@ export function WaitlistCTA() {
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
         <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight">
-          Get Early Access
+          Lock In Early
         </h2>
         <p className="mx-auto mt-4 max-w-md text-hyped-muted">
-          Drop your email. Be first when new products go live.
+          Be first to access new apps as they drop. Early lockers get priority.
         </p>
 
         <form

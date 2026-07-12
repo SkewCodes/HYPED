@@ -8,10 +8,10 @@ export function ProductGrid() {
       <div className="mx-auto max-w-[1200px] px-6">
         <Reveal>
           <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight">
-            The Ecosystem
+            The Apps
           </h2>
-          <p className="mt-4 max-w-md text-hyped-muted">
-            Four surfaces. One culture. Every edge maxxed.
+          <p className="mt-4 max-w-lg text-hyped-muted">
+            Four apps. Each one built to maxx a different edge. One is live — the rest are coming.
           </p>
         </Reveal>
 

@@ -48,11 +48,8 @@ export function Nav() {
           ))}
           <a
             href={site.nav.cta.href}
-            target="_blank"
-            rel="noopener noreferrer"
             className="hidden items-center gap-1.5 rounded bg-hyped-cyan px-4 py-2 text-sm font-semibold text-hyped-black transition-opacity hover:opacity-90 sm:inline-flex"
           >
-            <Slash size="sm" className="[&_path]:text-hyped-black" />
             {site.nav.cta.label}
           </a>
 
@@ -93,11 +90,8 @@ export function Nav() {
             ))}
             <a
               href={site.nav.cta.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className="mt-2 inline-flex w-full items-center justify-center gap-1.5 rounded bg-hyped-cyan px-4 py-3 text-sm font-semibold text-hyped-black"
             >
-              <Slash size="sm" className="[&_path]:text-hyped-black" />
               {site.nav.cta.label}
             </a>
           </div>

@@ -5,32 +5,22 @@ export const site = {
   url: siteUrl,
   title: "HYPED — Everything. Maxxed.",
   description:
-    "Where markets meet culture & brands. Trade everything. Bet anything. Build infinitely. Stay locked in.",
+    "A culture, a community, and an ecosystem for those who refuse to settle. Lock in.",
   ogImage: "/media/og.png",
   nav: {
     links: [
-      { label: "Apps", href: "#products", external: false },
-      { label: "Ecosystem", href: "#ecosystem", external: false },
-      { label: "Manifesto", href: "/manifesto", external: false },
+      { label: "Culture", href: "#culture", external: false },
+      { label: "Apps", href: "#apps", external: false },
+      { label: "Community", href: "#community", external: false },
     ],
-    cta: { label: "Launch Terminal", href: "https://hyped.trade" },
+    cta: { label: "Lock In", href: "#waitlist" },
   },
   footer: {
-    products: [
-      { label: "hyped.trade", href: "https://hyped.trade" },
-      { label: "hyped.launch", href: "/#products" },
-      { label: "hyped.bet", href: "/#products" },
-      { label: "hyped.max", href: "/#products" },
-    ],
-    links: [
-      { label: "Manifesto", href: "/manifesto" },
-      { label: "X / Twitter", href: "https://x.com/hypedtrade" },
-      { label: "YouTube", href: "https://youtube.com/@hypedtrade" },
-    ],
-    ecosystem: [
+    community: [
       { label: "Discord", href: "https://discord.gg/hyped" },
       { label: "X / Twitter", href: "https://x.com/hypedtrade" },
       { label: "YouTube", href: "https://youtube.com/@hypedtrade" },
+      { label: "Manifesto", href: "/manifesto" },
     ],
     legal: "© 2026 Hyped. All rights reserved.",
   },
@@ -39,18 +29,7 @@ export const site = {
     youtube: "https://youtube.com/@hypedtrade",
     discord: "https://discord.gg/hyped",
   },
-  stats: [
-    { label: "Products", value: "4", suffix: "" },
-    { label: "Markets", value: "140", suffix: "+" },
-    { label: "Community", value: "12", suffix: "K+" },
-  ],
-  statsAsOf: "2026-07",
   plausibleDomain: new URL(siteUrl).hostname,
-  hypedTv: {
-    videoId: "dQw4w9WgXcQ",
-    title: "HYPED — The Vision",
-    poster: "/media/hyped-tv-poster.webp",
-  },
   team: [
     {
       name: "Skew",

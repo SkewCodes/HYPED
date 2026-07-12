@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { VideoLoop } from "./VideoLoop";
+import { Slash } from "./Slash";
 import type { MediaAsset } from "@/content/products";
 
 const waitlistAsset: MediaAsset = {
@@ -49,22 +50,24 @@ export function WaitlistCTA() {
   return (
     <section id="waitlist" className="relative py-20 md:py-32 overflow-hidden">
       <div className="absolute inset-0">
-        <VideoLoop asset={waitlistAsset} playMode="always" dim={60} className="h-full w-full" />
+        <VideoLoop asset={waitlistAsset} playMode="always" dim={70} className="h-full w-full" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
-        <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight">
-          Lock In Early
+        <div className="flex justify-center">
+          <Slash size="md" />
+        </div>
+        <h2 className="mt-6 font-display text-[clamp(2.5rem,6vw,5rem)] font-extrabold uppercase tracking-tight">
+          Lock In
         </h2>
         <p className="mx-auto mt-4 max-w-md text-hyped-muted">
-          Be first to access new apps as they drop. Early lockers get priority.
+          Drop your email. Be first for everything.
         </p>
 
         <form
           onSubmit={handleSubmit}
           className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
         >
-          {/* Honeypot */}
           <input
             type="text"
             name="company"

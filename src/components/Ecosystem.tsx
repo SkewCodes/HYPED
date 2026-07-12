@@ -36,52 +36,24 @@ const iconMap = {
 
 export function Ecosystem() {
   return (
-    <section id="ecosystem" className="bg-hyped-carbon py-20 md:py-32">
+    <section id="community" className="bg-hyped-carbon py-20 md:py-32">
       <div className="mx-auto max-w-[1200px] px-6">
-        {/* Partners */}
         <Reveal>
-          <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight">
-            Partners
+          <div className="flex items-center gap-3">
+            <Slash size="sm" />
+            <span className="text-xs font-semibold uppercase tracking-widest text-hyped-cyan">
+              Join the World
+            </span>
+          </div>
+
+          <h2 className="mt-8 font-display text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight">
+            The Community Is
+            <br />
+            the Product
           </h2>
         </Reveal>
 
-        <Reveal className="mt-10">
-          <div className="flex flex-wrap gap-6">
-            {site.partners.map((partner) => (
-              <a
-                key={partner.name}
-                href={partner.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-3 rounded-xl border border-hyped-muted/10 bg-hyped-black px-6 py-4 transition-colors hover:border-hyped-cyan/30"
-              >
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className="h-8 w-auto"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                  }}
-                />
-                <span className="font-display text-sm font-bold uppercase tracking-tight text-hyped-white transition-colors group-hover:text-hyped-cyan">
-                  {partner.name}
-                </span>
-              </a>
-            ))}
-          </div>
-        </Reveal>
-
-        {/* Ecosystem */}
-        <Reveal className="mt-20">
-          <div className="flex items-center gap-3">
-            <Slash size="md" />
-            <h3 className="font-display text-[clamp(1.5rem,3vw,2.5rem)] font-extrabold uppercase tracking-tight">
-              Ecosystem
-            </h3>
-          </div>
-        </Reveal>
-
-        <div className="mt-10 grid gap-4 sm:grid-cols-3">
+        <div className="mt-12 grid gap-4 sm:grid-cols-3">
           {site.ecosystem.map((item) => {
             const Icon = iconMap[item.icon];
             return (
@@ -109,6 +81,38 @@ export function Ecosystem() {
             );
           })}
         </div>
+
+        {/* Partners */}
+        {site.partners.length > 0 && (
+          <Reveal className="mt-16">
+            <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-hyped-muted">
+              Partners
+            </p>
+            <div className="flex flex-wrap gap-4">
+              {site.partners.map((partner) => (
+                <a
+                  key={partner.name}
+                  href={partner.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 rounded-xl border border-hyped-muted/10 bg-hyped-black px-5 py-3 transition-colors hover:border-hyped-cyan/30"
+                >
+                  <img
+                    src={partner.logo}
+                    alt={partner.name}
+                    className="h-6 w-auto"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = "none";
+                    }}
+                  />
+                  <span className="text-sm font-semibold text-hyped-white transition-colors group-hover:text-hyped-cyan">
+                    {partner.name}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </Reveal>
+        )}
       </div>
     </section>
   );

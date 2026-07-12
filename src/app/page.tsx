@@ -1,13 +1,11 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
 import { CultureTicker } from "@/components/CultureTicker";
-import { WhyHyped } from "@/components/WhyHyped";
-import { ProductGrid } from "@/components/ProductGrid";
-import { ManifestoStrip } from "@/components/ManifestoStrip";
+import { WhatIsHyped } from "@/components/WhatIsHyped";
+import { TheCulture } from "@/components/TheCulture";
+import { AppTeaser } from "@/components/AppTeaser";
 import { BuiltBy } from "@/components/BuiltBy";
 import { Ecosystem } from "@/components/Ecosystem";
-import { StatsStrip } from "@/components/StatsStrip";
-import { HypedTV } from "@/components/HypedTV";
 import { WaitlistCTA } from "@/components/WaitlistCTA";
 import { Footer } from "@/components/Footer";
 
@@ -18,13 +16,11 @@ export default function Home() {
       <main>
         <Hero />
         <CultureTicker />
-        <WhyHyped />
-        <ProductGrid />
-        <ManifestoStrip />
+        <WhatIsHyped />
+        <TheCulture />
+        <AppTeaser />
         <BuiltBy />
         <Ecosystem />
-        <StatsStrip />
-        <HypedTV />
         <WaitlistCTA />
       </main>
       <Footer />

@@ -2,11 +2,11 @@
 
 @theme inline {
   /* HYPED brand system — // + MAXX (2026-07) */
-  --color-hyped-black: #0B0414; /* ink */
-  --color-hyped-carbon: #1A0A2E; /* deep purple foundation */
+  --color-hyped-black: #0B0414;
+  --color-hyped-carbon: #1A0A2E;
   --color-hyped-white: #F4F4F6;
   --color-hyped-muted: #9B8FAD;
-  --color-hyped-cyan: #00F0FF; /* signature — surgical use only */
+  --color-hyped-cyan: #00F0FF;
   --color-hyped-danger: #FF4D5E;
 
   /* per-product accent shifts */
@@ -22,10 +22,25 @@
   --animate-marquee: marquee 30s linear infinite;
 }
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: var(--color-hyped-black);
   color: var(--color-hyped-white);
   font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: rgba(0, 240, 255, 0.2);
+  color: var(--color-hyped-white);
 }
 
 @keyframes marquee {

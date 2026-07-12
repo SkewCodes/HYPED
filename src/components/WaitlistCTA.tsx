@@ -48,16 +48,15 @@ export function WaitlistCTA() {
   }
 
   return (
-    <section id="waitlist" className="relative py-20 md:py-32 overflow-hidden">
+    <section id="waitlist" className="relative py-24 md:py-40 overflow-hidden">
       <div className="absolute inset-0">
         <VideoLoop asset={waitlistAsset} playMode="always" dim={70} className="h-full w-full" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
-        <div className="flex justify-center">
-          <Slash size="md" />
-        </div>
-        <h2 className="mt-6 font-display text-[clamp(2.5rem,6vw,5rem)] font-extrabold uppercase tracking-tight">
+        <Slash size="lg" />
+
+        <h2 className="mt-8 font-display text-[clamp(3rem,8vw,6rem)] font-extrabold uppercase tracking-tight">
           Lock In
         </h2>
         <p className="mx-auto mt-4 max-w-md text-hyped-muted">
@@ -66,7 +65,7 @@ export function WaitlistCTA() {
 
         <form
           onSubmit={handleSubmit}
-          className="mx-auto mt-10 flex max-w-md flex-col gap-3 sm:flex-row"
+          className="mx-auto mt-12 flex max-w-lg flex-col gap-3 sm:flex-row"
         >
           <input
             type="text"
@@ -84,19 +83,19 @@ export function WaitlistCTA() {
             placeholder="your@email.com"
             required
             disabled={state === "loading" || state === "success"}
-            className="flex-1 rounded-lg border border-hyped-muted/30 bg-hyped-carbon px-4 py-3 text-sm text-hyped-white placeholder:text-hyped-muted focus:border-hyped-cyan focus:outline-none disabled:opacity-50"
+            className="flex-1 rounded-xl border border-hyped-muted/30 bg-hyped-carbon/80 px-5 py-4 text-sm text-hyped-white backdrop-blur-sm placeholder:text-hyped-muted focus:border-hyped-cyan focus:outline-none disabled:opacity-50"
           />
           <button
             type="submit"
             disabled={state === "loading" || state === "success"}
-            className="rounded-lg bg-hyped-cyan px-6 py-3 text-sm font-bold text-hyped-black uppercase tracking-wide transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="rounded-xl bg-hyped-cyan px-8 py-4 text-sm font-bold text-hyped-black uppercase tracking-wide transition-opacity hover:opacity-90 disabled:opacity-50"
           >
             {state === "loading" ? "..." : state === "success" ? "Locked In" : "Lock In"}
           </button>
         </form>
 
         {state === "success" && (
-          <div className="mt-6 inline-flex items-center gap-2 rounded-xl border border-hyped-cyan/20 bg-hyped-carbon/80 px-5 py-3">
+          <div className="mt-8 inline-flex items-center gap-2 rounded-xl border border-hyped-cyan/20 bg-hyped-carbon/80 px-6 py-4 backdrop-blur-sm">
             <span className="text-hyped-cyan text-lg">&#10003;</span>
             <p className="text-sm font-medium text-hyped-white">
               Locked in. You&apos;ll hear from us first.

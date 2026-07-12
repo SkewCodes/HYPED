@@ -3,9 +3,9 @@ import { Slash } from "./Slash";
 
 export function Footer() {
   return (
-    <footer className="bg-hyped-carbon py-16">
+    <footer className="border-t border-hyped-muted/10 bg-hyped-carbon py-16">
       <div className="mx-auto max-w-[1200px] px-6">
-        <div className="grid gap-12 sm:grid-cols-3">
+        <div className="flex flex-col gap-12 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <div className="flex items-center gap-2">
               <Slash size="sm" />
@@ -13,10 +13,10 @@ export function Footer() {
                 Hyped
               </span>
             </div>
-            <p className="mt-4 text-sm text-hyped-muted">
+            <p className="mt-3 text-sm text-hyped-muted">
               Everything. Maxxed.
             </p>
-            <p className="mt-2 text-xs text-hyped-muted">
+            <p className="mt-1 text-xs text-hyped-muted">
               Built by{" "}
               <a
                 href={site.team[0].x}
@@ -33,7 +33,7 @@ export function Footer() {
             <h4 className="text-xs font-semibold uppercase tracking-wider text-hyped-muted">
               Community
             </h4>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-4 space-y-2.5">
               {site.footer.community.map((link) => (
                 <li key={link.label}>
                   <a
@@ -48,10 +48,10 @@ export function Footer() {
               ))}
             </ul>
           </div>
+        </div>
 
-          <div className="flex items-end sm:justify-end">
-            <p className="text-xs text-hyped-muted">{site.footer.legal}</p>
-          </div>
+        <div className="mt-16 border-t border-hyped-muted/10 pt-8">
+          <p className="text-xs text-hyped-muted">{site.footer.legal}</p>
         </div>
       </div>
     </footer>

@@ -19,8 +19,8 @@ export default function Home() {
         <WhatIsHyped />
         <TheCulture />
         <AppTeaser />
-        <BuiltBy />
         <Ecosystem />
+        <BuiltBy />
         <WaitlistCTA />
       </main>
       <Footer />

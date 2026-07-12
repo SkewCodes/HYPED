@@ -1,26 +1,26 @@
 export function CultureTicker() {
   const items = [
-    "Stay locked in",
-    "12K+ degens locked in",
-    "Still hyped",
-    "140+ markets live",
-    "No VC. No shortcuts.",
-    "Ship > talk",
-    "Full hype",
-    "Community-built alpha",
+    "LOCK IN",
+    "STAY HYPED",
+    "NO SHORTCUTS",
+    "SHIP > TALK",
+    "GRIND MODE",
+    "FULL SEND",
+    "MAXX EVERYTHING",
+    "CULTURE IS THE EDGE",
   ];
 
-  const repeated = [...items, ...items];
+  const repeated = [...items, ...items, ...items];
 
   return (
-    <div className="relative overflow-hidden border-y border-hyped-muted/10 bg-hyped-carbon/50 py-3">
+    <div className="relative overflow-hidden border-y border-hyped-muted/10 bg-hyped-carbon py-4">
       <div className="animate-marquee flex whitespace-nowrap">
         {repeated.map((item, i) => (
           <span
             key={i}
-            className="mx-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-hyped-muted"
+            className="mx-8 inline-flex items-center gap-3 font-display text-sm font-bold uppercase tracking-widest text-hyped-muted/40"
           >
-            <span className="h-1 w-1 rounded-full bg-hyped-cyan" />
+            <span className="text-hyped-cyan">//</span>
             {item}
           </span>
         ))}

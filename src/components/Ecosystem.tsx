@@ -36,7 +36,7 @@ const iconMap = {
 
 export function Ecosystem() {
   return (
-    <section id="community" className="bg-hyped-carbon py-20 md:py-32">
+    <section id="community" className="py-24 md:py-40">
       <div className="mx-auto max-w-[1200px] px-6">
         <Reveal>
           <div className="flex items-center gap-3">
@@ -46,14 +46,17 @@ export function Ecosystem() {
             </span>
           </div>
 
-          <h2 className="mt-8 font-display text-[clamp(2rem,5vw,4rem)] font-extrabold uppercase tracking-tight">
-            The Community Is
+          <h2 className="mt-10 font-display text-[clamp(2.5rem,6vw,5rem)] font-extrabold uppercase tracking-tight">
+            The Community
             <br />
-            the Product
+            Is the Product
           </h2>
+          <p className="mt-6 max-w-md text-sm leading-relaxed text-hyped-muted md:text-base">
+            The grind is better together. Find your people.
+          </p>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-3">
+        <div className="mt-14 grid gap-5 sm:grid-cols-3">
           {site.ecosystem.map((item) => {
             const Icon = iconMap[item.icon];
             return (
@@ -62,57 +65,22 @@ export function Ecosystem() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-4 rounded-xl border border-hyped-muted/10 bg-hyped-black p-5 transition-colors hover:border-hyped-cyan/30"
+                  className="group flex flex-col items-center gap-4 rounded-2xl border border-hyped-muted/10 bg-hyped-carbon p-8 text-center transition-colors hover:border-hyped-cyan/30"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-hyped-carbon">
-                    <Icon className="h-5 w-5 text-hyped-muted transition-colors group-hover:text-hyped-cyan" />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-hyped-black">
+                    <Icon className="h-7 w-7 text-hyped-muted transition-colors group-hover:text-hyped-cyan" />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-hyped-white transition-colors group-hover:text-hyped-cyan">
+                    <p className="font-display text-lg font-bold uppercase tracking-tight text-hyped-white transition-colors group-hover:text-hyped-cyan">
                       {item.name}
                     </p>
-                    <p className="text-xs text-hyped-muted">{item.description}</p>
+                    <p className="mt-1 text-xs text-hyped-muted">{item.description}</p>
                   </div>
-                  <span className="ml-auto text-hyped-muted transition-colors group-hover:text-hyped-cyan" aria-hidden="true">
-                    &rarr;
-                  </span>
                 </a>
               </Reveal>
             );
           })}
         </div>
-
-        {/* Partners */}
-        {site.partners.length > 0 && (
-          <Reveal className="mt-16">
-            <p className="mb-6 text-xs font-semibold uppercase tracking-widest text-hyped-muted">
-              Partners
-            </p>
-            <div className="flex flex-wrap gap-4">
-              {site.partners.map((partner) => (
-                <a
-                  key={partner.name}
-                  href={partner.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-center gap-3 rounded-xl border border-hyped-muted/10 bg-hyped-black px-5 py-3 transition-colors hover:border-hyped-cyan/30"
-                >
-                  <img
-                    src={partner.logo}
-                    alt={partner.name}
-                    className="h-6 w-auto"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).style.display = "none";
-                    }}
-                  />
-                  <span className="text-sm font-semibold text-hyped-white transition-colors group-hover:text-hyped-cyan">
-                    {partner.name}
-                  </span>
-                </a>
-              ))}
-            </div>
-          </Reveal>
-        )}
       </div>
     </section>
   );

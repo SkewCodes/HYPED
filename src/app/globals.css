@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* HYPED brand system — // + MAXX (2026-07) */
   --color-hyped-black: #0B0414;
   --color-hyped-carbon: #1A0A2E;
   --color-hyped-white: #F4F4F6;
@@ -9,7 +8,6 @@
   --color-hyped-cyan: #00F0FF;
   --color-hyped-danger: #FF4D5E;
 
-  /* per-product accent shifts */
   --color-accent-trade: #9D6BFF;
   --color-accent-launch: #00E67A;
   --color-accent-bet: #FF3DA6;
@@ -20,6 +18,8 @@
   --font-mono: var(--font-jetbrains);
 
   --animate-marquee: marquee 30s linear infinite;
+  --animate-aurora-1: aurora-drift-1 8s ease-in-out infinite alternate;
+  --animate-aurora-2: aurora-drift-2 10s ease-in-out infinite alternate;
 }
 
 * {
@@ -29,6 +29,8 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(155, 143, 173, 0.2) transparent;
 }
 
 body {
@@ -43,19 +45,52 @@ body {
   color: var(--color-hyped-white);
 }
 
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(155, 143, 173, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(155, 143, 173, 0.4);
+}
+
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
+@keyframes aurora-drift-1 {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  100% { transform: translate(-40%, -55%) scale(1.2); }
+}
+
+@keyframes aurora-drift-2 {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(-10%, 5%) scale(1.15); }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   video {
     display: none;
   }
   .poster-fallback {
     display: block;
   }
-  .animate-marquee {
+  .animate-marquee,
+  .animate-aurora-1,
+  .animate-aurora-2 {
     animation: none;
   }
 }

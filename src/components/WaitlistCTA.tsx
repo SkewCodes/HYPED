@@ -1,16 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { VideoLoop } from "./VideoLoop";
 import { Slash } from "./Slash";
-import type { MediaAsset } from "@/content/products";
-
-const waitlistAsset: MediaAsset = {
-  mp4: "/media/waitlist-loop.mp4",
-  webm: "/media/waitlist-loop.webm",
-  poster: "/media/waitlist-loop-poster.webp",
-  aspect: "21/9",
-};
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -48,18 +39,30 @@ export function WaitlistCTA() {
   }
 
   return (
-    <section id="waitlist" className="relative py-24 md:py-40 overflow-hidden">
-      <div className="absolute inset-0">
-        <VideoLoop asset={waitlistAsset} playMode="always" dim={70} className="h-full w-full" />
-      </div>
+    <section id="waitlist" className="relative py-32 md:py-48 overflow-hidden">
+      {/* Animated aurora background */}
+      <div className="absolute inset-0 bg-hyped-carbon" />
+
+      <div
+        className="absolute top-1/2 left-1/4 -translate-y-1/2 h-[500px] w-[500px] rounded-full blur-[150px] opacity-15 animate-aurora-1"
+        style={{ background: "radial-gradient(circle, #00F0FF 0%, transparent 70%)" }}
+      />
+      <div
+        className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full blur-[120px] opacity-10 animate-aurora-2"
+        style={{ background: "radial-gradient(circle, #9D6BFF 0%, transparent 70%)" }}
+      />
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[300px] w-[600px] rounded-full blur-[100px] opacity-10"
+        style={{ background: "radial-gradient(circle, #00F0FF 0%, transparent 70%)" }}
+      />
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
-        <Slash size="lg" />
+        <Slash size="lg" className="!h-16 !w-12 drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]" />
 
-        <h2 className="mt-8 font-display text-[clamp(3rem,8vw,6rem)] font-extrabold uppercase tracking-tight">
+        <h2 className="mt-8 font-display text-[clamp(3rem,8vw,7rem)] font-extrabold uppercase tracking-tight">
           Lock In
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-hyped-muted">
+        <p className="mx-auto mt-4 max-w-md text-base text-hyped-muted">
           Drop your email. Be first for everything.
         </p>
 
@@ -83,19 +86,22 @@ export function WaitlistCTA() {
             placeholder="your@email.com"
             required
             disabled={state === "loading" || state === "success"}
-            className="flex-1 rounded-xl border border-hyped-muted/30 bg-hyped-carbon/80 px-5 py-4 text-sm text-hyped-white backdrop-blur-sm placeholder:text-hyped-muted focus:border-hyped-cyan focus:outline-none disabled:opacity-50"
+            className="flex-1 rounded-xl border border-hyped-muted/20 bg-hyped-black/80 px-5 py-4 text-sm text-hyped-white backdrop-blur-sm placeholder:text-hyped-muted/60 focus:border-hyped-cyan focus:outline-none focus:ring-1 focus:ring-hyped-cyan/30 disabled:opacity-50"
           />
           <button
             type="submit"
             disabled={state === "loading" || state === "success"}
-            className="rounded-xl bg-hyped-cyan px-8 py-4 text-sm font-bold text-hyped-black uppercase tracking-wide transition-opacity hover:opacity-90 disabled:opacity-50"
+            className="group relative overflow-hidden rounded-xl bg-hyped-cyan px-8 py-4 text-sm font-bold text-hyped-black uppercase tracking-wide disabled:opacity-50"
           >
-            {state === "loading" ? "..." : state === "success" ? "Locked In" : "Lock In"}
+            <span className="relative z-10">
+              {state === "loading" ? "..." : state === "success" ? "Locked In" : "Lock In"}
+            </span>
+            <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
           </button>
         </form>
 
         {state === "success" && (
-          <div className="mt-8 inline-flex items-center gap-2 rounded-xl border border-hyped-cyan/20 bg-hyped-carbon/80 px-6 py-4 backdrop-blur-sm">
+          <div className="mt-8 inline-flex items-center gap-2 rounded-xl border border-hyped-cyan/20 bg-hyped-black/60 px-6 py-4 backdrop-blur-sm">
             <span className="text-hyped-cyan text-lg">&#10003;</span>
             <p className="text-sm font-medium text-hyped-white">
               Locked in. You&apos;ll hear from us first.

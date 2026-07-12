@@ -6,7 +6,7 @@ export const site = {
   title: "HYPED — Everything. Maxxed.",
   description:
     "A culture, a community, and an ecosystem for those who refuse to settle. Lock in.",
-  ogImage: "/media/og.png",
+  ogImage: "/api/og",
   nav: {
     links: [
       { label: "Culture", href: "#culture", external: false },

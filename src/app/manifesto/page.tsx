@@ -25,7 +25,7 @@ export default function ManifestoPage() {
         &larr; Back
       </a>
 
-      <h1 className="font-display text-[clamp(2.5rem,8vw,5rem)] font-extrabold uppercase leading-tight tracking-tight">
+      <h1 className="font-display text-[clamp(2.5rem,8vw,5rem)] uppercase leading-[0.85] tracking-tight">
         The Maxxing
         <br />
         Manifesto
@@ -40,10 +40,10 @@ export default function ManifestoPage() {
           <article key={pillar.id} className="flex items-start gap-4">
             <Slash size="md" className="mt-2 shrink-0" />
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-hyped-cyan">
+              <span className="text-xs font-medium uppercase tracking-widest text-hyped-cyan">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h2 className="mt-1 font-display text-[clamp(1.5rem,4vw,3rem)] font-extrabold uppercase tracking-tight">
+              <h2 className="mt-1 font-display text-[clamp(1.5rem,4vw,3rem)] uppercase leading-[0.85] tracking-tight">
                 {pillar.title}
               </h2>
               <p className="mt-2 text-lg text-hyped-muted">{pillar.line}</p>
@@ -52,7 +52,7 @@ export default function ManifestoPage() {
         ))}
       </div>
 
-      <div className="mt-20 border-t border-hyped-muted/10 pt-12">
+      <div className="mt-20 border-t border-hyped-white/5 pt-12">
         <p className="text-lg font-medium leading-relaxed text-hyped-white">
           {manifestoOutro}
         </p>

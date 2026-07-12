@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Slash } from "./Slash";
 
 type FormState = "idle" | "loading" | "success" | "error";
 
@@ -19,7 +18,7 @@ export function WaitlistCTA() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "hero" }),
+        body: JSON.stringify({ email, source: "lockin" }),
       });
 
       if (res.ok) {
@@ -39,36 +38,18 @@ export function WaitlistCTA() {
   }
 
   return (
-    <section id="waitlist" className="relative py-32 md:py-48 overflow-hidden">
-      {/* Animated aurora background */}
-      <div className="absolute inset-0 bg-hyped-carbon" />
-
-      <div
-        className="absolute top-1/2 left-1/4 -translate-y-1/2 h-[500px] w-[500px] rounded-full blur-[150px] opacity-15 animate-aurora-1"
-        style={{ background: "radial-gradient(circle, #00F0FF 0%, transparent 70%)" }}
-      />
-      <div
-        className="absolute top-1/3 right-1/4 h-[400px] w-[400px] rounded-full blur-[120px] opacity-10 animate-aurora-2"
-        style={{ background: "radial-gradient(circle, #9D6BFF 0%, transparent 70%)" }}
-      />
-      <div
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[300px] w-[600px] rounded-full blur-[100px] opacity-10"
-        style={{ background: "radial-gradient(circle, #00F0FF 0%, transparent 70%)" }}
-      />
-
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
-        <Slash size="lg" className="!h-16 !w-12 drop-shadow-[0_0_20px_rgba(0,240,255,0.3)]" />
-
-        <h2 className="mt-8 font-display text-[clamp(3rem,8vw,7rem)] font-extrabold uppercase tracking-tight">
-          Lock In
+    <section id="lockin" className="py-24 md:py-40">
+      <div className="mx-auto max-w-[600px] px-6 text-center">
+        <h2 className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.85] tracking-tight">
+          Lock In.
         </h2>
-        <p className="mx-auto mt-4 max-w-md text-base text-hyped-muted">
-          Drop your email. Be first for everything.
+        <p className="mt-4 text-hyped-muted">
+          First access to every launch. Zero spam. Full hype.
         </p>
 
         <form
           onSubmit={handleSubmit}
-          className="mx-auto mt-12 flex max-w-lg flex-col gap-3 sm:flex-row"
+          className="mt-10 flex flex-col gap-3 sm:flex-row"
         >
           <input
             type="text"
@@ -83,33 +64,35 @@ export function WaitlistCTA() {
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="your@email.com"
+            placeholder="your@email"
             required
             disabled={state === "loading" || state === "success"}
-            className="flex-1 rounded-xl border border-hyped-muted/20 bg-hyped-black/80 px-5 py-4 text-sm text-hyped-white backdrop-blur-sm placeholder:text-hyped-muted/60 focus:border-hyped-cyan focus:outline-none focus:ring-1 focus:ring-hyped-cyan/30 disabled:opacity-50"
+            className="flex-1 rounded border border-hyped-white/10 bg-hyped-purple px-4 py-3.5 text-sm text-hyped-white placeholder:text-hyped-muted focus:border-hyped-cyan focus:outline-none disabled:opacity-50"
           />
           <button
             type="submit"
             disabled={state === "loading" || state === "success"}
-            className="group relative overflow-hidden rounded-xl bg-hyped-cyan px-8 py-4 text-sm font-bold text-hyped-black uppercase tracking-wide disabled:opacity-50"
+            className="rounded bg-hyped-cyan px-6 py-3.5 text-sm font-medium uppercase tracking-wide text-hyped-void disabled:opacity-50"
           >
-            <span className="relative z-10">
-              {state === "loading" ? "..." : state === "success" ? "Locked In" : "Lock In"}
-            </span>
-            <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
+            {state === "loading" ? "..." : state === "success" ? "Locked In" : "Lock In"}
           </button>
         </form>
 
         {state === "success" && (
-          <div className="mt-8 inline-flex items-center gap-2 rounded-xl border border-hyped-cyan/20 bg-hyped-black/60 px-6 py-4 backdrop-blur-sm">
-            <span className="text-hyped-cyan text-lg">&#10003;</span>
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <img
+              src="/media/maxx-maxxed.webp"
+              alt="Maxx the Bull — Maxxed"
+              className="h-20 w-auto"
+              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
+            />
             <p className="text-sm font-medium text-hyped-white">
-              Locked in. You&apos;ll hear from us first.
+              You&apos;re locked in.
             </p>
           </div>
         )}
         {state === "error" && (
-          <p className="mt-4 text-sm text-hyped-danger">{errorMsg}</p>
+          <p className="mt-4 text-sm text-hyped-rekt">{errorMsg || "That email's rekt. Try again."}</p>
         )}
       </div>
     </section>

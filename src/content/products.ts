@@ -14,8 +14,7 @@ export interface Product {
   status: "live" | "soon";
   video: MediaAsset;
   accentLabel: string;
-  /** per-product accent shift (brand system 2026-07) */
-  accent: string;
+  cta: string;
 }
 
 export const products: Product[] = [
@@ -24,7 +23,7 @@ export const products: Product[] = [
     name: "hyped.trade",
     tagline: "Execute at the edge",
     description:
-      "The fastest perps terminal built for on-chain degens who refuse to settle for CEX latency.",
+      "The perps terminal for traders who refuse CEX latency.",
     href: "https://hyped.trade",
     status: "live",
     video: {
@@ -34,15 +33,15 @@ export const products: Product[] = [
       aspect: "4/5",
     },
     accentLabel: "TRADE MAXXING",
-    accent: "#9D6BFF",
+    cta: "Launch →",
   },
   {
     id: "launch",
     name: "hyped.launch",
     tagline: "Graduate tokens faster",
     description:
-      "Fair-launch infrastructure that takes projects from deploy to liquid in one seamless flow.",
-    href: "https://hyped.launch",
+      "From deploy to liquid in one flow. Fair-launch infrastructure for the trenches.",
+    href: "#lockin",
     status: "soon",
     video: {
       mp4: "/media/launch-loop.mp4",
@@ -51,15 +50,15 @@ export const products: Product[] = [
       aspect: "4/5",
     },
     accentLabel: "TRENCH MAXXING",
-    accent: "#00E67A",
+    cta: "Coming Soon",
   },
   {
     id: "bet",
     name: "hyped.bet",
-    tagline: "Predict everything on-chain",
+    tagline: "Predict everything",
     description:
-      "Prediction markets for crypto, culture, and chaos — permissionless and instant settlement.",
-    href: "https://hyped.bet",
+      "Markets for crypto, culture, and chaos. Permissionless, instant settlement.",
+    href: "#lockin",
     status: "soon",
     video: {
       mp4: "/media/bet-loop.mp4",
@@ -68,15 +67,15 @@ export const products: Product[] = [
       aspect: "4/5",
     },
     accentLabel: "BET MAXXING",
-    accent: "#FF3DA6",
+    cta: "Coming Soon",
   },
   {
     id: "max",
     name: "hyped.max",
-    tagline: "Stack streaks, earn more",
+    tagline: "Maxx every arena",
     description:
-      "Gamified loyalty that rewards the grind — trade more, streak more, unlock more.",
-    href: "https://hyped.max",
+      "The cultural home of maxxing — trade, build, life, stack. Streaks, leagues, and receipts for the grind.",
+    href: "#lockin",
     status: "soon",
     video: {
       mp4: "/media/max-loop.mp4",
@@ -84,7 +83,7 @@ export const products: Product[] = [
       poster: "/media/max-loop-poster.webp",
       aspect: "4/5",
     },
-    accentLabel: "LOCKIN MAXXING",
-    accent: "#C6FF3D",
+    accentLabel: "LIFE MAXXING",
+    cta: "Coming Soon",
   },
 ];

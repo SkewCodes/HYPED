@@ -1,25 +1,16 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-hyped-black: #0B0414;
-  --color-hyped-carbon: #1A0A2E;
-  --color-hyped-white: #F4F4F6;
-  --color-hyped-muted: #9B8FAD;
-  --color-hyped-cyan: #00F0FF;
-  --color-hyped-danger: #FF4D5E;
+  /* HYPED brand system — locked V2 tokens */
+  --color-hyped-void:   #0B0512;
+  --color-hyped-purple: #1A0A2E;
+  --color-hyped-white:  #F4F2F7;
+  --color-hyped-muted:  #9A93A8;
+  --color-hyped-cyan:   #00F0FF;
+  --color-hyped-rekt:   #FF3B4E;
 
-  --color-accent-trade: #9D6BFF;
-  --color-accent-launch: #00E67A;
-  --color-accent-bet: #FF3DA6;
-  --color-accent-max: #C6FF3D;
-
-  --font-display: var(--font-clash-display);
-  --font-body: var(--font-inter);
-  --font-mono: var(--font-jetbrains);
-
-  --animate-marquee: marquee 30s linear infinite;
-  --animate-aurora-1: aurora-drift-1 8s ease-in-out infinite alternate;
-  --animate-aurora-2: aurora-drift-2 10s ease-in-out infinite alternate;
+  --font-display: var(--font-display-face);
+  --font-body: var(--font-body-face);
 }
 
 * {
@@ -30,13 +21,14 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: rgba(155, 143, 173, 0.2) transparent;
+  scrollbar-color: rgba(154, 147, 168, 0.2) transparent;
 }
 
 body {
-  background-color: var(--color-hyped-black);
+  background-color: var(--color-hyped-void);
   color: var(--color-hyped-white);
   font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 17px;
   overflow-x: hidden;
 }
 
@@ -54,27 +46,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(155, 143, 173, 0.2);
+  background: rgba(154, 147, 168, 0.2);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(155, 143, 173, 0.4);
-}
-
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-@keyframes aurora-drift-1 {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  100% { transform: translate(-40%, -55%) scale(1.2); }
-}
-
-@keyframes aurora-drift-2 {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(-10%, 5%) scale(1.15); }
+  background: rgba(154, 147, 168, 0.4);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -85,13 +62,9 @@ body {
   video {
     display: none;
   }
+
   .poster-fallback {
     display: block;
-  }
-  .animate-marquee,
-  .animate-aurora-1,
-  .animate-aurora-2 {
-    animation: none;
   }
 }
 

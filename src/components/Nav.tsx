@@ -25,16 +25,16 @@ export function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
         scrolled || menuOpen
-          ? "bg-hyped-black/80 backdrop-blur-xl border-b border-hyped-muted/10"
+          ? "bg-hyped-void/90 backdrop-blur-md border-b border-hyped-white/5"
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-[1200px] items-center justify-between px-6 py-4">
         <a
           href="/"
-          className="flex items-center gap-2.5 font-display text-xl font-bold tracking-tight uppercase"
+          className="flex items-center gap-2 font-display text-xl uppercase tracking-tight"
         >
           <Slash size="sm" />
           Hyped
@@ -53,7 +53,9 @@ export function Nav() {
           ))}
           <a
             href={site.nav.cta.href}
-            className="hidden items-center gap-1.5 rounded-lg bg-hyped-cyan px-5 py-2.5 text-sm font-bold text-hyped-black uppercase tracking-wide transition-opacity hover:opacity-90 sm:inline-flex"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden rounded bg-hyped-cyan px-5 py-2.5 text-sm font-medium uppercase tracking-wide text-hyped-void sm:inline-block"
           >
             {site.nav.cta.label}
           </a>
@@ -79,23 +81,24 @@ export function Nav() {
 
       {menuOpen && (
         <div
-          className="border-t border-hyped-muted/10 px-6 pb-8 pt-6 sm:hidden"
+          className="border-t border-hyped-white/5 px-6 pb-6 pt-4 sm:hidden"
           onClick={() => setMenuOpen(false)}
         >
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-4">
             {site.nav.links.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                {...(link.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-base font-medium text-hyped-white transition-colors hover:text-hyped-cyan"
+                className="text-sm font-medium text-hyped-white transition-colors hover:text-hyped-cyan"
               >
                 {link.label}
               </a>
             ))}
             <a
               href={site.nav.cta.href}
-              className="mt-2 inline-flex w-full items-center justify-center gap-1.5 rounded-lg bg-hyped-cyan px-4 py-3.5 text-sm font-bold text-hyped-black uppercase tracking-wide"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 inline-flex w-full items-center justify-center rounded bg-hyped-cyan px-4 py-3 text-sm font-medium uppercase tracking-wide text-hyped-void"
             >
               {site.nav.cta.label}
             </a>

@@ -1,11 +1,8 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { CultureTicker } from "@/components/CultureTicker";
-import { WhatIsHyped } from "@/components/WhatIsHyped";
-import { TheCulture } from "@/components/TheCulture";
-import { AppTeaser } from "@/components/AppTeaser";
-import { BuiltBy } from "@/components/BuiltBy";
+import { ManifestoWall } from "@/components/ManifestoWall";
 import { Ecosystem } from "@/components/Ecosystem";
+import { Receipts } from "@/components/Receipts";
 import { WaitlistCTA } from "@/components/WaitlistCTA";
 import { Footer } from "@/components/Footer";
 
@@ -15,12 +12,9 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <CultureTicker />
-        <WhatIsHyped />
-        <TheCulture />
-        <AppTeaser />
+        <ManifestoWall />
         <Ecosystem />
-        <BuiltBy />
+        <Receipts />
         <WaitlistCTA />
       </main>
       <Footer />

@@ -6,8 +6,8 @@ import { Footer } from "@/components/Footer";
 const cards = [
   {
     label: "STORY",
-    title: "Where markets meet culture.",
-    description: "The origin, the posture, the grind. Why Hyped exists and what maxxing really means.",
+    title: "The brand for maxxing culture.",
+    description: "Why Hyped exists. What maxxing really means. The posture, the grind, the culture.",
     href: "/story",
   },
   {

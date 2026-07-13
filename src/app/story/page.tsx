@@ -5,10 +5,10 @@ import { PageLayout } from "@/components/PageLayout";
 
 export const metadata: Metadata = {
   title: "Story — HYPED",
-  description: "Where markets meet culture. The story of Hyped — for the ambitious who show up.",
+  description: "The brand for maxxing culture. Whatever you're maxxing — stay hyped.",
   openGraph: {
     title: "Story — HYPED",
-    description: "Where markets meet culture. The story of Hyped — for the ambitious who show up.",
+    description: "The brand for maxxing culture. Whatever you're maxxing — stay hyped.",
     url: `${site.url}/story`,
     siteName: site.name,
     type: "website",

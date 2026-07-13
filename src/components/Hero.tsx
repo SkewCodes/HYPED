@@ -1,5 +1,5 @@
-import { Bolt } from "./Bolt";
 import TokenRain from "./TokenRain";
+import { Ticker } from "./Ticker";
 import { site } from "@/content/site";
 
 export function Hero() {
@@ -30,7 +30,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-[2] mx-auto w-full max-w-[1200px] px-6 pb-20 pt-[150px] md:px-10">
+      <div className="relative z-[2] w-full max-w-[1200px] px-6 pb-16 pt-[150px] md:px-10">
         <h1 className="m-0 font-display font-[800] uppercase text-[clamp(48px,8vw,128px)] leading-[.88] tracking-[.01em]">
           <span className="block">Everything.</span>
           <span className="hero-outline block">Maxxed.</span>
@@ -45,8 +45,13 @@ export function Hero() {
         </p>
       </div>
 
+      {/* Ticker inside hero, visible before scroll */}
+      <div className="relative z-[2]">
+        <Ticker />
+      </div>
+
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 z-[2] -translate-x-1/2">
+      <div className="relative z-[2] flex justify-center pb-6 pt-4">
         <div className="flex flex-col items-center gap-2">
           <span className="font-mono text-[10px] tracking-[.2em] text-hyped-muted">SCROLL</span>
           <svg width="14" height="18" viewBox="0 0 14 18" fill="none" className="animate-[scrollDown_2s_ease-in-out_infinite]">

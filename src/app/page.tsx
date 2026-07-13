@@ -1,9 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
-import { Ticker } from "@/components/Ticker";
 import { Waitlist } from "@/components/Waitlist";
 import { Footer } from "@/components/Footer";
-import { Bolt } from "@/components/Bolt";
 
 const cards = [
   {
@@ -38,7 +36,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Ticker />
 
         <section className="px-6 py-[100px] md:px-10 md:py-[140px]">
           <div className="mx-auto max-w-[1200px]">

@@ -48,7 +48,7 @@ export function Story() {
         </div>
 
         {/* Block 4 — Anchor */}
-        <div className="mt-24 text-center md:mt-32">
+        <div className="mt-24 md:mt-32">
           <p className="font-display font-[800] uppercase text-[clamp(36px,6vw,88px)] leading-[.88] text-hyped-white">
             {storyAnchor}
           </p>

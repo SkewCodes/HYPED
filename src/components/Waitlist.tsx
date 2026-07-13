@@ -39,7 +39,7 @@ export function Waitlist() {
       className="px-6 py-[120px] md:px-10 md:py-[160px]"
       style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
     >
-      <div className="mx-auto max-w-[600px] text-center">
+      <div className="mx-auto max-w-[1200px]">
         <h2 className="font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88]">
           {site.anchor}
         </h2>
@@ -49,7 +49,7 @@ export function Waitlist() {
             Locked in. Still hyped.
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="mx-auto mt-10 flex max-w-[480px] flex-col gap-3.5 sm:flex-row">
+          <form onSubmit={handleSubmit} className="mt-10 flex max-w-[480px] flex-col gap-3.5 sm:flex-row">
             <input
               type="text"
               name="company"

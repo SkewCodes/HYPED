@@ -5,7 +5,7 @@ export const site = {
   url: siteUrl,
   title: "HYPED — Everything. Maxxed.",
   description:
-    "The crypto-native culture and product ecosystem for degens who show up. Trade, predict, launch, and lock in.",
+    "The crypto-native culture and product ecosystem for the ambitious who show up. Trade, predict, launch, and lock in.",
   ogImage: "/api/og",
   nav: {
     links: [

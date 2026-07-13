@@ -5,10 +5,10 @@ import { site } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "Story — HYPED",
-  description: "Where markets meet culture. The Hyped story.",
+  description: "Where markets meet culture. The story of Hyped — for the ambitious who show up.",
   openGraph: {
     title: "Story — HYPED",
-    description: "Where markets meet culture. The Hyped story.",
+    description: "Where markets meet culture. The story of Hyped — for the ambitious who show up.",
     url: `${site.url}/story`,
     siteName: site.name,
     type: "website",

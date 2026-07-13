@@ -30,7 +30,7 @@ export async function GET() {
         </div>
 
         <span style={{ marginTop: 40, fontSize: 16, color: "#A0A0B0", letterSpacing: "0.28em", textTransform: "uppercase", fontFamily: "monospace" }}>
-          LOCK IN & STAY HYPED
+          LOCK IN &amp; STAY HYPED
         </span>
       </div>
     ),

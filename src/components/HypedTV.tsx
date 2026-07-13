@@ -13,11 +13,11 @@ export function HypedTV() {
         </p>
 
         {!tvReady ? (
-          <div className="mt-12 py-16 text-center" style={{ border: "1px solid rgba(255,255,255,.06)" }}>
+          <div className="mt-12 py-16" style={{ border: "1px solid rgba(255,255,255,.06)", paddingLeft: "2rem" }}>
             <p className="font-display font-[800] uppercase text-[28px] leading-[.9] text-hyped-muted sm:text-[36px]">
               Hyped TV — Coming Soon
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href={site.social.youtube}
                 target="_blank"

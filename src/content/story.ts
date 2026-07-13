@@ -1,6 +1,6 @@
 export const storyPositioning = {
   headline: "Where markets meet culture.",
-  body: "A culture brand that operates in markets. Four products. One ecosystem. No VC. No committee. Built by a trader. Shipped in public. Community-first from day one.",
+  body: "A culture brand that operates in markets. Four products. One ecosystem. No VC. No committee. Built by a trader. Shipped in public. For the ambitious, by the ambitious.",
 };
 
 export const storyTaglines = [

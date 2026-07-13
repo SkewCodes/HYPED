@@ -14,7 +14,7 @@ export const site = {
       { label: "PARTNERS", href: "/partners" },
       { label: "HYPED TV", href: "/tv" },
     ],
-    cta: { label: "EXPLORE PRODUCTS", href: "/products" },
+    cta: { label: "LOCK IN", href: "#waitlist" },
   },
   footer: {
     products: [

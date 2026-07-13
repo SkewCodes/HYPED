@@ -50,13 +50,6 @@ export function Nav() {
             {link.label}
           </a>
         ))}
-        <a
-          href="#lockin"
-          className="hidden font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-5 py-[11px] transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-px sm:inline-block"
-        >
-          JOIN WAITLIST
-        </a>
-
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 sm:hidden"
@@ -84,9 +77,7 @@ export function Nav() {
                 {link.label}
               </a>
             ))}
-            <a href="#lockin" className="mt-1 block bg-[var(--accent)] px-5 py-3.5 text-center font-mono text-[11px] font-bold tracking-[.18em] text-hyped-void">
-              JOIN WAITLIST
-            </a>
+
           </div>
         </div>
       )}

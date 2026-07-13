@@ -1,56 +1,61 @@
-import { Reveal } from "./Reveal";
 import { site } from "@/content/site";
 
 const receipts = [
   {
     title: "Built in public",
-    body: `by @${site.founder.name}`,
-    href: site.founder.x,
+    link: { text: "by @Skew ↗", href: site.founder.x },
   },
   {
     title: "Shipped, not promised",
-    body: "hyped.trade is live.",
-    href: "https://hyped.trade",
+    link: { text: "hyped.trade is live ↗", href: "https://hyped.trade" },
   },
   {
     title: "Community-built",
-    body: "Culture first. Product second. Exit never.",
+    text: "Culture first. Product second. Exit never.",
   },
 ];
 
 export function Receipts() {
   return (
-    <section id="receipts" className="bg-hyped-purple py-24 md:py-40">
-      <div className="mx-auto max-w-[1200px] px-6">
-        <Reveal>
-          <h2 className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.85] tracking-tight">
-            No VC. No Shortcuts.
+    <section
+      id="receipts"
+      className="px-6 py-[130px] md:px-10"
+      style={{ borderTop: "1px solid rgba(244,242,247,.07)" }}
+    >
+      <div className="mx-auto grid max-w-[1360px] gap-16 md:grid-cols-[minmax(280px,5fr)_7fr]">
+        <div>
+          <span className="font-mono text-xs tracking-[.28em] text-[var(--accent)]">03 — RECEIPTS</span>
+          <h2 className="mt-[18px] font-display font-[800] uppercase text-[clamp(56px,6.5vw,110px)] leading-[.85]">
+            No VC.
+            <br />
+            No shortcuts.
           </h2>
-        </Reveal>
+        </div>
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-3">
-          {receipts.map((receipt) => (
-            <Reveal key={receipt.title}>
-              <div className="rounded-[12px] border border-hyped-white/5 bg-hyped-purple p-6">
-                <h3 className="text-lg font-medium text-hyped-white">
-                  {receipt.title}
-                </h3>
-                <p className="mt-2 text-sm text-hyped-muted">
-                  {receipt.href ? (
-                    <a
-                      href={receipt.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-hyped-cyan transition-opacity hover:opacity-80"
-                    >
-                      {receipt.body}
-                    </a>
-                  ) : (
-                    receipt.body
-                  )}
-                </p>
-              </div>
-            </Reveal>
+        <div>
+          {receipts.map((r, i) => (
+            <div
+              key={r.title}
+              className="flex flex-wrap items-baseline justify-between gap-6 py-[26px]"
+              style={{
+                borderTop: "1px solid rgba(244,242,247,.1)",
+                ...(i === receipts.length - 1 ? { borderBottom: "1px solid rgba(244,242,247,.1)" } : {}),
+              }}
+            >
+              <span className="text-[19px] font-medium">{r.title}</span>
+              {"link" in r && r.link ? (
+                <a
+                  href={r.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-[13px] tracking-[.08em] text-[var(--accent)] transition-colors hover:text-hyped-white"
+                >
+                  {r.link.text}
+                </a>
+              ) : (
+                <span className="font-mono text-[13px] tracking-[.08em] text-hyped-muted">{r.text}</span>
+              )}
+            </div>
           ))}
         </div>
       </div>

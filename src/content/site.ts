@@ -9,11 +9,11 @@ export const site = {
   ogImage: "/api/og",
   nav: {
     links: [
-      { label: "Manifesto", href: "#manifesto", external: false },
-      { label: "Ecosystem", href: "#ecosystem", external: false },
-      { label: "Receipts", href: "#receipts", external: false },
+      { label: "MANIFESTO", href: "#manifesto" },
+      { label: "ECOSYSTEM", href: "#ecosystem" },
+      { label: "RECEIPTS", href: "#receipts" },
     ],
-    cta: { label: "Launch Terminal", href: "https://hyped.trade" },
+    cta: { label: "JOIN WAITLIST", href: "#lockin" },
   },
   footer: {
     products: [
@@ -28,7 +28,7 @@ export const site = {
       { label: "YouTube", href: "https://youtube.com/@hypedtrade" },
       { label: "Manifesto", href: "/manifesto" },
     ],
-    legal: "© 2026 Hyped. All rights reserved.",
+    legal: "© 2026 HYPED. ALL RIGHTS RESERVED.",
   },
   social: {
     x: "https://x.com/hypedtrade",

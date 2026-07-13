@@ -1,39 +1,55 @@
 "use client";
 
-import { pillars } from "@/content/manifesto";
-import { Slash } from "./Slash";
-import { Reveal } from "./Reveal";
+import { pillars, manifestoOutro } from "@/content/manifesto";
 
 export function ManifestoWall() {
   return (
-    <section id="manifesto" className="py-24 md:py-40">
-      <div className="mx-auto max-w-[1200px] px-6">
-        <div className="space-y-16 md:space-y-24">
-          {pillars.map((pillar) => (
-            <Reveal key={pillar.id}>
-              <div className="flex items-start gap-4 md:gap-6">
-                <Slash size="md" className="mt-2 shrink-0 origin-left transition-transform duration-700" />
-                <div>
-                  <h2 className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.85] tracking-tight">
-                    {pillar.title}
-                  </h2>
-                  <p className="mt-3 text-hyped-muted">
-                    {pillar.line}
-                  </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
+    <section id="manifesto" className="px-6 py-[130px] md:px-10 md:pt-[150px]">
+      <div className="mx-auto max-w-[1360px]">
+        {/* Header row */}
+        <div className="mb-14 flex flex-wrap items-center justify-between gap-4">
+          <span className="font-mono text-xs tracking-[.28em] text-[var(--accent)]">
+            01 — THE MAXXING MANIFESTO
+          </span>
+          <span className="font-mono text-xs tracking-[.28em] text-hyped-muted">
+            NOT A PRODUCT. A POSTURE.
+          </span>
         </div>
 
-        <Reveal className="mt-16 md:mt-24">
-          <a
-            href="/manifesto"
-            className="inline-flex items-center gap-2 text-sm font-medium uppercase tracking-wide text-hyped-cyan transition-opacity hover:opacity-80"
+        {/* Pillar rows */}
+        {pillars.map((pillar, i) => (
+          <div
+            key={pillar.id}
+            className="group grid items-baseline gap-x-6 py-[30px] transition-transform duration-[350ms] hover:translate-x-[18px]"
+            style={{
+              gridTemplateColumns: "90px 1fr auto",
+              borderTop: "1px solid rgba(244,242,247,.1)",
+              ...(i === pillars.length - 1 ? { borderBottom: "1px solid rgba(244,242,247,.1)" } : {}),
+            }}
           >
+            <span className="font-mono text-[13px] text-hyped-muted">
+              /{String(i + 1).padStart(2, "0")}
+            </span>
+            <span className="font-display font-[800] uppercase text-[clamp(54px,6.8vw,116px)] leading-[.88] transition-colors duration-300 group-hover:text-[var(--accent)]">
+              {pillar.title}
+            </span>
+            <span className="hidden font-mono text-[13px] text-hyped-muted text-right md:block">
+              {pillar.line}
+            </span>
+            {/* Mobile: line below title */}
+            <span className="col-span-3 mt-2 font-mono text-[13px] text-hyped-muted md:hidden">
+              {pillar.line}
+            </span>
+          </div>
+        ))}
+
+        {/* Outro */}
+        <p className="mt-11 max-w-[560px] font-mono text-[13px] leading-[1.7] tracking-[.06em] text-hyped-muted">
+          {manifestoOutro}{" "}
+          <a href="/manifesto" className="text-[var(--accent)] transition-colors hover:text-hyped-white">
             Read the full manifesto →
           </a>
-        </Reveal>
+        </p>
       </div>
     </section>
   );

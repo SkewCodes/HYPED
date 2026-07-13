@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { Ticker } from "@/components/Ticker";
 import { ManifestoWall } from "@/components/ManifestoWall";
 import { Ecosystem } from "@/components/Ecosystem";
 import { Receipts } from "@/components/Receipts";
@@ -12,6 +13,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Ticker />
         <ManifestoWall />
         <Ecosystem />
         <Receipts />

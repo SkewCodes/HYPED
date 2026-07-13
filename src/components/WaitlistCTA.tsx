@@ -7,12 +7,10 @@ type FormState = "idle" | "loading" | "success" | "error";
 export function WaitlistCTA() {
   const [email, setEmail] = useState("");
   const [state, setState] = useState<FormState>("idle");
-  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setState("loading");
-    setErrorMsg("");
 
     try {
       const res = await fetch("/api/subscribe", {
@@ -25,32 +23,32 @@ export function WaitlistCTA() {
         setState("success");
         setEmail("");
       } else {
-        const data = await res.json().catch(() => ({}));
-        setErrorMsg(
-          (data as { error?: string }).error ?? "Something went wrong."
-        );
         setState("error");
       }
     } catch {
-      setErrorMsg("Network error. Please try again.");
       setState("error");
     }
   }
 
+  const disabled = state === "loading" || state === "success";
+
   return (
-    <section id="lockin" className="py-24 md:py-40">
-      <div className="mx-auto max-w-[600px] px-6 text-center">
-        <h2 className="font-display text-[clamp(2rem,5vw,4rem)] uppercase leading-[0.85] tracking-tight">
-          Lock In.
+    <section
+      id="lockin"
+      className="px-6 py-[130px] md:px-10"
+      style={{ borderTop: "1px solid rgba(244,242,247,.07)" }}
+    >
+      <div className="mx-auto max-w-[680px] text-center">
+        <span className="font-mono text-xs tracking-[.28em] text-[var(--accent)]">04 — FIRST ACCESS</span>
+        <h2 className="mt-[18px] font-display font-[800] uppercase text-[clamp(72px,9vw,150px)] leading-[.85]">
+          Lock in.
         </h2>
-        <p className="mt-4 text-hyped-muted">
+        <p className="mx-auto mt-[22px] max-w-[420px] text-[17px] leading-[1.6] text-hyped-muted">
           First access to every launch. Zero spam. Full hype.
         </p>
 
-        <form
-          onSubmit={handleSubmit}
-          className="mt-10 flex flex-col gap-3 sm:flex-row"
-        >
+        <form onSubmit={handleSubmit} className="mx-auto mt-9 flex max-w-[560px] gap-3.5">
+          {/* Honeypot */}
           <input
             type="text"
             name="company"
@@ -66,33 +64,31 @@ export function WaitlistCTA() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="your@email"
             required
-            disabled={state === "loading" || state === "success"}
-            className="flex-1 rounded border border-hyped-white/10 bg-hyped-purple px-4 py-3.5 text-sm text-hyped-white placeholder:text-hyped-muted focus:border-hyped-cyan focus:outline-none disabled:opacity-50"
+            disabled={disabled}
+            className="min-w-0 flex-1 bg-transparent font-mono text-[13px] tracking-[.06em] text-hyped-white placeholder:text-hyped-muted outline-none transition-[border-color] disabled:opacity-50"
+            style={{ border: "1px solid rgba(244,242,247,.18)", padding: "17px 18px" }}
+            onFocus={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; }}
+            onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(244,242,247,.18)"; }}
           />
           <button
             type="submit"
-            disabled={state === "loading" || state === "success"}
-            className="rounded bg-hyped-cyan px-6 py-3.5 text-sm font-medium uppercase tracking-wide text-hyped-void disabled:opacity-50"
+            disabled={disabled}
+            className="font-mono text-xs font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5 disabled:opacity-50"
+            style={{ padding: "17px 30px" }}
           >
-            {state === "loading" ? "..." : state === "success" ? "Locked In" : "Lock In"}
+            {state === "loading" ? "..." : state === "success" ? "LOCKED IN" : "LOCK IN"}
           </button>
         </form>
 
         {state === "success" && (
-          <div className="mt-8 flex flex-col items-center gap-3">
-            <img
-              src="/media/maxx-maxxed.webp"
-              alt="Maxx the Bull — Maxxed"
-              className="h-20 w-auto"
-              onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-            />
-            <p className="text-sm font-medium text-hyped-white">
-              You&apos;re locked in.
-            </p>
-          </div>
+          <p className="mt-[18px] font-mono text-[13px] tracking-[.1em] text-[var(--accent)]">
+            ✓ YOU&apos;RE LOCKED IN.
+          </p>
         )}
         {state === "error" && (
-          <p className="mt-4 text-sm text-hyped-rekt">{errorMsg || "That email's rekt. Try again."}</p>
+          <p className="mt-[18px] font-mono text-[13px] tracking-[.1em] text-hyped-rekt">
+            THAT EMAIL&apos;S REKT. TRY AGAIN.
+          </p>
         )}
       </div>
     </section>

@@ -1,50 +1,87 @@
-import { VideoLoop } from "./VideoLoop";
-import type { MediaAsset } from "@/content/products";
-
-const heroAsset: MediaAsset = {
-  mp4: "/media/hero-loop.mp4",
-  webm: "/media/hero-loop.webm",
-  poster: "/media/hero-loop-poster.webp",
-  aspect: "16/9",
-};
+import { Bolt } from "./Bolt";
+import TokenRain from "./TokenRain";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden">
+    <section className="relative flex min-h-[100vh] items-end overflow-hidden">
+      {/* Grid background */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "linear-gradient(rgba(244,242,247,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(244,242,247,.04) 1px,transparent 1px)",
+          backgroundSize: "72px 72px",
+          maskImage: "radial-gradient(ellipse 90% 80% at 62% 40%,black 30%,transparent 78%)",
+          WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 62% 40%,black 30%,transparent 78%)",
+        }}
+      />
+      {/* Atmosphere */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "radial-gradient(ellipse 55% 60% at 72% 42%,rgba(0,240,255,.10),transparent 65%),radial-gradient(ellipse 70% 60% at 25% 30%,rgba(26,10,46,.9),transparent 75%)",
+        }}
+      />
+      {/* Token rain */}
       <div className="absolute inset-0">
-        <VideoLoop asset={heroAsset} playMode="always" dim={55} className="h-full w-full" />
+        <TokenRain />
       </div>
+      {/* Bottom fade */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(180deg,rgba(5,3,9,.25) 0%,transparent 40%,rgba(5,3,9,.9) 84%,#050309 100%)",
+        }}
+      />
 
-      <div className="relative z-10 mx-auto max-w-[1200px] px-6 text-center">
-        <h1 className="font-display text-[clamp(4rem,14vw,12rem)] uppercase leading-[0.85] tracking-tight">
-          Everything.
-          <br />
-          Maxxed.
+      <div className="relative z-[2] w-full px-6 pb-14 pt-[150px] md:px-10">
+        {/* Kicker row */}
+        <div className="mb-7 flex items-center gap-4">
+          <span className="flex items-center gap-2 font-mono text-xs tracking-[.28em] text-[var(--accent)]">
+            <Bolt width={9} height={13} />
+            HYP-001
+          </span>
+          <span className="h-px w-16" style={{ background: "rgba(244,242,247,.25)" }} />
+          <span className="font-mono text-xs tracking-[.28em] text-hyped-muted">
+            LOCK IN MAXXING
+          </span>
+        </div>
+
+        {/* H1 */}
+        <h1 className="m-0 font-display font-[800] uppercase text-[clamp(96px,13.5vw,224px)] leading-[.84] tracking-[.005em]">
+          <span className="block">Everything.</span>
+          <span
+            className="block transition-colors duration-[350ms] hover:text-[var(--accent)] hover:[-webkit-text-stroke-color:var(--accent)]"
+            style={{
+              color: "transparent",
+              WebkitTextStroke: "2.5px #F4F2F7",
+            }}
+          >
+            Maxxed.
+          </span>
         </h1>
 
-        <p className="mx-auto mt-8 max-w-lg text-hyped-muted">
-          Trade everything. Bet anything. Build infinitely.
-        </p>
-
-        <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-          <a
-            href="https://hyped.trade"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full rounded bg-hyped-cyan px-8 py-3.5 text-sm font-medium uppercase tracking-wide text-hyped-void sm:w-auto"
-          >
-            Launch Terminal
-          </a>
-          <a
-            href="#lockin"
-            className="w-full rounded border border-hyped-white/20 px-8 py-3.5 text-sm font-medium uppercase tracking-wide text-hyped-white transition-colors hover:border-hyped-cyan/40 hover:text-hyped-cyan sm:w-auto"
-          >
-            Lock In
-          </a>
+        {/* Bottom row */}
+        <div className="mt-11 flex flex-wrap items-end justify-between gap-8">
+          <p className="m-0 max-w-[360px] text-[17px] leading-[1.55] text-hyped-muted">
+            Trade everything. Bet anything. Build infinitely.
+          </p>
+          <div className="flex gap-3.5">
+            <a
+              href="#lockin"
+              className="font-mono text-xs font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-[30px] py-[17px] transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+            >
+              JOIN WAITLIST
+            </a>
+            <a
+              href="#lockin"
+              className="font-mono text-xs font-bold tracking-[.18em] text-hyped-white px-[30px] py-[16px] transition-colors hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              style={{ border: "1px solid rgba(244,242,247,.25)" }}
+            >
+              LOCK IN
+            </a>
+          </div>
         </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-hyped-void to-transparent" />
     </section>
   );
 }

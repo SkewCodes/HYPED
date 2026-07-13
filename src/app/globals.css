@@ -89,6 +89,16 @@ body {
   100% { color: #2E2839; text-shadow: none; }
 }
 
+.hero-outline {
+  color: transparent;
+  -webkit-text-stroke: 2.5px #F4F2F7;
+  transition: color .35s, -webkit-text-stroke-color .35s;
+}
+.hero-outline:hover {
+  color: var(--accent);
+  -webkit-text-stroke-color: var(--accent);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   video { display: none; }

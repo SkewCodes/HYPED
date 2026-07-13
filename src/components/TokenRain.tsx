@@ -91,7 +91,7 @@ export default function TokenRain() {
     const parent = canvas.parentElement;
     if (!parent) return;
 
-    const dpr = window.devicePixelRatio || 1;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let w = 0;
     let h = 0;
     let coins: Coin[] = [];
@@ -131,18 +131,22 @@ export default function TokenRain() {
       const alpha = opacity * Math.max(0, yFade);
       if (alpha <= 0) return;
 
+      const scaleX = Math.max(tilt, 0.08);
+
       ctx!.save();
       ctx!.globalAlpha = alpha;
+      ctx!.translate(x, y);
+      ctx!.scale(scaleX, 1);
 
       ctx!.beginPath();
-      ctx!.arc(x, y, radius, 0, Math.PI * 2);
+      ctx!.arc(0, 0, radius, 0, Math.PI * 2);
       ctx!.fillStyle = "rgba(18,18,24,0.92)";
       ctx!.shadowColor = token.color;
       ctx!.shadowBlur = radius * 0.8;
       ctx!.fill();
       ctx!.shadowBlur = 0;
 
-      ctx!.strokeStyle = "rgba(255,255,255,0.08)";
+      ctx!.strokeStyle = "rgba(255,255,255,0.06)";
       ctx!.lineWidth = 1;
       ctx!.stroke();
 
@@ -150,26 +154,16 @@ export default function TokenRain() {
       if (img && img.complete && img.naturalWidth > 0 && tilt > 0.3) {
         ctx!.save();
         ctx!.beginPath();
-        ctx!.arc(x, y, radius * 0.72, 0, Math.PI * 2);
+        ctx!.arc(0, 0, radius * 0.88, 0, Math.PI * 2);
         ctx!.clip();
-        const size = radius * 1.44;
-        ctx!.drawImage(img, x - size / 2, y - size / 2, size, size);
+        const size = radius * 1.9;
+        ctx!.drawImage(img, -size / 2, -size / 2, size, size);
         ctx!.restore();
       }
 
       if (tilt < 0.55) {
-        const grad = ctx!.createLinearGradient(
-          x - radius,
-          y - radius,
-          x + radius,
-          y + radius
-        );
-        grad.addColorStop(0, `rgba(255,255,255,${0.12 * (1 - tilt)})`);
-        grad.addColorStop(1, "rgba(255,255,255,0)");
-        ctx!.beginPath();
-        ctx!.arc(x, y, radius, 0, Math.PI * 2);
-        ctx!.fillStyle = grad;
-        ctx!.fill();
+        ctx!.fillStyle = `rgba(255,255,255,${0.04 * (1 - tilt)})`;
+        ctx!.fillRect(-radius, radius * 0.01, radius * 2, (1 - tilt) * 2.5);
       }
 
       ctx!.restore();
@@ -183,8 +177,7 @@ export default function TokenRain() {
         const coin = coins[i];
 
         coin.y += coin.velocityY;
-        coin.x +=
-          Math.sin(frame * 0.008 + coin.tiltPhase) * 0.2 + coin.velocityX;
+        coin.x += Math.sin(frame * 0.008 + coin.tiltPhase) * 0.2 + coin.velocityX;
 
         const dx = coin.x - mouseX;
         const dy = coin.y - mouseY;
@@ -200,12 +193,10 @@ export default function TokenRain() {
         if (coin.y - coin.radius > h) {
           coins[i] = createCoin(w, h, false);
         }
+        if (coin.x < -coin.radius * 2) coin.x = w + coin.radius;
+        if (coin.x > w + coin.radius * 2) coin.x = -coin.radius;
 
-        const tilt =
-          0.35 +
-          0.65 *
-            Math.abs(Math.sin(frame * coin.tiltSpeed + coin.tiltPhase));
-
+        const tilt = 0.35 + 0.65 * Math.abs(Math.sin(frame * coin.tiltSpeed + coin.tiltPhase));
         drawCoin(coin, tilt);
       }
 
@@ -213,7 +204,7 @@ export default function TokenRain() {
     }
 
     function onMouseMove(e: MouseEvent) {
-      const rect = canvas!.getBoundingClientRect();
+      const rect = parent!.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
     }
@@ -226,19 +217,16 @@ export default function TokenRain() {
     resize();
     spawnCoins();
 
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReduced) {
       for (const coin of coins) {
-        const tilt =
-          0.35 + 0.65 * Math.abs(Math.sin(coin.tiltPhase));
+        const tilt = 0.35 + 0.65 * Math.abs(Math.sin(coin.tiltPhase));
         drawCoin(coin, tilt);
       }
     } else {
-      canvas.addEventListener("mousemove", onMouseMove);
-      canvas.addEventListener("mouseleave", onMouseLeave);
+      parent.addEventListener("mousemove", onMouseMove);
+      parent.addEventListener("mouseleave", onMouseLeave);
       window.addEventListener("resize", resize);
       rafId = requestAnimationFrame(animate);
     }
@@ -246,24 +234,20 @@ export default function TokenRain() {
     return () => {
       mountedRef.current = false;
       cancelAnimationFrame(rafId);
-      canvas.removeEventListener("mousemove", onMouseMove);
-      canvas.removeEventListener("mouseleave", onMouseLeave);
+      parent.removeEventListener("mousemove", onMouseMove);
+      parent.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("resize", resize);
     };
   }, []);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    return () => {
-      mountedRef.current = false;
-    };
+    return () => { mountedRef.current = false; };
   }, []);
 
   return (
     <canvas
       ref={refCallback}
-      className="absolute inset-0 pointer-events-none"
+      className="absolute inset-0"
       style={{ pointerEvents: "none" }}
     />
   );

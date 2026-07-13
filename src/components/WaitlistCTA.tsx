@@ -35,19 +35,19 @@ export function WaitlistCTA() {
   return (
     <section
       id="lockin"
-      className="px-6 py-[130px] md:px-10"
+      className="px-6 py-[100px] md:px-10 md:py-[130px]"
       style={{ borderTop: "1px solid rgba(244,242,247,.07)" }}
     >
       <div className="mx-auto max-w-[680px] text-center">
         <span className="font-mono text-xs tracking-[.28em] text-[var(--accent)]">04 — FIRST ACCESS</span>
-        <h2 className="mt-[18px] font-display font-[800] uppercase text-[clamp(72px,9vw,150px)] leading-[.85]">
+        <h2 className="mt-[18px] font-display font-[800] uppercase text-[clamp(56px,9vw,150px)] leading-[.85]">
           Lock in.
         </h2>
         <p className="mx-auto mt-[22px] max-w-[420px] text-[17px] leading-[1.6] text-hyped-muted">
           First access to every launch. Zero spam. Full hype.
         </p>
 
-        <form onSubmit={handleSubmit} className="mx-auto mt-9 flex max-w-[560px] gap-3.5">
+        <form onSubmit={handleSubmit} className="mx-auto mt-9 flex max-w-[560px] flex-col gap-3.5 sm:flex-row">
           {/* Honeypot */}
           <input
             type="text"
@@ -65,10 +65,8 @@ export function WaitlistCTA() {
             placeholder="your@email"
             required
             disabled={disabled}
-            className="min-w-0 flex-1 bg-transparent font-mono text-[13px] tracking-[.06em] text-hyped-white placeholder:text-hyped-muted outline-none transition-[border-color] disabled:opacity-50"
+            className="min-w-0 flex-1 bg-transparent font-mono text-[13px] tracking-[.06em] text-hyped-white placeholder:text-hyped-muted outline-none transition-[border-color] focus:!border-[var(--accent)] disabled:opacity-50"
             style={{ border: "1px solid rgba(244,242,247,.18)", padding: "17px 18px" }}
-            onFocus={(e) => { e.currentTarget.style.borderColor = "var(--accent)"; }}
-            onBlur={(e) => { e.currentTarget.style.borderColor = "rgba(244,242,247,.18)"; }}
           />
           <button
             type="submit"

@@ -3,7 +3,7 @@ import TokenRain from "./TokenRain";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100vh] items-end overflow-hidden">
+    <section className="relative flex min-h-[100svh] items-end overflow-hidden">
       {/* Grid background */}
       <div
         className="absolute inset-0"
@@ -27,7 +27,7 @@ export function Hero() {
       </div>
       {/* Bottom fade */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background: "linear-gradient(180deg,rgba(5,3,9,.25) 0%,transparent 40%,rgba(5,3,9,.9) 84%,#050309 100%)",
         }}
@@ -35,27 +35,21 @@ export function Hero() {
 
       <div className="relative z-[2] w-full px-6 pb-14 pt-[150px] md:px-10">
         {/* Kicker row */}
-        <div className="mb-7 flex items-center gap-4">
+        <div className="mb-7 flex flex-wrap items-center gap-4">
           <span className="flex items-center gap-2 font-mono text-xs tracking-[.28em] text-[var(--accent)]">
             <Bolt width={9} height={13} />
             HYP-001
           </span>
-          <span className="h-px w-16" style={{ background: "rgba(244,242,247,.25)" }} />
+          <span className="hidden h-px w-16 sm:block" style={{ background: "rgba(244,242,247,.25)" }} />
           <span className="font-mono text-xs tracking-[.28em] text-hyped-muted">
             LOCK IN MAXXING
           </span>
         </div>
 
         {/* H1 */}
-        <h1 className="m-0 font-display font-[800] uppercase text-[clamp(96px,13.5vw,224px)] leading-[.84] tracking-[.005em]">
+        <h1 className="m-0 font-display font-[800] uppercase text-[clamp(64px,13.5vw,224px)] leading-[.84] tracking-[.005em]">
           <span className="block">Everything.</span>
-          <span
-            className="block transition-colors duration-[350ms] hover:text-[var(--accent)] hover:[-webkit-text-stroke-color:var(--accent)]"
-            style={{
-              color: "transparent",
-              WebkitTextStroke: "2.5px #F4F2F7",
-            }}
-          >
+          <span className="hero-outline block">
             Maxxed.
           </span>
         </h1>
@@ -65,7 +59,7 @@ export function Hero() {
           <p className="m-0 max-w-[360px] text-[17px] leading-[1.55] text-hyped-muted">
             Trade everything. Bet anything. Build infinitely.
           </p>
-          <div className="flex gap-3.5">
+          <div className="flex flex-wrap gap-3.5">
             <a
               href="#lockin"
               className="font-mono text-xs font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-[30px] py-[17px] transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"

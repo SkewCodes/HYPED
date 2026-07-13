@@ -30,7 +30,7 @@ export function Hero() {
         }}
       />
 
-      <div className="relative z-[2] w-full px-6 pb-20 pt-[150px] md:px-10">
+      <div className="relative z-[2] mx-auto w-full max-w-[1200px] px-6 pb-20 pt-[150px] md:px-10">
         <h1 className="m-0 font-display font-[800] uppercase text-[clamp(48px,8vw,128px)] leading-[.88] tracking-[.01em]">
           <span className="block">Everything.</span>
           <span className="hero-outline block">Maxxed.</span>

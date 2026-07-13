@@ -65,7 +65,7 @@ export function Products() {
   return (
     <section id="products" className="px-6 py-[100px] md:px-10 md:py-[140px]" style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}>
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="mb-12 font-display font-[800] uppercase text-[clamp(40px,6vw,88px)] leading-[.88] md:mb-16">
+        <h2 className="mb-10 font-display font-[800] uppercase text-[clamp(28px,4vw,64px)] leading-[.92] md:mb-14">
           Built from the culture.
         </h2>
 

@@ -5,7 +5,7 @@ export function HypedTV() {
   return (
     <section id="hyped-tv" className="px-6 py-[100px] md:px-10 md:py-[140px]" style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}>
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="font-display font-[800] uppercase text-[clamp(40px,6vw,88px)] leading-[.88]">
+        <h2 className="font-display font-[800] uppercase text-[clamp(28px,4vw,64px)] leading-[.92]">
           The culture, live.
         </h2>
         <p className="mt-4 max-w-[520px] text-[17px] leading-[1.6] text-hyped-muted">

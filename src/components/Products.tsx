@@ -59,31 +59,44 @@ function TradeHeroCard() {
   );
 }
 
-export function Products() {
+export function ProductsContent() {
   const secondaryProducts = products.slice(1);
 
   return (
-    <section id="products" className="px-6 py-[100px] md:px-10 md:py-[140px]" style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}>
+    <section className="px-6 py-[80px] md:px-10 md:py-[120px]">
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="mb-10 font-display font-[800] uppercase text-[clamp(28px,4vw,64px)] leading-[.92] md:mb-14">
-          Built from the culture.
-        </h2>
+        <a
+          href="/"
+          className="mb-12 inline-flex items-center gap-2 font-mono text-xs tracking-[.1em] text-hyped-muted transition-colors hover:text-hyped-white"
+        >
+          &larr; Back
+        </a>
 
-        <TradeHeroCard />
+        <h1 className="font-display font-[800] uppercase text-[clamp(36px,6vw,80px)] leading-[.88]">
+          Built from the culture.
+        </h1>
+        <p className="mt-6 max-w-[560px] text-[17px] leading-[1.7] text-hyped-muted md:text-[19px]">
+          Four products. One ecosystem. All shipping on Hyperliquid. For the ambitious who show up.
+        </p>
+
+        <div className="mt-16 md:mt-20">
+          <TradeHeroCard />
+        </div>
 
         <div className="mt-5 grid gap-5 sm:grid-cols-3">
           {secondaryProducts.map((product) => (
             <div
               key={product.id}
-              className="group p-6 transition-[border-color] duration-300 hover:border-[var(--accent)]"
+              className="group p-6 transition-[border-color] duration-300 hover:border-[var(--accent)] sm:p-8"
               style={{ border: "1px solid rgba(255,255,255,.08)", background: "rgba(15,10,28,.6)" }}
             >
               <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">{product.label}</span>
               <h3 className="mt-3 font-display font-[800] uppercase text-[28px] leading-[.9] sm:text-[32px]">{product.name}</h3>
-              <p className="mt-2 text-[15px] leading-[1.6] text-hyped-muted">{product.description}</p>
+              <p className="mt-3 text-[15px] leading-[1.6] text-hyped-muted">{product.description}</p>
+              <p className="mt-2 text-[14px] leading-[1.6] text-hyped-muted/60">{product.tagline}</p>
               <a
                 href={product.href}
-                className="mt-5 inline-block font-mono text-[11px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
+                className="mt-6 inline-block font-mono text-[11px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
               >
                 {product.cta}
               </a>

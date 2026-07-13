@@ -9,12 +9,12 @@ export const site = {
   ogImage: "/api/og",
   nav: {
     links: [
-      { label: "PRODUCTS", href: "#products" },
-      { label: "HYPED TV", href: "#hyped-tv" },
-      { label: "STORY", href: "#story" },
-      { label: "ECOSYSTEM", href: "#ecosystem" },
+      { label: "STORY", href: "/story" },
+      { label: "PRODUCTS", href: "/products" },
+      { label: "PARTNERS", href: "/partners" },
+      { label: "HYPED TV", href: "/tv" },
     ],
-    cta: { label: "EXPLORE PRODUCTS", href: "#products" },
+    cta: { label: "EXPLORE PRODUCTS", href: "/products" },
   },
   footer: {
     products: [
@@ -24,8 +24,10 @@ export const site = {
       { label: "hyped.max", href: "#waitlist" },
     ],
     links: [
-      { label: "Story", href: "#story" },
-      { label: "Hyped TV", href: "#hyped-tv" },
+      { label: "Story", href: "/story" },
+      { label: "Products", href: "/products" },
+      { label: "Partners", href: "/partners" },
+      { label: "Hyped TV", href: "/tv" },
     ],
     socials: [
       { label: "X", href: "https://x.com/52kskew" },

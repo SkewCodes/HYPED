@@ -47,7 +47,7 @@ export function Hero() {
         </div>
 
         {/* H1 */}
-        <h1 className="m-0 font-display font-[800] uppercase text-[clamp(64px,13.5vw,224px)] leading-[.84] tracking-[.005em]">
+        <h1 className="m-0 font-display font-[800] uppercase text-[clamp(48px,8vw,128px)] leading-[.88] tracking-[.01em]">
           <span className="block">Everything.</span>
           <span className="hero-outline block">
             Maxxed.

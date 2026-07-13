@@ -3,14 +3,13 @@ import { z } from "zod/v4";
 
 const WaitlistInput = z.object({
   email: z.string().email().max(254),
-  source: z.enum(["hero", "product-card", "footer"]),
+  source: z.enum(["hero", "product-card", "footer", "waitlist"]),
 });
 
 export async function POST(request: Request) {
   try {
     const body = await request.json();
 
-    // Honeypot check
     if (body && typeof body === "object" && "company" in body && body.company) {
       return NextResponse.json({ ok: true });
     }

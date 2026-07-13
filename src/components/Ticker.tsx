@@ -1,16 +1,15 @@
 import { Bolt } from "./Bolt";
-
-const items = ["TRADE MAXXING", "TRENCH MAXXING", "BET MAXXING", "LIFE MAXXING"];
+import { tickerItems } from "@/content/ticker";
 
 function TickerHalf() {
   return (
-    <div className="flex shrink-0 items-center gap-9 pr-9">
-      {items.map((item) => (
+    <div className="flex shrink-0 items-center gap-8 pr-8">
+      {tickerItems.map((item) => (
         <span key={item} className="contents">
-          <span className="font-display text-[18px] font-bold tracking-[.08em] text-hyped-white whitespace-nowrap sm:text-[22px]">
+          <span className="font-mono text-[13px] tracking-[.12em] text-hyped-muted whitespace-nowrap sm:text-[15px]">
             {item}
           </span>
-          <Bolt width={12} height={17} className="shrink-0" />
+          <Bolt width={10} height={14} className="shrink-0 opacity-40" />
         </span>
       ))}
     </div>
@@ -20,11 +19,10 @@ function TickerHalf() {
 export function Ticker() {
   return (
     <div
-      className="overflow-hidden py-3 sm:py-[13px]"
+      className="overflow-hidden py-3 sm:py-[14px]"
       style={{
-        borderTop: "1px solid rgba(244,242,247,.08)",
-        borderBottom: "1px solid rgba(244,242,247,.08)",
-        background: "#050309",
+        borderTop: "1px solid rgba(255,255,255,.06)",
+        borderBottom: "1px solid rgba(255,255,255,.06)",
       }}
     >
       <div className="flex w-max animate-marquee">

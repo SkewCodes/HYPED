@@ -5,34 +5,38 @@ export const site = {
   url: siteUrl,
   title: "HYPED — Everything. Maxxed.",
   description:
-    "Trade everything. Bet anything. Build infinitely. The maxxing ecosystem.",
+    "The crypto-native culture and product ecosystem for degens who show up. Trade, predict, launch, and lock in.",
   ogImage: "/api/og",
   nav: {
     links: [
-      { label: "MANIFESTO", href: "#manifesto" },
+      { label: "PRODUCTS", href: "#products" },
+      { label: "HYPED TV", href: "#hyped-tv" },
+      { label: "STORY", href: "#story" },
       { label: "ECOSYSTEM", href: "#ecosystem" },
-      { label: "RECEIPTS", href: "#receipts" },
     ],
-    cta: { label: "JOIN WAITLIST", href: "#lockin" },
+    cta: { label: "EXPLORE PRODUCTS", href: "#products" },
   },
   footer: {
     products: [
       { label: "hyped.trade", href: "https://hyped.trade" },
-      { label: "hyped.launch", href: "#lockin" },
-      { label: "hyped.bet", href: "#lockin" },
-      { label: "hyped.max", href: "#lockin" },
+      { label: "hyped.launch", href: "#waitlist" },
+      { label: "hyped.bet", href: "#waitlist" },
+      { label: "hyped.max", href: "#waitlist" },
     ],
-    community: [
-      { label: "Discord", href: "https://discord.gg/hyped" },
-      { label: "X / Twitter", href: "https://x.com/hypedtrade" },
-      { label: "YouTube", href: "https://youtube.com/@hypedtrade" },
-      { label: "Manifesto", href: "/manifesto" },
+    links: [
+      { label: "Story", href: "#story" },
+      { label: "Hyped TV", href: "#hyped-tv" },
     ],
-    legal: "© 2026 HYPED. ALL RIGHTS RESERVED.",
+    socials: [
+      { label: "X", href: "https://x.com/52kskew" },
+      { label: "YouTube", href: "https://www.youtube.com/@52kskew" },
+      { label: "Discord — Soon", href: "" },
+    ],
+    legal: "© 2026 Hyped. All rights reserved.",
   },
   social: {
-    x: "https://x.com/hypedtrade",
-    youtube: "https://youtube.com/@hypedtrade",
+    x: "https://x.com/52kskew",
+    youtube: "https://www.youtube.com/@52kskew",
     discord: "https://discord.gg/hyped",
   },
   plausibleDomain: new URL(siteUrl).hostname,
@@ -40,6 +44,7 @@ export const site = {
     name: "Skew",
     x: "https://x.com/52kskew",
   },
+  anchor: "Lock in & stay hyped.",
 } as const;
 
 export type SiteConfig = typeof site;

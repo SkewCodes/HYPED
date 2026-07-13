@@ -13,16 +13,15 @@ export async function GET() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          background: "linear-gradient(135deg, #0C0616 0%, #050309 50%, #0C0616 100%)",
+          background: "linear-gradient(135deg, #1A0A2E 0%, #0A0A12 50%, #1A0A2E 100%)",
         }}
       >
-        {/* Bolt mark */}
         <svg viewBox="0 0 100 140" width="48" height="67">
           <polygon points="58,4 14,78 44,78 34,136 88,54 54,54" fill="#00F0FF" />
         </svg>
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 24 }}>
-          <span style={{ fontSize: 80, fontWeight: 900, color: "#F4F2F7", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 0.85 }}>
+          <span style={{ fontSize: 80, fontWeight: 900, color: "#FFFFFF", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 0.85 }}>
             EVERYTHING.
           </span>
           <span style={{ fontSize: 80, fontWeight: 900, color: "#00F0FF", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 0.85, marginTop: 12 }}>
@@ -30,8 +29,8 @@ export async function GET() {
           </span>
         </div>
 
-        <span style={{ marginTop: 40, fontSize: 16, color: "#9A93A8", letterSpacing: "0.28em", textTransform: "uppercase", fontFamily: "monospace" }}>
-          LOCK IN MAXXING
+        <span style={{ marginTop: 40, fontSize: 16, color: "#A0A0B0", letterSpacing: "0.28em", textTransform: "uppercase", fontFamily: "monospace" }}>
+          LOCK IN & STAY HYPED
         </span>
       </div>
     ),

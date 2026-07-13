@@ -27,10 +27,10 @@ export function Nav() {
     <nav
       className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 py-4 transition-all duration-300 md:px-10 ${scrolled ? "py-3" : ""}`}
       style={{
-        background: scrolled ? "rgba(5,3,9,.88)" : "rgba(5,3,9,.5)",
+        background: scrolled ? "rgba(10,10,18,.92)" : "rgba(10,10,18,.5)",
         backdropFilter: "blur(18px)",
         WebkitBackdropFilter: "blur(18px)",
-        borderBottom: scrolled ? "1px solid rgba(244,242,247,.1)" : "1px solid rgba(244,242,247,.04)",
+        borderBottom: scrolled ? "1px solid rgba(255,255,255,.08)" : "1px solid rgba(255,255,255,.03)",
       }}
     >
       <a href="/" className="flex items-center gap-2.5 text-hyped-white">
@@ -40,16 +40,23 @@ export function Nav() {
         </span>
       </a>
 
-      <div className="flex items-center gap-6 sm:gap-9">
+      <div className="flex items-center gap-6 md:gap-8">
         {site.nav.links.map((link) => (
           <a
             key={link.label}
             href={link.href}
-            className="hidden font-mono text-[11px] tracking-[.2em] text-hyped-muted transition-colors hover:text-hyped-white md:block"
+            className="hidden font-mono text-[11px] tracking-[.18em] text-hyped-muted transition-colors hover:text-hyped-white md:block"
           >
             {link.label}
           </a>
         ))}
+        <a
+          href={site.nav.cta.href}
+          className="hidden font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-5 py-[11px] transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-px sm:inline-block"
+        >
+          {site.nav.cta.label}
+        </a>
+
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 sm:hidden"
@@ -64,10 +71,10 @@ export function Nav() {
         <div
           className="absolute top-full left-0 right-0 px-6 pb-6 pt-4 sm:hidden"
           style={{
-            background: "rgba(5,3,9,.95)",
+            background: "rgba(10,10,18,.95)",
             backdropFilter: "blur(18px)",
             WebkitBackdropFilter: "blur(18px)",
-            borderBottom: "1px solid rgba(244,242,247,.07)",
+            borderBottom: "1px solid rgba(255,255,255,.06)",
           }}
           onClick={() => setMenuOpen(false)}
         >
@@ -77,7 +84,9 @@ export function Nav() {
                 {link.label}
               </a>
             ))}
-
+            <a href={site.nav.cta.href} className="mt-1 block bg-[var(--accent)] px-5 py-3.5 text-center font-mono text-[11px] font-bold tracking-[.18em] text-hyped-void">
+              {site.nav.cta.label}
+            </a>
           </div>
         </div>
       )}

@@ -1,10 +1,11 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { Story } from "@/components/Story";
 import { Ticker } from "@/components/Ticker";
-import { ManifestoWall } from "@/components/ManifestoWall";
+import { Products } from "@/components/Products";
+import { HypedTV } from "@/components/HypedTV";
 import { Ecosystem } from "@/components/Ecosystem";
-import { Receipts } from "@/components/Receipts";
-import { WaitlistCTA } from "@/components/WaitlistCTA";
+import { Waitlist } from "@/components/Waitlist";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -13,11 +14,12 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <Story />
         <Ticker />
-        <ManifestoWall />
+        <Products />
+        <HypedTV />
         <Ecosystem />
-        <Receipts />
-        <WaitlistCTA />
+        <Waitlist />
       </main>
       <Footer />
     </>

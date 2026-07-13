@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-hyped-void:   #050309;
-  --color-hyped-panel:  #0C0616;
+  --color-hyped-void:   #0A0A12;
+  --color-hyped-panel:  #1A0A2E;
   --color-hyped-card:   #0F0A1C;
-  --color-hyped-white:  #F4F2F7;
-  --color-hyped-muted:  #9A93A8;
+  --color-hyped-white:  #FFFFFF;
+  --color-hyped-muted:  #A0A0B0;
   --color-hyped-cyan:   #00F0FF;
   --color-hyped-rekt:   #FF3B4E;
   --color-hyped-green:  #00D97E;
@@ -14,7 +14,7 @@
   --font-body: var(--font-body-face);
   --font-mono: var(--font-mono-face);
 
-  --animate-marquee: marquee 26s linear infinite;
+  --animate-marquee: marquee 32s linear infinite;
 }
 
 :root {
@@ -29,7 +29,7 @@
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
-  scrollbar-color: rgba(154, 147, 168, 0.2) transparent;
+  scrollbar-color: rgba(160, 160, 176, 0.2) transparent;
 }
 
 body {
@@ -47,22 +47,12 @@ body {
 
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(154, 147, 168, 0.2); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: rgba(154, 147, 168, 0.4); }
+::-webkit-scrollbar-thumb { background: rgba(160, 160, 176, 0.2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(160, 160, 176, 0.4); }
 
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
-}
-
-@keyframes rise {
-  from { opacity: 0; transform: translateY(44px); }
-  to { opacity: 1; transform: none; }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.2; }
 }
 
 @keyframes shimmer {
@@ -80,10 +70,14 @@ body {
   50% { transform: translateY(-4px); }
 }
 
+@keyframes scrollDown {
+  0%, 100% { transform: translateY(0); opacity: 1; }
+  50% { transform: translateY(6px); opacity: 0.3; }
+}
 
 .hero-outline {
   color: transparent;
-  -webkit-text-stroke: 2.5px #F4F2F7;
+  -webkit-text-stroke: 2px #FFFFFF;
   transition: color .35s, -webkit-text-stroke-color .35s;
 }
 .hero-outline:hover {
@@ -99,6 +93,3 @@ body {
 }
 
 .poster-fallback { display: none; }
-@media (prefers-reduced-motion: no-preference) {
-  .poster-fallback { display: none; }
-}

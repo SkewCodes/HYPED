@@ -2,7 +2,7 @@ import { z } from "zod/v4";
 
 export const WaitlistInput = z.object({
   email: z.string().email().max(254),
-  source: z.enum(["hero", "product-card", "footer"]),
+  source: z.enum(["hero", "product-card", "footer", "waitlist"]),
 });
 
 export type WaitlistInput = z.infer<typeof WaitlistInput>;

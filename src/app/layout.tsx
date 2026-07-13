@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
-import { Big_Shoulders, Space_Grotesk, Space_Mono } from "next/font/google";
+import { Big_Shoulders, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { site } from "@/content/site";
 
-// STAND-IN: Big Shoulders Display replaces Tusker Grotesk until license is purchased.
 const bigShoulders = Big_Shoulders({
   subsets: ["latin"],
   weight: ["700", "800", "900"],
@@ -18,9 +17,9 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
-const spaceMono = Space_Mono({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700"],
   variable: "--font-mono-face",
   display: "swap",
 });
@@ -53,7 +52,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bigShoulders.variable} ${spaceGrotesk.variable} ${spaceMono.variable}`}
+      className={`${bigShoulders.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <head>
         <script
@@ -64,7 +63,6 @@ export default function RootLayout({
       </head>
       <body className="bg-hyped-void text-hyped-white font-body antialiased">
         {children}
-        {/* Grain overlay */}
         <div
           className="pointer-events-none fixed inset-0 z-[300] opacity-[.05] mix-blend-overlay"
           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")` }}

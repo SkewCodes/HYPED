@@ -19,8 +19,9 @@ const TOKENS = [
   { color: "#C8A961", logoUrl: "/tokens/trump.png" },
 ];
 
-const REPEL_RADIUS = 150;
-const REPEL_STRENGTH = 1.5;
+const REPEL_RADIUS = 180;
+const REPEL_STRENGTH = 2.5;
+const CURSOR_GLOW_RADIUS = 280;
 
 interface Coin {
   x: number;
@@ -99,6 +100,8 @@ export default function TokenRain() {
     let rafId = 0;
     let mouseX = -9999;
     let mouseY = -9999;
+    let smoothMouseX = -9999;
+    let smoothMouseY = -9999;
 
     const images = new Map<number, HTMLImageElement>();
     TOKENS.forEach((t, i) => {
@@ -123,12 +126,31 @@ export default function TokenRain() {
       coins = Array.from({ length: count }, () => createCoin(w, h, true));
     }
 
-    function drawCoin(coin: Coin, tilt: number) {
+    function drawCursorGlow() {
+      if (smoothMouseX < -1000) return;
+      const grad = ctx!.createRadialGradient(
+        smoothMouseX, smoothMouseY, 0,
+        smoothMouseX, smoothMouseY, CURSOR_GLOW_RADIUS,
+      );
+      grad.addColorStop(0, "rgba(0,240,255,.07)");
+      grad.addColorStop(0.5, "rgba(0,240,255,.02)");
+      grad.addColorStop(1, "rgba(0,240,255,0)");
+      ctx!.fillStyle = grad;
+      ctx!.fillRect(
+        smoothMouseX - CURSOR_GLOW_RADIUS,
+        smoothMouseY - CURSOR_GLOW_RADIUS,
+        CURSOR_GLOW_RADIUS * 2,
+        CURSOR_GLOW_RADIUS * 2,
+      );
+    }
+
+    function drawCoin(coin: Coin, tilt: number, nearCursor: number) {
       const { x, y, radius, opacity, tokenIndex } = coin;
       const token = TOKENS[tokenIndex];
 
       const yFade = 1 - Math.max(0, (y - h * 0.35) / (h * 0.65));
-      const alpha = opacity * Math.max(0, yFade);
+      const boost = nearCursor * 0.35;
+      const alpha = Math.min(1, (opacity + boost)) * Math.max(0, yFade);
       if (alpha <= 0) return;
 
       const scaleX = Math.max(tilt, 0.08);
@@ -141,12 +163,14 @@ export default function TokenRain() {
       ctx!.beginPath();
       ctx!.arc(0, 0, radius, 0, Math.PI * 2);
       ctx!.fillStyle = "rgba(18,18,24,0.92)";
-      ctx!.shadowColor = token.color;
-      ctx!.shadowBlur = radius * 0.8;
+      ctx!.shadowColor = nearCursor > 0.3 ? "rgba(0,240,255,.6)" : token.color;
+      ctx!.shadowBlur = radius * (0.8 + nearCursor * 1.2);
       ctx!.fill();
       ctx!.shadowBlur = 0;
 
-      ctx!.strokeStyle = "rgba(255,255,255,0.06)";
+      ctx!.strokeStyle = nearCursor > 0.3
+        ? `rgba(0,240,255,${0.1 + nearCursor * 0.2})`
+        : "rgba(255,255,255,0.06)";
       ctx!.lineWidth = 1;
       ctx!.stroke();
 
@@ -173,22 +197,34 @@ export default function TokenRain() {
       frame++;
       ctx!.clearRect(0, 0, w, h);
 
+      if (mouseX > -1000) {
+        smoothMouseX += (mouseX - smoothMouseX) * 0.08;
+        smoothMouseY += (mouseY - smoothMouseY) * 0.08;
+      }
+
+      drawCursorGlow();
+
       for (let i = 0; i < coins.length; i++) {
         const coin = coins[i];
 
         coin.y += coin.velocityY;
         coin.x += Math.sin(frame * 0.008 + coin.tiltPhase) * 0.2 + coin.velocityX;
 
-        const dx = coin.x - mouseX;
-        const dy = coin.y - mouseY;
+        const dx = coin.x - smoothMouseX;
+        const dy = coin.y - smoothMouseY;
         const dist = Math.sqrt(dx * dx + dy * dy);
+        let nearCursor = 0;
+
         if (dist < REPEL_RADIUS && dist > 0) {
           const force = ((REPEL_RADIUS - dist) / REPEL_RADIUS) * REPEL_STRENGTH;
-          coin.x += (dx / dist) * force;
-          coin.y += (dy / dist) * force;
+          coin.velocityX += (dx / dist) * force * 0.3;
+          coin.y += (dy / dist) * force * 0.5;
+          nearCursor = 1 - dist / REPEL_RADIUS;
+        } else if (dist < CURSOR_GLOW_RADIUS) {
+          nearCursor = (1 - dist / CURSOR_GLOW_RADIUS) * 0.5;
         }
 
-        coin.velocityX *= 0.96;
+        coin.velocityX *= 0.94;
 
         if (coin.y - coin.radius > h) {
           coins[i] = createCoin(w, h, false);
@@ -197,21 +233,27 @@ export default function TokenRain() {
         if (coin.x > w + coin.radius * 2) coin.x = -coin.radius;
 
         const tilt = 0.35 + 0.65 * Math.abs(Math.sin(frame * coin.tiltSpeed + coin.tiltPhase));
-        drawCoin(coin, tilt);
+        drawCoin(coin, tilt, nearCursor);
       }
 
       rafId = requestAnimationFrame(animate);
     }
 
     function onMouseMove(e: MouseEvent) {
-      const rect = parent!.getBoundingClientRect();
+      const rect = canvas!.getBoundingClientRect();
       mouseX = e.clientX - rect.left;
       mouseY = e.clientY - rect.top;
+      if (smoothMouseX < -1000) {
+        smoothMouseX = mouseX;
+        smoothMouseY = mouseY;
+      }
     }
 
     function onMouseLeave() {
       mouseX = -9999;
       mouseY = -9999;
+      smoothMouseX = -9999;
+      smoothMouseY = -9999;
     }
 
     resize();
@@ -222,11 +264,11 @@ export default function TokenRain() {
     if (prefersReduced) {
       for (const coin of coins) {
         const tilt = 0.35 + 0.65 * Math.abs(Math.sin(coin.tiltPhase));
-        drawCoin(coin, tilt);
+        drawCoin(coin, tilt, 0);
       }
     } else {
-      parent.addEventListener("mousemove", onMouseMove);
-      parent.addEventListener("mouseleave", onMouseLeave);
+      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mouseleave", onMouseLeave);
       window.addEventListener("resize", resize);
       rafId = requestAnimationFrame(animate);
     }
@@ -234,8 +276,8 @@ export default function TokenRain() {
     return () => {
       mountedRef.current = false;
       cancelAnimationFrame(rafId);
-      parent.removeEventListener("mousemove", onMouseMove);
-      parent.removeEventListener("mouseleave", onMouseLeave);
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("resize", resize);
     };
   }, []);

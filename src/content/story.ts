@@ -1,20 +1,55 @@
-export const storyPositioning = {
-  headline: "The brand for maxxing culture.",
-  body: "Maxxing is going all in on whatever you care about. Gym, code, markets, life — it doesn't matter what. What matters is the posture. Hyped is the brand for everyone who locks in, levels up, and stays locked in.",
+// Block 1 — The Identity
+export const storyIdentity = "The brand for maxxing culture.";
+
+// Block 2 — The Definition
+export const storyDefinition = {
+  headline: "Maxxing is the posture.",
+  body: `No half reps. No default settings. No coasting on yesterday's edge. Whether it's your body, your portfolio, your code, or your daily discipline — the approach is the same.`,
+  mantra: "Show up. Lock in. Compound. Repeat.",
+  closer: "It's not a phase. It's how you operate.",
 };
 
-export const storyTaglines = [
-  { verb: "Trade everything.", label: "TRADE MAXXING" },
-  { verb: "Bet anything.", label: "BET MAXXING" },
-  { verb: "Build infinitely.", label: "CODE MAXXING" },
-  { verb: "Hit the gym.", label: "GYM MAXXING" },
-  { verb: "Stay locked in.", label: "LIFE MAXXING" },
-] as const;
+// Block 3 — The Mission
+export const storyMission = {
+  body: `Hyped exists to build the home for locking in.
 
-export const storyCulture = `People join for the culture. They stay because the culture compounds.
+One place to track the grind, measure the gains, and stay accountable to the things that actually matter — peak fitness, peak net worth, peak performance, peak anything you refuse to be average at.`,
+  credibility: "No VC. No committee. Built by a trader who ships in public. For the people who show up, by the people who show up.",
+};
 
-Maxxing is the posture — in the gym, in markets, in building, in life. Every session compounds. Every rep builds edge. Whatever you're maxxing, the principle is the same: show up, lock in, go harder than yesterday.
+// Block 4 — The Community
+export const storyCommunity = {
+  transition: "It starts with the daily grind.",
+  headline: "hyped.max is where the culture lives.",
+  body: `Streaks. Accountability. Daily check-ins across every domain — gym, trading, building, life. The people who lock in every day become the community. The community becomes the ecosystem.`,
+  differentiator: "This is the entry point. Not a trading terminal. Not a token launch. The daily discipline of showing up and staying locked in.",
+};
 
-The culture is the edge. The grind is the moat. Everything else is noise.`;
+// Block 5 — The Expansion
+export const storyExpansion = {
+  transition: "Then the ecosystem grows around you.",
+  intro: "Once you're locked in, the products meet you where your conviction is.",
+  products: [
+    {
+      verb: "Trade everything.",
+      label: "TRADE MAXXING",
+      description: "Perps terminal on Hyperliquid. On-chain conviction.",
+    },
+    {
+      verb: "Bet anything.",
+      label: "BET MAXXING",
+      description: "Prediction markets. Settled on-chain.",
+    },
+    {
+      verb: "Build infinitely.",
+      label: "CODE MAXXING",
+      description: "Token launches. From code to liquid.",
+    },
+  ] as const,
+};
 
-export const storyAnchor = "Lock in & stay hyped.";
+// Block 6 — The Anchor
+export const storyAnchor = {
+  lead: "The culture is the edge. The grind is the moat. Everything else is noise.",
+  closer: "Lock in & stay hyped.",
+};

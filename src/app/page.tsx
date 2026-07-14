@@ -17,9 +17,9 @@ const cards = [
     href: "/products",
   },
   {
-    label: "PARTNERS",
-    title: "The ecosystem.",
-    description: "Built on Hyperliquid. Partnered with TrueNorth. Growing with the ambitious.",
+    label: "NETWORK",
+    title: "The Network.",
+    description: "Built on Hyperliquid. Growing with the people who show up.",
     href: "/partners",
   },
   {

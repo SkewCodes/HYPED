@@ -11,7 +11,7 @@ export const site = {
     links: [
       { label: "STORY", href: "/story" },
       { label: "ECOSYSTEM", href: "/products" },
-      { label: "PARTNERS", href: "/partners" },
+      { label: "NETWORK", href: "/partners" },
       { label: "HYPED TV", href: "/tv" },
     ],
     cta: { label: "LOCK IN", href: "/#waitlist" },
@@ -26,7 +26,7 @@ export const site = {
     links: [
       { label: "Story", href: "/story" },
       { label: "Ecosystem", href: "/products" },
-      { label: "Partners", href: "/partners" },
+      { label: "Network", href: "/partners" },
       { label: "Hyped TV", href: "/tv" },
     ],
     socials: [

@@ -4,11 +4,11 @@ import { PageLayout } from "@/components/PageLayout";
 import { PartnersContent } from "@/components/Partners";
 
 export const metadata: Metadata = {
-  title: "Partners — HYPED",
-  description: "Built on Hyperliquid. Partnered with TrueNorth. Growing with the ambitious.",
+  title: "Network — HYPED",
+  description: "Built on Hyperliquid. Growing with the people who show up. The Hyped network.",
   openGraph: {
-    title: "Partners — HYPED",
-    description: "Built on Hyperliquid. Partnered with TrueNorth. Growing with the ambitious.",
+    title: "Network — HYPED",
+    description: "Built on Hyperliquid. Growing with the people who show up.",
     url: `${site.url}/partners`,
     siteName: site.name,
     type: "website",

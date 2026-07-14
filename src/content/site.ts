@@ -17,12 +17,6 @@ export const site = {
     cta: { label: "LOCK IN", href: "/#waitlist" },
   },
   footer: {
-    products: [
-      { label: "hyped.trade", href: "https://hyped.trade" },
-      { label: "hyped.launch", href: "#waitlist" },
-      { label: "hyped.bet", href: "#waitlist" },
-      { label: "hyped.max", href: "#waitlist" },
-    ],
     links: [
       { label: "Story", href: "/story" },
       { label: "Ecosystem", href: "/products" },

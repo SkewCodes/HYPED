@@ -1,9 +1,11 @@
 export interface YouTubeVideo {
   id: string;
   title: string;
+  show: string;
   thumbnail: string;
   publishedAt: string;
-  liveBroadcastContent: "live" | "upcoming" | "none";
+  category: "trade" | "build" | "life" | "culture";
+  isLive: boolean;
 }
 
 const CHANNEL_HANDLE = "@52kskew";
@@ -15,6 +17,20 @@ async function getChannelId(apiKey: string): Promise<string | null> {
   if (!res.ok) return null;
   const data = await res.json();
   return data.items?.[0]?.id ?? null;
+}
+
+function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
+
+function deduplicateTitle(rawTitle: string, publishedAt: string, index: number, allTitles: string[]): string {
+  const duplicateCount = allTitles.filter((t) => t === rawTitle).length;
+  if (duplicateCount <= 1) return rawTitle;
+  return `${rawTitle} — ${formatDate(publishedAt)}`;
 }
 
 export async function fetchChannelStreams(maxResults = 12): Promise<{
@@ -49,28 +65,36 @@ export async function fetchChannelStreams(maxResults = 12): Promise<{
         live = {
           id: item.id.videoId,
           title: item.snippet.title,
+          show: item.snippet.title,
           thumbnail: item.snippet.thumbnails?.high?.url ?? item.snippet.thumbnails?.medium?.url ?? "",
           publishedAt: item.snippet.publishedAt,
-          liveBroadcastContent: "live",
+          category: "trade",
+          isLive: true,
         };
       }
     }
 
-    const streams: YouTubeVideo[] = [];
+    const rawStreams: YouTubeVideo[] = [];
     if (pastRes.ok) {
       const pastData = await pastRes.json();
-      for (const item of pastData.items ?? []) {
-        streams.push({
+      const allTitles = (pastData.items ?? []).map((item: { snippet: { title: string } }) => item.snippet.title);
+
+      for (let i = 0; i < (pastData.items ?? []).length; i++) {
+        const item = pastData.items[i];
+        const rawTitle = item.snippet.title;
+        rawStreams.push({
           id: item.id.videoId,
-          title: item.snippet.title,
+          title: deduplicateTitle(rawTitle, item.snippet.publishedAt, i, allTitles),
+          show: rawTitle,
           thumbnail: item.snippet.thumbnails?.high?.url ?? item.snippet.thumbnails?.medium?.url ?? "",
           publishedAt: item.snippet.publishedAt,
-          liveBroadcastContent: "none",
+          category: "trade",
+          isLive: false,
         });
       }
     }
 
-    return { live, streams };
+    return { live, streams: rawStreams };
   } catch {
     return { live: null, streams: [] };
   }

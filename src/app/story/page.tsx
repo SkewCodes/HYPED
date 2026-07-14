@@ -37,24 +37,24 @@ export default function StoryPage() {
           </div>
 
           {/* Block 1 — The Identity */}
-          <section className="py-[80px] md:py-[120px]">
-            <h1 className="font-display font-[900] uppercase text-[clamp(44px,8vw,120px)] leading-[.85] tracking-[.01em]">
+          <section className="py-[60px] md:py-[100px]">
+            <h1 className="font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
               {storyIdentity}
             </h1>
           </section>
 
           {/* Block 2 — The Definition */}
           <section
-            className="py-[80px] md:py-[120px]"
+            className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
           >
-            <h2 className="font-display font-[800] uppercase text-[clamp(32px,5vw,64px)] leading-[.9]">
+            <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
               {storyDefinition.headline}
             </h2>
-            <p className="mt-10 max-w-[640px] text-[17px] leading-[1.8] text-hyped-muted md:text-[19px]">
+            <p className="mt-8 max-w-[600px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
               {storyDefinition.body}
             </p>
-            <p className="mt-12 font-mono text-[14px] tracking-[.06em] leading-[2.2] text-hyped-white md:text-[16px]">
+            <p className="mt-10 font-mono text-[13px] tracking-[.04em] leading-[2.2] text-hyped-white md:text-[14px]">
               {storyDefinition.mantra.split(". ").map((word, i, arr) => (
                 <span key={i}>
                   {word}{i < arr.length - 1 ? "." : ""}
@@ -62,30 +62,30 @@ export default function StoryPage() {
                 </span>
               ))}
             </p>
-            <p className="mt-10 text-[17px] leading-[1.8] text-hyped-muted md:text-[19px]">
+            <p className="mt-8 text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
               {storyDefinition.closer}
             </p>
           </section>
 
           {/* Block 3 — The Mission */}
           <section
-            className="py-[80px] md:py-[120px]"
+            className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
           >
             {storyMission.body.split("\n\n").map((para, i) => (
               <p
                 key={i}
-                className={`max-w-[640px] text-[17px] leading-[1.8] md:text-[19px] ${
+                className={`max-w-[600px] ${
                   i === 0
-                    ? "font-display font-[800] uppercase text-[clamp(24px,3.5vw,40px)] leading-[1.1] text-hyped-white"
-                    : "mt-8 text-hyped-muted"
+                    ? "font-display font-[800] uppercase text-[clamp(20px,2.5vw,28px)] leading-[1.15] text-hyped-white"
+                    : "mt-6 text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]"
                 }`}
               >
                 {para}
               </p>
             ))}
             <p
-              className="mt-12 max-w-[640px] font-mono text-[13px] tracking-[.04em] leading-[1.8] text-hyped-muted/60"
+              className="mt-10 max-w-[600px] font-mono text-[12px] tracking-[.04em] leading-[1.8] text-hyped-muted/60"
               style={{
                 borderLeft: "2px solid rgba(0,240,255,.3)",
                 paddingLeft: "20px",
@@ -97,27 +97,27 @@ export default function StoryPage() {
 
           {/* Block 4 — The Community */}
           <section
-            className="py-[80px] md:py-[120px]"
+            className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
           >
-            <h2 className="font-display font-[800] uppercase text-[clamp(32px,5vw,64px)] leading-[.9]">
+            <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
               {storyCommunity.transition}
             </h2>
 
             <div
-              className="mt-16 p-8 sm:p-10 md:p-12"
+              className="mt-12 p-7 sm:p-9 md:p-10"
               style={{
                 border: "1px solid rgba(0,240,255,.15)",
                 background: "radial-gradient(ellipse 80% 70% at 50% 100%,rgba(0,240,255,.04),transparent 70%)",
               }}
             >
-              <h3 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,44px)] leading-[.92] text-[var(--accent)]">
+              <h3 className="font-display font-[800] uppercase text-[clamp(20px,2.5vw,28px)] leading-[.95] text-[var(--accent)]">
                 {storyCommunity.headline}
               </h3>
-              <p className="mt-6 max-w-[580px] text-[17px] leading-[1.8] text-hyped-muted md:text-[18px]">
+              <p className="mt-5 max-w-[540px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
                 {storyCommunity.body}
               </p>
-              <p className="mt-8 max-w-[580px] text-[17px] leading-[1.8] text-hyped-white font-medium md:text-[18px]">
+              <p className="mt-6 max-w-[540px] text-[16px] leading-[1.8] text-hyped-white font-medium md:text-[17px]">
                 {storyCommunity.differentiator}
               </p>
             </div>
@@ -125,21 +125,21 @@ export default function StoryPage() {
 
           {/* Block 5 — The Expansion */}
           <section
-            className="py-[80px] md:py-[120px]"
+            className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
           >
-            <h2 className="font-display font-[800] uppercase text-[clamp(32px,5vw,64px)] leading-[.9]">
+            <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
               {storyExpansion.transition}
             </h2>
-            <p className="mt-8 max-w-[540px] text-[17px] leading-[1.8] text-hyped-muted md:text-[19px]">
+            <p className="mt-6 max-w-[500px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
               {storyExpansion.intro}
             </p>
 
-            <div className="mt-16 space-y-0">
+            <div className="mt-12 space-y-0">
               {storyExpansion.products.map((product, i) => (
                 <div
                   key={product.label}
-                  className="flex flex-col gap-2 py-6 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:py-8"
+                  className="flex flex-col gap-1.5 py-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8 sm:py-6"
                   style={{
                     borderTop: "1px solid rgba(255,255,255,.08)",
                     ...(i === storyExpansion.products.length - 1
@@ -148,10 +148,10 @@ export default function StoryPage() {
                   }}
                 >
                   <div>
-                    <span className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,44px)] leading-[.92]">
+                    <span className="font-display font-[800] uppercase text-[clamp(20px,2.5vw,28px)] leading-[.95]">
                       {product.verb}
                     </span>
-                    <p className="mt-2 text-[15px] leading-[1.6] text-hyped-muted">
+                    <p className="mt-1.5 text-[14px] leading-[1.6] text-hyped-muted">
                       {product.description}
                     </p>
                   </div>
@@ -165,14 +165,14 @@ export default function StoryPage() {
 
           {/* Block 6 — The Anchor */}
           <section
-            className="py-[100px] md:py-[160px]"
+            className="py-[80px] md:py-[120px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
           >
-            <div className="mx-auto max-w-[800px] text-center">
-              <p className="text-[17px] leading-[1.8] text-hyped-muted md:text-[19px]">
+            <div className="mx-auto max-w-[700px] text-center">
+              <p className="text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
                 {storyAnchor.lead}
               </p>
-              <p className="mt-12 font-display font-[900] uppercase text-[clamp(36px,6vw,80px)] leading-[.88] text-hyped-white">
+              <p className="mt-10 font-display font-[900] uppercase text-[clamp(28px,4vw,48px)] leading-[.9] text-hyped-white">
                 {storyAnchor.closer}
               </p>
             </div>

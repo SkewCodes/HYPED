@@ -40,7 +40,7 @@ export function Waitlist() {
       style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
     >
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="font-display font-[800] uppercase text-[clamp(28px,4vw,64px)] leading-[.92]">
+        <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
           {site.anchor}
         </h2>
 

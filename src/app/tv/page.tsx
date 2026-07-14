@@ -31,10 +31,10 @@ export default async function TVPage() {
             &larr; Back
           </a>
 
-          <h1 className="font-display font-[800] uppercase text-[clamp(36px,6vw,80px)] leading-[.88]">
+          <h1 className="font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
             The culture, live.
           </h1>
-          <p className="mt-6 max-w-[560px] text-[17px] leading-[1.7] text-hyped-muted md:text-[19px]">
+          <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-muted md:text-[17px]">
             Alpha, building in public, and maxxing culture — on stream and on demand.
           </p>
 
@@ -96,7 +96,7 @@ export default async function TVPage() {
               className="mt-16 p-8 sm:p-12"
               style={{ border: "1px solid rgba(255,255,255,.06)" }}
             >
-              <p className="font-display font-[800] uppercase text-[28px] leading-[.9] text-hyped-muted sm:text-[36px]">
+              <p className="font-display font-[800] uppercase text-[24px] leading-[.92] text-hyped-muted sm:text-[28px]">
                 Hyped TV — Coming Soon
               </p>
               <p className="mt-4 max-w-[420px] text-[15px] leading-[1.6] text-hyped-muted">

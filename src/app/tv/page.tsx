@@ -6,7 +6,7 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 
 export const metadata: Metadata = {
   title: "Hyped TV — HYPED",
-  description: "Locked in & live. Markets, building, the grind — streamed daily. No scripts. No filters.",
+  description: "Locked in & live. Markets, building, the grind — streamed daily.",
   openGraph: {
     title: "Hyped TV — HYPED",
     description: "Locked in & live. Markets, building, the grind — streamed daily.",
@@ -49,7 +49,7 @@ export default async function TVPage() {
               Locked in & live.
             </h1>
             <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-muted md:text-[17px]">
-              Markets, building, the grind — streamed daily. No scripts. No filters. Just the session.
+              Markets, building, the grind — streamed daily.
             </p>
           </section>
 

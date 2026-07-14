@@ -9,7 +9,7 @@ export const site = {
   ogImage: "/api/og",
   nav: {
     links: [
-      { label: "STORY", href: "/story" },
+      { label: "MANIFESTO", href: "/story" },
       { label: "ECOSYSTEM", href: "/products" },
       { label: "NETWORK", href: "/partners" },
       { label: "HYPED TV", href: "/tv" },
@@ -18,7 +18,7 @@ export const site = {
   },
   footer: {
     links: [
-      { label: "Story", href: "/story" },
+      { label: "Manifesto", href: "/story" },
       { label: "Ecosystem", href: "/products" },
       { label: "Network", href: "/partners" },
       { label: "Hyped TV", href: "/tv" },

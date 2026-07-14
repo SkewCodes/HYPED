@@ -170,7 +170,7 @@ export default async function TVPage() {
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
           >
             <p className="font-display font-[800] uppercase text-[clamp(20px,2.5vw,28px)] leading-[.95] text-hyped-white">
-              Follow & Stay HYPED.
+              Never miss a session.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a

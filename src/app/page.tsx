@@ -11,9 +11,9 @@ const cards = [
     href: "/story",
   },
   {
-    label: "PRODUCTS",
+    label: "ECOSYSTEM",
     title: "Built from the culture.",
-    description: "Four products. One ecosystem. All coming to Hyperliquid. Trade, launch, bet, and lock in.",
+    description: "One community. One ecosystem. Starting with the daily grind, expanding into on-chain markets.",
     href: "/products",
   },
   {

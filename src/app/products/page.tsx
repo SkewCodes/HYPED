@@ -4,11 +4,11 @@ import { PageLayout } from "@/components/PageLayout";
 import { ProductsContent } from "@/components/Products";
 
 export const metadata: Metadata = {
-  title: "Products — HYPED",
-  description: "Four products. One ecosystem. All coming to Hyperliquid. Trade, launch, bet, and lock in.",
+  title: "Ecosystem — HYPED",
+  description: "The home for locking in. Starting with daily discipline, expanding into on-chain markets.",
   openGraph: {
-    title: "Products — HYPED",
-    description: "Four products. One ecosystem. All coming to Hyperliquid.",
+    title: "Ecosystem — HYPED",
+    description: "Starting with the daily grind. Expanding into on-chain markets. Built from the culture.",
     url: `${site.url}/products`,
     siteName: site.name,
     type: "website",

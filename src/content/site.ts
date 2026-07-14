@@ -10,11 +10,11 @@ export const site = {
   nav: {
     links: [
       { label: "STORY", href: "/story" },
-      { label: "PRODUCTS", href: "/products" },
+      { label: "ECOSYSTEM", href: "/products" },
       { label: "PARTNERS", href: "/partners" },
       { label: "HYPED TV", href: "/tv" },
     ],
-    cta: { label: "LOCK IN", href: "#waitlist" },
+    cta: { label: "LOCK IN", href: "/#waitlist" },
   },
   footer: {
     products: [
@@ -25,7 +25,7 @@ export const site = {
     ],
     links: [
       { label: "Story", href: "/story" },
-      { label: "Products", href: "/products" },
+      { label: "Ecosystem", href: "/products" },
       { label: "Partners", href: "/partners" },
       { label: "Hyped TV", href: "/tv" },
     ],

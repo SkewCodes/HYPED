@@ -27,9 +27,9 @@ export const products: Product[] = [
     label: "TRADE MAXXING",
     tagline: "The perps terminal for on-chain conviction.",
     description: "300+ markets on Hyperliquid. Crypto, equities, and commodities — all on one on-chain order book, 24/7.",
-    href: "https://hyped.trade",
-    cta: "Launch Terminal →",
-    status: "live",
+    href: "#waitlist",
+    cta: "Coming Soon",
+    status: "soon",
   },
   {
     id: "launch",

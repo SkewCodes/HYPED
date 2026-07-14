@@ -91,9 +91,7 @@ export function ProductsContent() {
             </p>
             <a
               href={trade.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-block font-mono text-[12px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+              className="mt-8 inline-block font-mono text-[12px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
             >
               {trade.cta}
             </a>

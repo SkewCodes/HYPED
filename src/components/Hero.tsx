@@ -54,7 +54,7 @@ export function Hero() {
 
       <div className="relative z-[2] w-full max-w-[1200px] px-6 pb-16 pt-[150px] md:px-10">
         <h1 className="m-0 font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88] tracking-[.01em]">
-          <span className="block">Everything.</span>
+          <span className="block">Be Hyped.</span>
           <span
             className="block"
             style={{
@@ -64,12 +64,12 @@ export function Hero() {
               transition: "color .1s, filter .1s, -webkit-text-stroke .1s",
             }}
           >
-            Maxxed.
+            Dream Big.
           </span>
         </h1>
 
         <p className="mt-6 max-w-[540px] text-[17px] leading-[1.6] text-hyped-muted md:text-[19px]">
-          {site.positioning}
+          The home for people who lock in. Culture that compounds. Products that earn.
         </p>
 
         <p className="mt-4 font-mono text-sm tracking-[.08em] text-[var(--accent)]">

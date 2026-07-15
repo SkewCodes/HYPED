@@ -23,7 +23,7 @@ export function ProductsContent() {
             Built from the culture.
           </h1>
           <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-muted md:text-[17px]">
-            One ecosystem. Every product serves the arc — from daily discipline to on-chain markets.
+            Four products. One identity. Every product serves the person who locks in — from daily discipline to on-chain markets.
           </p>
         </section>
 
@@ -137,13 +137,13 @@ export function ProductsContent() {
           style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
         >
           <p className="text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
-            The community comes first. The ecosystem grows around it.
+            Identity first. Products second. The community is the foundation.
           </p>
           <a
             href="/story"
             className="mt-6 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
           >
-            Read the Story →
+            Read the Manifesto →
           </a>
         </section>
       </div>

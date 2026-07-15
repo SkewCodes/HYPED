@@ -43,6 +43,9 @@ export function Waitlist() {
         <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
           {site.mantra}
         </h2>
+        <p className="mt-4 max-w-[480px] text-[15px] leading-[1.6] text-hyped-muted">
+          Be first to hyped.max — the daily lock-in app. Plus early access to the full ecosystem as it ships.
+        </p>
 
         {state === "success" ? (
           <p className="mt-8 font-mono text-[14px] tracking-[.1em] text-[var(--accent)]">

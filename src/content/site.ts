@@ -3,12 +3,12 @@ const siteUrl = process.env.SITE_URL ?? process.env.NEXT_PUBLIC_SITE_URL ?? "htt
 export const site = {
   name: "Hyped",
   url: siteUrl,
-  title: "HYPED — Everything. Maxxed.",
+  title: "HYPED — Be Hyped, Dream Big.",
   description:
-    "The ecosystem for growth maxxing. Culture that compounds. Products that earn.",
+    "The home for people who lock in. Culture that compounds. Products that earn.",
   ogImage: "/api/og",
   northStar: "Be Hyped, Dream Big.",
-  positioning: "The ecosystem for growth maxxing.",
+  positioning: "The home for people who lock in.",
   mantra: "Lock in. Stay hyped.",
   nav: {
     links: [

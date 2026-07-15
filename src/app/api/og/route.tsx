@@ -22,15 +22,15 @@ export async function GET() {
 
         <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 24 }}>
           <span style={{ fontSize: 80, fontWeight: 900, color: "#FFFFFF", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 0.85 }}>
-            EVERYTHING.
+            BE HYPED.
           </span>
           <span style={{ fontSize: 80, fontWeight: 900, color: "#00F0FF", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 0.85, marginTop: 12 }}>
-            MAXXED.
+            DREAM BIG.
           </span>
         </div>
 
         <span style={{ marginTop: 32, fontSize: 18, color: "#A0A0B0", letterSpacing: "0.12em", fontFamily: "monospace" }}>
-          The ecosystem for growth maxxing.
+          The home for people who lock in.
         </span>
 
         <span style={{ marginTop: 16, fontSize: 14, color: "#00F0FF", letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>

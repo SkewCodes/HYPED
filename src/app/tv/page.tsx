@@ -6,13 +6,18 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 
 export const metadata: Metadata = {
   title: "Hyped TV — HYPED",
-  description: "Locked in & live. Markets, building, the grind — streamed daily.",
+  description: "The culture in motion. Markets, building, the grind — streamed daily.",
   openGraph: {
     title: "Hyped TV — HYPED",
-    description: "Locked in & live. Markets, building, the grind — streamed daily.",
+    description: "The culture in motion. Markets, building, the grind — streamed daily.",
     url: `${site.url}/tv`,
     siteName: site.name,
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hyped TV — HYPED",
+    description: "The culture in motion. Markets, building, the grind — streamed daily.",
   },
 };
 

@@ -19,7 +19,7 @@ const BANDS: Band[] = [
     amplitude: 0.12,
     frequency: 0.8,
     speed: 0.0004,
-    opacity: 0.18,
+    opacity: 0.12,
     phase: 0,
   },
   {
@@ -28,7 +28,7 @@ const BANDS: Band[] = [
     amplitude: 0.15,
     frequency: 0.6,
     speed: 0.0003,
-    opacity: 0.15,
+    opacity: 0.1,
     phase: 1.2,
   },
   {
@@ -37,7 +37,7 @@ const BANDS: Band[] = [
     amplitude: 0.1,
     frequency: 1.0,
     speed: 0.0005,
-    opacity: 0.1,
+    opacity: 0.07,
     phase: 2.5,
   },
   {
@@ -46,13 +46,13 @@ const BANDS: Band[] = [
     amplitude: 0.08,
     frequency: 1.3,
     speed: 0.00035,
-    opacity: 0.08,
+    opacity: 0.06,
     phase: 3.8,
   },
 ];
 
 const CURSOR_RADIUS = 350;
-const SCALE = 0.25;
+const SCALE = 0.5;
 
 export default function Aurora() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -116,9 +116,9 @@ export default function Aurora() {
 
       const gradient = oCtx!.createLinearGradient(0, 0, ow, 0);
       gradient.addColorStop(0, `rgba(${band.color}, 0)`);
-      gradient.addColorStop(0.15, `rgba(${band.color}, ${band.opacity})`);
-      gradient.addColorStop(0.5, `rgba(${band.color}, ${band.opacity * 1.4})`);
-      gradient.addColorStop(0.85, `rgba(${band.color}, ${band.opacity})`);
+      gradient.addColorStop(0.2, `rgba(${band.color}, ${band.opacity})`);
+      gradient.addColorStop(0.5, `rgba(${band.color}, ${band.opacity * 1.3})`);
+      gradient.addColorStop(0.8, `rgba(${band.color}, ${band.opacity})`);
       gradient.addColorStop(1, `rgba(${band.color}, 0)`);
 
       oCtx!.fillStyle = gradient;
@@ -259,7 +259,7 @@ export default function Aurora() {
     <canvas
       ref={refCallback}
       className="absolute inset-0 hero-canvas-fade"
-      style={{ pointerEvents: "none", willChange: "contents", contain: "strict" }}
+      style={{ pointerEvents: "none", filter: "blur(40px)", willChange: "transform" }}
     />
   );
 }

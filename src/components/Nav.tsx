@@ -25,7 +25,7 @@ export function Nav({ variant = "marketing" }: NavProps) {
           wasScrolled = scrolled;
           const el = navRef.current;
           if (el) {
-            el.style.background = scrolled ? "rgba(255,255,255,.06)" : "rgba(255,255,255,.03)";
+            el.style.background = scrolled ? "rgba(14,14,22,.92)" : "rgba(14,14,22,.85)";
             el.style.borderColor = scrolled ? "rgba(255,255,255,.12)" : "rgba(255,255,255,.06)";
             el.style.boxShadow = scrolled ? "0 8px 32px rgba(0,0,0,.25)" : "none";
             el.style.paddingTop = scrolled ? "12px" : "14px";
@@ -56,9 +56,7 @@ export function Nav({ variant = "marketing" }: NavProps) {
       ref={navRef}
       className="fixed top-0 left-0 right-0 z-[100] mx-3 mt-3 flex items-center justify-between px-6 py-3.5 rounded-2xl transition-[background,border-color,box-shadow] duration-300 md:mx-5 md:px-8"
       style={{
-        background: "rgba(255,255,255,.03)",
-        backdropFilter: "blur(16px) saturate(1.4)",
-        WebkitBackdropFilter: "blur(16px) saturate(1.4)",
+        background: "rgba(14,14,22,.85)",
         border: "1px solid rgba(255,255,255,.06)",
       }}
     >
@@ -116,9 +114,7 @@ export function Nav({ variant = "marketing" }: NavProps) {
         <div
           className="absolute top-[calc(100%+8px)] left-0 right-0 mx-1 rounded-2xl px-6 pb-6 pt-4 sm:hidden"
           style={{
-            background: "rgba(255,255,255,.05)",
-            backdropFilter: "blur(16px) saturate(1.4)",
-            WebkitBackdropFilter: "blur(16px) saturate(1.4)",
+            background: "rgba(14,14,22,.92)",
             border: "1px solid rgba(255,255,255,.1)",
             boxShadow: "0 12px 40px rgba(0,0,0,.35)",
           }}

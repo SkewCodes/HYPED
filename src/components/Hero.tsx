@@ -53,7 +53,11 @@ export function Hero() {
       />
 
       <div className="relative z-[2] w-full max-w-[1200px] px-6 pb-16 pt-[150px] md:px-10">
-        <h1 className="m-0 font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88] tracking-[.01em]">
+        <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
+          THE BRAND FOR MAXXING CULTURE
+        </p>
+
+        <h1 className="mt-6 m-0 font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88] tracking-[.01em]">
           <span className="block">Be Hyped.</span>
           <span
             className="block"
@@ -68,8 +72,9 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="mt-6 max-w-[540px] text-[17px] leading-[1.6] text-hyped-muted md:text-[19px]">
-          The home for people who lock in. Culture that compounds. Products that earn.
+        <p className="mt-6 max-w-[500px] text-[17px] leading-[1.6] text-hyped-muted md:text-[19px]">
+          For the ones who wake up and lock in. Who track the progress,
+          sharpen the edge, and show up again tomorrow.
         </p>
 
         <p className="mt-4 font-mono text-sm tracking-[.08em] text-[var(--accent)]">

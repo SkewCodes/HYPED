@@ -9,8 +9,23 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/products",
+        destination: "/max",
+        permanent: true,
+      },
+      {
         source: "/ecosystem",
-        destination: "/partners",
+        destination: "/max",
+        permanent: true,
+      },
+      {
+        source: "/partners",
+        destination: "/max",
+        permanent: true,
+      },
+      {
+        source: "/network",
+        destination: "/max",
         permanent: true,
       },
     ];

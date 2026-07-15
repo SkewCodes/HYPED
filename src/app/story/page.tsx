@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "There's a type of person the internet was supposed to be built for but never was. Hyped exists for them.",
   openGraph: {
     title: "Manifesto — HYPED",
-    description: "The home for people who lock in. Identity first, products second.",
+    description: "There's a type of person the internet was supposed to be built for but never was. Hyped exists for them.",
     url: `${site.url}/story`,
     siteName: site.name,
     type: "website",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Manifesto — HYPED",
-    description: "There's a type of person the internet was supposed to be built for but never was. Hyped exists for them.",
+    description: "The brand for maxxing culture. For the ones who wake up and lock in.",
   },
 };
 
@@ -38,10 +38,11 @@ export default function StoryPage() {
           <header className="pt-[60px] pb-[80px] md:pt-[80px] md:pb-[100px]">
             <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">THE HYPED MANIFESTO</p>
             <h1 className="mt-6 font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
-              Be Hyped, Dream Big.
+              The brand for maxxing culture.
             </h1>
             <p className="mt-6 max-w-[520px] text-[17px] leading-[1.7] text-hyped-muted">
-              The home for people who lock in.
+              There&apos;s a type of person the internet was supposed to be
+              built for but never was. This is for them.
             </p>
           </header>
 

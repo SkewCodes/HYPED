@@ -5,7 +5,7 @@ export const site = {
   url: siteUrl,
   title: "HYPED — Be Hyped, Dream Big.",
   description:
-    "The home for people who lock in. Culture that compounds. Products that earn.",
+    "The brand for maxxing culture. For the ones who wake up and lock in.",
   ogImage: "/api/og",
   northStar: "Be Hyped, Dream Big.",
   positioning: "The home for people who lock in.",
@@ -13,8 +13,7 @@ export const site = {
   nav: {
     links: [
       { label: "MANIFESTO", href: "/story" },
-      { label: "ECOSYSTEM", href: "/products" },
-      { label: "NETWORK", href: "/partners" },
+      { label: "HYPED.MAX", href: "/max" },
       { label: "HYPED TV", href: "/tv" },
     ],
     cta: { label: "LOCK IN", href: "/#waitlist" },
@@ -22,8 +21,7 @@ export const site = {
   footer: {
     links: [
       { label: "Manifesto", href: "/story" },
-      { label: "Ecosystem", href: "/products" },
-      { label: "Network", href: "/partners" },
+      { label: "hyped.max", href: "/max" },
       { label: "Hyped TV", href: "/tv" },
     ],
     socials: [

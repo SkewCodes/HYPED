@@ -20,7 +20,11 @@ export async function GET() {
           <polygon points="58,4 14,78 44,78 34,136 88,54 54,54" fill="#00F0FF" />
         </svg>
 
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 24 }}>
+        <span style={{ marginTop: 20, fontSize: 14, color: "#00F0FF", letterSpacing: "0.3em", textTransform: "uppercase", fontFamily: "monospace" }}>
+          THE BRAND FOR MAXXING CULTURE
+        </span>
+
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: 20 }}>
           <span style={{ fontSize: 80, fontWeight: 900, color: "#FFFFFF", textTransform: "uppercase", letterSpacing: "-0.02em", lineHeight: 0.85 }}>
             BE HYPED.
           </span>
@@ -29,12 +33,8 @@ export async function GET() {
           </span>
         </div>
 
-        <span style={{ marginTop: 32, fontSize: 18, color: "#A0A0B0", letterSpacing: "0.12em", fontFamily: "monospace" }}>
-          The home for people who lock in.
-        </span>
-
-        <span style={{ marginTop: 16, fontSize: 14, color: "#00F0FF", letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
-          LOCK IN. STAY HYPED.
+        <span style={{ marginTop: 32, fontSize: 18, color: "#A0A0B0", letterSpacing: "0.08em", fontFamily: "monospace" }}>
+          For the ones who wake up and lock in.
         </span>
       </div>
     ),

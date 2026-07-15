@@ -6,10 +6,10 @@ import { VideoPlayer } from "@/components/VideoPlayer";
 
 export const metadata: Metadata = {
   title: "Hyped TV — HYPED",
-  description: "The culture in motion. Markets, building, the grind — streamed daily.",
+  description: "The grind, live. Trading sessions, build streams, and everything in between.",
   openGraph: {
     title: "Hyped TV — HYPED",
-    description: "The culture in motion. Markets, building, the grind — streamed daily.",
+    description: "The grind, live. Trading sessions, build streams, and everything in between.",
     url: `${site.url}/tv`,
     siteName: site.name,
     type: "website",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Hyped TV — HYPED",
-    description: "The culture in motion. Markets, building, the grind — streamed daily.",
+    description: "The grind, live. Trading sessions, build streams, and everything in between.",
   },
 };
 
@@ -51,10 +51,11 @@ export default async function TVPage() {
           {/* Header */}
           <section className="py-[60px] md:py-[100px]">
             <h1 className="font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
-              Locked in & live.
+              The grind, live.
             </h1>
             <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-muted md:text-[17px]">
-              Markets, building, the grind — streamed daily.
+              Trading sessions, build streams, and everything in between.
+              Real work. No scripts.
             </p>
           </section>
 

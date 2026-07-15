@@ -40,11 +40,15 @@ export function Waitlist() {
       style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
     >
       <div className="mx-auto max-w-[1200px]">
-        <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
+        <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
+          JOIN THE FIRST WAVE
+        </p>
+        <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
           {site.mantra}
         </h2>
         <p className="mt-4 max-w-[480px] text-[15px] leading-[1.6] text-hyped-muted">
-          Early access to everything Hyped builds. Products, culture, community — as it ships.
+          Early access to hyped.max and everything that comes after.
+          Be part of the culture from day one.
         </p>
 
         {state === "success" ? (

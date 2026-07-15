@@ -1,29 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 import Aurora from "./Aurora";
 import { Ticker } from "./Ticker";
 import { site } from "@/content/site";
 
 export function Hero() {
-  const [glow, setGlow] = useState(0);
+  const glowRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    let ticking = false;
     const onScroll = () => {
-      const vh = window.innerHeight;
-      const progress = Math.min(1, Math.max(0, window.scrollY / (vh * 0.6)));
-      setGlow(progress);
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const vh = window.innerHeight;
+        const glow = Math.min(1, Math.max(0, window.scrollY / (vh * 0.6)));
+
+        const el = glowRef.current;
+        if (el) {
+          const blur1 = 8 + glow * 20;
+          const blur2 = 24 + glow * 50;
+          const alpha1 = 0.4 + glow * 0.5;
+          const alpha2 = 0.15 + glow * 0.35;
+          const fillAlpha = glow * 0.9;
+          const strokeWidth = 2 - glow * 0.5;
+
+          el.style.color = `rgba(0,240,255,${fillAlpha})`;
+          el.style.webkitTextStroke = `${strokeWidth}px var(--accent)`;
+          el.style.filter = `drop-shadow(0 0 ${blur1}px rgba(0,240,255,${alpha1})) drop-shadow(0 0 ${blur2}px rgba(0,240,255,${alpha2}))`;
+        }
+        ticking = false;
+      });
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
-  const blur1 = 8 + glow * 20;
-  const blur2 = 24 + glow * 50;
-  const alpha1 = 0.4 + glow * 0.5;
-  const alpha2 = 0.15 + glow * 0.35;
-  const fillAlpha = glow * 0.9;
-  const strokeWidth = 2 - glow * 0.5;
 
   return (
     <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden">
@@ -60,12 +72,13 @@ export function Hero() {
         <h1 className="mt-6 m-0 font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88] tracking-[.01em]">
           <span className="hero-stagger-2 block">Be Hyped.</span>
           <span
+            ref={glowRef}
             className="hero-stagger-3 block"
             style={{
-              color: `rgba(0,240,255,${fillAlpha})`,
-              WebkitTextStroke: `${strokeWidth}px var(--accent)`,
-              filter: `drop-shadow(0 0 ${blur1}px rgba(0,240,255,${alpha1})) drop-shadow(0 0 ${blur2}px rgba(0,240,255,${alpha2}))`,
-              transition: "color .1s, filter .1s, -webkit-text-stroke .1s",
+              color: "transparent",
+              WebkitTextStroke: "2px var(--accent)",
+              filter: "drop-shadow(0 0 8px rgba(0,240,255,.4)) drop-shadow(0 0 24px rgba(0,240,255,.15))",
+              transition: "color .1s, filter .1s",
             }}
           >
             Dream Big.

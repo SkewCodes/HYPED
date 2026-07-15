@@ -144,6 +144,9 @@ export default async function Home() {
                     <img
                       src={latestVideo.thumbnail}
                       alt={latestVideo.title}
+                      width={480}
+                      height={360}
+                      loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   ) : (

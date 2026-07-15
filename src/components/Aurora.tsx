@@ -8,7 +8,6 @@ interface Band {
   amplitude: number;
   frequency: number;
   speed: number;
-  thickness: number;
   opacity: number;
   blur: number;
   phase: number;
@@ -21,7 +20,6 @@ const BANDS: Band[] = [
     amplitude: 0.12,
     frequency: 0.8,
     speed: 0.0004,
-    thickness: 0.28,
     opacity: 0.12,
     blur: 80,
     phase: 0,
@@ -32,7 +30,6 @@ const BANDS: Band[] = [
     amplitude: 0.15,
     frequency: 0.6,
     speed: 0.0003,
-    thickness: 0.32,
     opacity: 0.1,
     blur: 100,
     phase: 1.2,
@@ -43,7 +40,6 @@ const BANDS: Band[] = [
     amplitude: 0.1,
     frequency: 1.0,
     speed: 0.0005,
-    thickness: 0.2,
     opacity: 0.07,
     blur: 60,
     phase: 2.5,
@@ -54,7 +50,6 @@ const BANDS: Band[] = [
     amplitude: 0.08,
     frequency: 1.3,
     speed: 0.00035,
-    thickness: 0.15,
     opacity: 0.06,
     blur: 120,
     phase: 3.8,
@@ -86,7 +81,7 @@ export default function Aurora() {
     let mouseY = -9999;
     let smoothX = -9999;
     let smoothY = -9999;
-    let time = 0;
+    let isVisible = true;
 
     function resize() {
       const rect = parent!.getBoundingClientRect();
@@ -99,26 +94,16 @@ export default function Aurora() {
       ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
     }
 
-    function getWaveY(band: Band, x: number, t: number): number {
-      const nx = x / w;
+    function getWaveY(band: Band, nx: number, t: number): number {
       const wave1 = Math.sin(nx * Math.PI * 2 * band.frequency + t * band.speed * 1000 + band.phase);
       const wave2 = Math.sin(nx * Math.PI * 3.7 * band.frequency + t * band.speed * 700 + band.phase * 1.5) * 0.5;
       const wave3 = Math.sin(nx * Math.PI * 1.3 * band.frequency + t * band.speed * 500 + band.phase * 0.7) * 0.3;
       return band.baseY * h + (wave1 + wave2 + wave3) * band.amplitude * h;
     }
 
-    function cursorInfluence(x: number, y: number): number {
-      if (smoothX < -1000) return 0;
-      const dx = x - smoothX;
-      const dy = y - smoothY;
-      const dist = Math.sqrt(dx * dx + dy * dy);
-      if (dist > CURSOR_RADIUS) return 0;
-      return (1 - dist / CURSOR_RADIUS) * 0.4;
-    }
-
     function drawBand(band: Band, t: number) {
-      const steps = Math.ceil(w / 4);
-      const stepW = w / steps;
+      const step = 8;
+      const count = Math.ceil(w / step);
 
       ctx!.save();
 
@@ -135,24 +120,27 @@ export default function Aurora() {
       ctx!.beginPath();
       ctx!.moveTo(0, h);
 
-      for (let i = 0; i <= steps; i++) {
-        const x = i * stepW;
-        let y = getWaveY(band, x, t);
+      let prevY = getWaveY(band, 0, t);
+      ctx!.lineTo(0, prevY);
 
-        const ci = cursorInfluence(x, y);
-        if (ci > 0 && smoothY > -1000) {
+      for (let i = 1; i <= count; i++) {
+        const x = i * step;
+        const nx = x / w;
+        let y = getWaveY(band, nx, t);
+
+        if (smoothX > -1000) {
+          const dx = x - smoothX;
           const dy = y - smoothY;
-          y += dy * ci * -0.3;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < CURSOR_RADIUS) {
+            const ci = (1 - dist / CURSOR_RADIUS) * 0.4;
+            y += dy * ci * -0.3;
+          }
         }
 
-        if (i === 0) {
-          ctx!.lineTo(x, y);
-        } else {
-          const prevX = (i - 1) * stepW;
-          const cpX = (prevX + x) / 2;
-          const prevY = getWaveY(band, prevX, t);
-          ctx!.quadraticCurveTo(cpX, prevY, x, y);
-        }
+        const cpX = x - step * 0.5;
+        ctx!.quadraticCurveTo(cpX, prevY, x, y);
+        prevY = y;
       }
 
       ctx!.lineTo(w, h);
@@ -182,7 +170,11 @@ export default function Aurora() {
     }
 
     function animate(ts: number) {
-      time = ts;
+      if (!isVisible) {
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
+
       ctx!.clearRect(0, 0, w, h);
 
       if (mouseX > -1000) {
@@ -193,7 +185,7 @@ export default function Aurora() {
       drawCursorGlow();
 
       for (let i = 0; i < BANDS.length; i++) {
-        drawBand(BANDS[i], time);
+        drawBand(BANDS[i], ts);
       }
 
       rafId = requestAnimationFrame(animate);
@@ -216,6 +208,12 @@ export default function Aurora() {
       smoothY = -9999;
     }
 
+    const observer = new IntersectionObserver(
+      ([entry]) => { isVisible = entry.isIntersecting; },
+      { threshold: 0 },
+    );
+    observer.observe(canvas);
+
     resize();
 
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -225,7 +223,7 @@ export default function Aurora() {
         drawBand(band, 0);
       }
     } else {
-      document.addEventListener("mousemove", onMouseMove);
+      document.addEventListener("mousemove", onMouseMove, { passive: true });
       document.addEventListener("mouseleave", onMouseLeave);
       window.addEventListener("resize", resize);
       rafId = requestAnimationFrame(animate);
@@ -234,6 +232,7 @@ export default function Aurora() {
     return () => {
       mountedRef.current = false;
       cancelAnimationFrame(rafId);
+      observer.disconnect();
       document.removeEventListener("mousemove", onMouseMove);
       document.removeEventListener("mouseleave", onMouseLeave);
       window.removeEventListener("resize", resize);

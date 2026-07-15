@@ -35,6 +35,9 @@ export function VideoPlayer({ videoId, title, thumbnail }: VideoPlayerProps) {
         <img
           src={thumbnail}
           alt={title}
+          width={480}
+          height={360}
+          loading="eager"
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
       ) : (

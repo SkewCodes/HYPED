@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
 import { Bolt } from "./Bolt";
 
@@ -9,11 +9,33 @@ interface NavProps {
 }
 
 export function Nav({ variant = "marketing" }: NavProps) {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
+    let ticking = false;
+    let wasScrolled = false;
+
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const scrolled = window.scrollY > 80;
+        if (scrolled !== wasScrolled) {
+          wasScrolled = scrolled;
+          const el = navRef.current;
+          if (el) {
+            el.style.background = scrolled ? "rgba(255,255,255,.06)" : "rgba(255,255,255,.03)";
+            el.style.borderColor = scrolled ? "rgba(255,255,255,.12)" : "rgba(255,255,255,.06)";
+            el.style.boxShadow = scrolled ? "0 8px 32px rgba(0,0,0,.25)" : "none";
+            el.style.paddingTop = scrolled ? "12px" : "14px";
+            el.style.paddingBottom = scrolled ? "12px" : "14px";
+          }
+        }
+        ticking = false;
+      });
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -31,13 +53,13 @@ export function Nav({ variant = "marketing" }: NavProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] mx-3 mt-3 flex items-center justify-between px-6 py-3.5 rounded-2xl transition-all duration-300 md:mx-5 md:px-8 ${scrolled ? "py-3" : ""}`}
+      ref={navRef}
+      className="fixed top-0 left-0 right-0 z-[100] mx-3 mt-3 flex items-center justify-between px-6 py-3.5 rounded-2xl transition-[background,border-color,box-shadow] duration-300 md:mx-5 md:px-8"
       style={{
-        background: scrolled ? "rgba(255,255,255,.06)" : "rgba(255,255,255,.03)",
+        background: "rgba(255,255,255,.03)",
         backdropFilter: "blur(32px) saturate(1.5)",
         WebkitBackdropFilter: "blur(32px) saturate(1.5)",
-        border: scrolled ? "1px solid rgba(255,255,255,.12)" : "1px solid rgba(255,255,255,.06)",
-        boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,.25)" : "none",
+        border: "1px solid rgba(255,255,255,.06)",
       }}
     >
       <div className="flex items-center gap-8">

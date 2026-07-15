@@ -22,23 +22,21 @@ export default async function Home() {
       <Hero />
 
       {/* Manifesto excerpt */}
-      <section
-        className="px-6 py-[100px] md:px-10 md:py-[140px]"
-        style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-      >
+      <section className="reveal px-6 py-[120px] md:px-10 md:py-[160px]">
+        <div className="divider mb-[120px] md:mb-[160px]" />
         <div className="mx-auto max-w-[1200px]">
           <p className="max-w-[720px] text-[clamp(20px,2.8vw,28px)] leading-[1.5] text-hyped-white font-display font-[700]">
             There&apos;s a type of person the internet was supposed to be
             built for but never was.
           </p>
-          <p className="mt-6 max-w-[600px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
+          <p className="mt-6 max-w-[600px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
             The person who wakes up and locks in. Who tracks their progress,
             sharpens their edge, and shows up again tomorrow whether
             anyone&apos;s watching or not.
           </p>
           <a
             href="/story"
-            className="mt-8 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
+            className="group mt-8 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
           >
             Read the Manifesto
             <svg width="14" height="10" viewBox="0 0 14 10" fill="none" className="transition-transform group-hover:translate-x-1">
@@ -49,10 +47,8 @@ export default async function Home() {
       </section>
 
       {/* What is maxxing? */}
-      <section
-        className="px-6 py-[100px] md:px-10 md:py-[140px]"
-        style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-      >
+      <section className="reveal section-purple px-6 py-[100px] md:px-10 md:py-[140px]">
+        <div className="divider mb-[100px] md:mb-[140px]" />
         <div className="mx-auto max-w-[1200px]">
           <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
             WHAT IS MAXXING?
@@ -61,16 +57,16 @@ export default async function Home() {
             The daily commitment to getting better at the things that matter
             to you.
           </h2>
-          <p className="mt-6 max-w-[560px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
+          <p className="mt-6 max-w-[560px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
             Not self-improvement books you forget. Not hustle culture that
             burns out. Maxxing is measurable, specific, and it compounds.
           </p>
 
           <div className="mt-12 grid gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style={{ background: "rgba(255,255,255,.06)" }}>
-            {maxxingDomains.map((domain) => (
+            {maxxingDomains.map((domain, i) => (
               <div
                 key={domain.label}
-                className="bg-hyped-void p-6"
+                className={`bg-hyped-void p-6 ${i % 2 === 1 ? "bg-hyped-surface" : ""}`}
               >
                 <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">
                   {domain.label}
@@ -85,18 +81,10 @@ export default async function Home() {
       </section>
 
       {/* hyped.max teaser */}
-      <section
-        className="px-6 py-[100px] md:px-10 md:py-[140px]"
-        style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-      >
+      <section className="reveal px-6 py-[120px] md:px-10 md:py-[160px]">
+        <div className="divider mb-[120px] md:mb-[160px]" />
         <div className="mx-auto max-w-[1200px]">
-          <div
-            className="p-8 sm:p-10 md:p-12"
-            style={{
-              border: "1px solid rgba(0,240,255,.15)",
-              background: "radial-gradient(ellipse 80% 70% at 50% 100%,rgba(0,240,255,.04),transparent 70%)",
-            }}
-          >
+          <div className="card-accent p-8 sm:p-10 md:p-12">
             <div className="flex items-center gap-2.5">
               <Bolt width={14} height={20} />
               <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">
@@ -109,14 +97,14 @@ export default async function Home() {
             <p className="mt-2 font-display font-[800] uppercase text-[clamp(16px,2vw,22px)] leading-[.95] text-[var(--accent)]">
               Track your arc.
             </p>
-            <p className="mt-6 max-w-[500px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
+            <p className="mt-6 max-w-[500px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
               The daily lock-in across every domain you&apos;re maxxing. Gym,
               trading, building, content, life — stack streaks, stay
               accountable, watch the growth compound.
             </p>
             <a
               href="#waitlist"
-              className="mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+              className="cta-pulse mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
             >
               JOIN THE WAITLIST
             </a>
@@ -125,10 +113,8 @@ export default async function Home() {
       </section>
 
       {/* Hyped TV embed */}
-      <section
-        className="px-6 py-[100px] md:px-10 md:py-[140px]"
-        style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-      >
+      <section className="reveal section-purple px-6 py-[100px] md:px-10 md:py-[140px]">
+        <div className="divider mb-[100px] md:mb-[140px]" />
         <div className="mx-auto max-w-[1200px]">
           <div className="flex items-end justify-between gap-6 flex-wrap">
             <div>
@@ -141,9 +127,10 @@ export default async function Home() {
             </div>
             <a
               href="/tv"
-              className="font-mono text-[12px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
+              className="group font-mono text-[12px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
             >
-              View all →
+              View all
+              <span className="inline-block ml-1 transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
 
@@ -155,7 +142,7 @@ export default async function Home() {
                 rel="noopener noreferrer"
                 className="group block"
               >
-                <div className="relative aspect-video overflow-hidden bg-hyped-panel">
+                <div className="relative aspect-video overflow-hidden bg-hyped-surface">
                   {latestVideo.thumbnail ? (
                     <img
                       src={latestVideo.thumbnail}
@@ -163,7 +150,7 @@ export default async function Home() {
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                     />
                   ) : (
-                    <div className="h-full w-full bg-hyped-panel" />
+                    <div className="h-full w-full bg-hyped-surface" />
                   )}
                   <div className="absolute inset-0 bg-black/30 transition-colors group-hover:bg-black/20" />
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -189,11 +176,8 @@ export default async function Home() {
               </a>
             </div>
           ) : (
-            <div
-              className="mt-10 p-8 sm:p-10"
-              style={{ border: "1px solid rgba(255,255,255,.06)" }}
-            >
-              <p className="text-[15px] text-hyped-muted">
+            <div className="mt-10 card-interactive p-8 sm:p-10">
+              <p className="text-[15px] text-hyped-bright">
                 Streams coming soon. Subscribe on{" "}
                 <a href="https://www.youtube.com/@52kskew" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:text-hyped-white transition-colors">
                   YouTube

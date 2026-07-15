@@ -53,14 +53,14 @@ export function Hero() {
       />
 
       <div className="relative z-[2] w-full max-w-[1200px] px-6 pb-16 pt-[150px] md:px-10">
-        <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
+        <p className="hero-stagger-1 font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
           THE BRAND FOR MAXXING CULTURE
         </p>
 
         <h1 className="mt-6 m-0 font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88] tracking-[.01em]">
-          <span className="block">Be Hyped.</span>
+          <span className="hero-stagger-2 block">Be Hyped.</span>
           <span
-            className="block"
+            className="hero-stagger-3 block"
             style={{
               color: `rgba(0,240,255,${fillAlpha})`,
               WebkitTextStroke: `${strokeWidth}px var(--accent)`,
@@ -72,12 +72,12 @@ export function Hero() {
           </span>
         </h1>
 
-        <p className="mt-6 max-w-[500px] text-[17px] leading-[1.6] text-hyped-muted md:text-[19px]">
+        <p className="hero-stagger-4 mt-6 max-w-[500px] text-[17px] leading-[1.6] text-hyped-bright md:text-[19px]">
           For the ones who wake up and lock in. Who track the progress,
           sharpen the edge, and show up again tomorrow.
         </p>
 
-        <p className="mt-4 font-mono text-sm tracking-[.08em] text-[var(--accent)]">
+        <p className="hero-stagger-5 mt-4 font-mono text-sm tracking-[.08em] text-[var(--accent)]">
           {site.mantra}
         </p>
       </div>
@@ -86,11 +86,11 @@ export function Hero() {
         <Ticker />
       </div>
 
-      <div className="relative z-[2] flex justify-center pb-6 pt-4">
+      <div className="hero-stagger-5 relative z-[2] flex justify-center pb-6 pt-4">
         <div className="flex flex-col items-center gap-2">
-          <span className="font-mono text-[10px] tracking-[.2em] text-hyped-muted">SCROLL</span>
+          <span className="font-mono text-[10px] tracking-[.2em] text-hyped-dim">SCROLL</span>
           <svg width="14" height="18" viewBox="0 0 14 18" fill="none" className="animate-[scrollDown_2s_ease-in-out_infinite]">
-            <path d="M7 0v14M1 10l6 6 6-6" stroke="currentColor" strokeWidth="1.5" className="text-hyped-muted" />
+            <path d="M7 0v14M1 10l6 6 6-6" stroke="currentColor" strokeWidth="1.5" className="text-hyped-dim" />
           </svg>
         </div>
       </div>

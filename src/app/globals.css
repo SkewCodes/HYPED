@@ -1,24 +1,30 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-hyped-void:   #0A0A12;
-  --color-hyped-panel:  #1A0A2E;
-  --color-hyped-card:   #0F0A1C;
-  --color-hyped-white:  #FFFFFF;
-  --color-hyped-muted:  #A0A0B0;
-  --color-hyped-cyan:   #00F0FF;
-  --color-hyped-rekt:   #FF3B4E;
-  --color-hyped-green:  #00D97E;
+  --color-hyped-void:     #0A0A12;
+  --color-hyped-surface:  #111118;
+  --color-hyped-elevated: #1A1A24;
+  --color-hyped-panel:    #1A0A2E;
+  --color-hyped-card:     #0F0A1C;
+  --color-hyped-white:    #FFFFFF;
+  --color-hyped-bright:   #D0D0DC;
+  --color-hyped-muted:    #A0A0B0;
+  --color-hyped-dim:      #6B6B7B;
+  --color-hyped-cyan:     #00F0FF;
+  --color-hyped-gold:     #FFD166;
+  --color-hyped-rekt:     #FF3B4E;
+  --color-hyped-green:    #00D97E;
 
   --font-display: var(--font-display-face);
   --font-body: var(--font-body-face);
   --font-mono: var(--font-mono-face);
 
-  --animate-marquee: marquee 32s linear infinite;
+  --animate-marquee: marquee 26s linear infinite;
 }
 
 :root {
   --accent: #00F0FF;
+  --accent-warm: #FFD166;
 }
 
 * {
@@ -50,30 +56,111 @@ body {
 ::-webkit-scrollbar-thumb { background: rgba(160, 160, 176, 0.2); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(160, 160, 176, 0.4); }
 
+/* --- Keyframes --- */
+
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
-}
-
-@keyframes shimmer {
-  from { transform: translateX(-120px); }
-  to { transform: translateX(280px); }
-}
-
-@keyframes oddsShift {
-  0%, 100% { width: 58%; }
-  50% { width: 66%; }
-}
-
-@keyframes floatUp {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-4px); }
 }
 
 @keyframes scrollDown {
   0%, 100% { transform: translateY(0); opacity: 1; }
   50% { transform: translateY(6px); opacity: 0.3; }
 }
+
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 240, 255, .4); }
+  50% { box-shadow: 0 0 0 6px rgba(0, 240, 255, 0); }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Scroll-driven section reveals --- */
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    animation: revealUp 0.6s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+  .reveal-delay-1 {
+    animation: revealUp 0.6s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 40%;
+  }
+  .reveal-delay-2 {
+    animation: revealUp 0.6s ease-out both;
+    animation-timeline: view();
+    animation-range: entry 10% entry 45%;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .reveal, .reveal-delay-1, .reveal-delay-2 {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Hero entrance stagger --- */
+
+.hero-stagger-1 {
+  opacity: 0;
+  animation: heroFadeUp 0.5s ease-out forwards;
+  animation-delay: 0.1s;
+}
+.hero-stagger-2 {
+  opacity: 0;
+  animation: heroFadeUp 0.5s ease-out forwards;
+  animation-delay: 0.25s;
+}
+.hero-stagger-3 {
+  opacity: 0;
+  animation: heroFadeUp 0.5s ease-out forwards;
+  animation-delay: 0.4s;
+}
+.hero-stagger-4 {
+  opacity: 0;
+  animation: heroFadeIn 0.5s ease-out forwards;
+  animation-delay: 0.6s;
+}
+.hero-stagger-5 {
+  opacity: 0;
+  animation: heroFadeIn 0.5s ease-out forwards;
+  animation-delay: 0.8s;
+}
+.hero-canvas-fade {
+  opacity: 0;
+  animation: heroFadeIn 1.5s ease-out forwards;
+  animation-delay: 0.2s;
+}
+
+/* --- Hero outline text --- */
 
 .hero-outline {
   color: transparent;
@@ -87,11 +174,106 @@ body {
   filter: drop-shadow(0 0 12px rgba(0, 240, 255, .6)) drop-shadow(0 0 40px rgba(0, 240, 255, .25));
 }
 
+/* --- Section dividers --- */
+
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 240, 255, .2) 50%, transparent);
+}
+
+.divider-subtle {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, .08) 50%, transparent);
+}
+
+/* --- Card interactions --- */
+
+.card-interactive {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, .08);
+  background: var(--color-hyped-surface);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-interactive::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--accent);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.3s ease;
+}
+
+.card-interactive:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 240, 255, .2);
+  box-shadow: 0 0 0 1px rgba(0, 240, 255, .1), 0 8px 30px rgba(0, 0, 0, .3), 0 0 20px rgba(0, 240, 255, .06);
+}
+
+.card-interactive:hover::before {
+  transform: scaleY(1);
+}
+
+/* Accent card (hyped.max teaser) */
+.card-accent {
+  position: relative;
+  border: 1px solid rgba(0, 240, 255, .15);
+  background: radial-gradient(ellipse 80% 70% at 50% 100%, rgba(0, 240, 255, .04), transparent 70%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card-accent:hover {
+  transform: translateY(-2px);
+  border-color: rgba(0, 240, 255, .3);
+  box-shadow: 0 0 0 1px rgba(0, 240, 255, .15), 0 8px 30px rgba(0, 0, 0, .3), 0 0 30px rgba(0, 240, 255, .08);
+}
+
+/* CTA button pulse */
+.cta-pulse {
+  animation: ctaPulse 3s ease-in-out infinite;
+}
+
+/* --- Ticker --- */
+
+.ticker-mask {
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.ticker-mask:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* --- Purple rhythm sections --- */
+
+.section-purple {
+  background: linear-gradient(180deg, rgba(26, 10, 46, .12) 0%, var(--color-hyped-void) 100%);
+}
+
+/* --- Reduced motion --- */
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   video { display: none; }
   .poster-fallback { display: block; }
   .animate-marquee { animation: none; }
+  .hero-stagger-1, .hero-stagger-2, .hero-stagger-3,
+  .hero-stagger-4, .hero-stagger-5, .hero-canvas-fade {
+    opacity: 1;
+    animation: none;
+  }
+  .reveal, .reveal-delay-1, .reveal-delay-2 {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .cta-pulse {
+    animation: none;
+  }
 }
 
 .poster-fallback { display: none; }

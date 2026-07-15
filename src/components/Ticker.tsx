@@ -6,10 +6,10 @@ function TickerHalf() {
     <div className="flex shrink-0 items-center gap-8 pr-8">
       {tickerItems.map((item) => (
         <span key={item} className="contents">
-          <span className="font-mono text-[13px] tracking-[.12em] text-hyped-muted whitespace-nowrap sm:text-[15px]">
+          <span className="font-mono text-[13px] tracking-[.12em] text-hyped-muted whitespace-nowrap transition-colors duration-200 hover:text-[var(--accent)] sm:text-[15px]">
             {item}
           </span>
-          <Bolt width={10} height={14} className="shrink-0 opacity-40" />
+          <Bolt width={10} height={14} className="shrink-0 opacity-30" />
         </span>
       ))}
     </div>
@@ -19,18 +19,16 @@ function TickerHalf() {
 export function Ticker() {
   return (
     <div
-      className="overflow-hidden py-3 sm:py-[14px]"
-      style={{
-        borderTop: "1px solid rgba(255,255,255,.06)",
-        borderBottom: "1px solid rgba(255,255,255,.06)",
-      }}
+      className="ticker-mask overflow-hidden py-3 sm:py-[14px]"
     >
-      <div className="flex w-max animate-marquee">
+      <div className="divider-subtle" />
+      <div className="flex w-max animate-marquee py-3 sm:py-[14px]">
         <TickerHalf />
         <TickerHalf />
         <TickerHalf />
         <TickerHalf />
       </div>
+      <div className="divider-subtle" />
     </div>
   );
 }

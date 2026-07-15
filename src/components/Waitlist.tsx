@@ -36,9 +36,9 @@ export function Waitlist() {
   return (
     <section
       id="waitlist"
-      className="px-6 py-[120px] md:px-10 md:py-[160px]"
-      style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
+      className="reveal px-6 py-[120px] md:px-10 md:py-[160px]"
     >
+      <div className="divider mb-[120px] md:mb-[160px]" />
       <div className="mx-auto max-w-[1200px]">
         <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
           JOIN THE FIRST WAVE
@@ -46,7 +46,7 @@ export function Waitlist() {
         <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
           {site.mantra}
         </h2>
-        <p className="mt-4 max-w-[480px] text-[15px] leading-[1.6] text-hyped-muted">
+        <p className="mt-4 max-w-[480px] text-[15px] leading-[1.6] text-hyped-bright">
           Early access to hyped.max and everything that comes after.
           Be part of the culture from day one.
         </p>
@@ -72,13 +72,13 @@ export function Waitlist() {
               placeholder="your@email"
               required
               disabled={disabled}
-              className="min-w-0 flex-1 bg-transparent font-mono text-[13px] tracking-[.06em] text-hyped-white placeholder:text-hyped-muted outline-none transition-[border-color] focus:!border-[var(--accent)] disabled:opacity-50"
-              style={{ border: "1px solid rgba(255,255,255,.15)", padding: "16px 18px" }}
+              className="min-w-0 flex-1 bg-hyped-surface font-mono text-[13px] tracking-[.06em] text-hyped-white placeholder:text-hyped-dim outline-none transition-[border-color] focus:!border-[var(--accent)] disabled:opacity-50"
+              style={{ border: "1px solid rgba(255,255,255,.12)", padding: "16px 18px" }}
             />
             <button
               type="submit"
               disabled={disabled}
-              className="font-mono text-[12px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5 disabled:opacity-50"
+              className="cta-pulse font-mono text-[12px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5 disabled:opacity-50"
               style={{ padding: "16px 28px" }}
             >
               {state === "loading" ? "..." : "LOCK IN"}

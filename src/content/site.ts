@@ -5,10 +5,10 @@ export const site = {
   url: siteUrl,
   title: "HYPED — Everything. Maxxed.",
   description:
-    "The home for people who lock in. Culture that compounds. Products that earn.",
+    "The ecosystem for growth maxxing. Culture that compounds. Products that earn.",
   ogImage: "/api/og",
   northStar: "Be Hyped, Dream Big.",
-  positioning: "The home for people who lock in.",
+  positioning: "The ecosystem for growth maxxing.",
   mantra: "Lock in. Stay hyped.",
   nav: {
     links: [

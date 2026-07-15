@@ -30,7 +30,7 @@ export async function GET() {
         </div>
 
         <span style={{ marginTop: 32, fontSize: 18, color: "#A0A0B0", letterSpacing: "0.12em", fontFamily: "monospace" }}>
-          The home for people who lock in.
+          The ecosystem for growth maxxing.
         </span>
 
         <span style={{ marginTop: 16, fontSize: 14, color: "#00F0FF", letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>

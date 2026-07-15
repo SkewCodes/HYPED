@@ -16,7 +16,7 @@ export function Footer() {
               <span className="font-display text-[18px] font-[800] tracking-[.05em]">HYPED</span>
             </a>
             <p className="mt-3 font-mono text-[11px] tracking-[.06em] text-hyped-muted">
-              {site.anchor}
+              {site.northStar}
             </p>
           </div>
 
@@ -63,10 +63,11 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div
-          className="mt-10 pt-5 md:mt-12"
+          className="mt-10 flex flex-wrap items-center justify-between gap-4 pt-5 md:mt-12"
           style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
         >
           <span className="font-mono text-[10px] tracking-[.06em] text-hyped-muted">{site.footer.legal}</span>
+          <span className="font-mono text-[10px] tracking-[.12em] text-[var(--accent)]">{site.mantra}</span>
         </div>
       </div>
     </footer>

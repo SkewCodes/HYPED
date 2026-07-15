@@ -5,8 +5,11 @@ export const site = {
   url: siteUrl,
   title: "HYPED — Everything. Maxxed.",
   description:
-    "The brand for maxxing culture. Whatever you're maxxing — stay hyped.",
+    "The home for people who lock in. Culture that compounds. Products that earn.",
   ogImage: "/api/og",
+  northStar: "Be Hyped, Dream Big.",
+  positioning: "The home for people who lock in.",
+  mantra: "Lock in. Stay hyped.",
   nav: {
     links: [
       { label: "MANIFESTO", href: "/story" },
@@ -40,7 +43,6 @@ export const site = {
     name: "Skew",
     x: "https://x.com/52kskew",
   },
-  anchor: "Lock in & stay hyped.",
 } as const;
 
 export type SiteConfig = typeof site;

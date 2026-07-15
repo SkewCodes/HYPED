@@ -41,7 +41,7 @@ export function Waitlist() {
     >
       <div className="mx-auto max-w-[1200px]">
         <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
-          {site.anchor}
+          {site.mantra}
         </h2>
 
         {state === "success" ? (

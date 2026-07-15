@@ -69,11 +69,11 @@ export function Hero() {
         </h1>
 
         <p className="mt-6 max-w-[540px] text-[17px] leading-[1.6] text-hyped-muted md:text-[19px]">
-          The brand for maxxing culture.
+          {site.positioning}
         </p>
 
         <p className="mt-4 font-mono text-sm tracking-[.08em] text-[var(--accent)]">
-          {site.anchor}
+          {site.mantra}
         </p>
       </div>
 

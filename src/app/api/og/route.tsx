@@ -29,8 +29,12 @@ export async function GET() {
           </span>
         </div>
 
-        <span style={{ marginTop: 40, fontSize: 16, color: "#A0A0B0", letterSpacing: "0.28em", textTransform: "uppercase", fontFamily: "monospace" }}>
-          LOCK IN &amp; STAY HYPED
+        <span style={{ marginTop: 32, fontSize: 18, color: "#A0A0B0", letterSpacing: "0.12em", fontFamily: "monospace" }}>
+          The home for people who lock in.
+        </span>
+
+        <span style={{ marginTop: 16, fontSize: 14, color: "#00F0FF", letterSpacing: "0.24em", textTransform: "uppercase", fontFamily: "monospace" }}>
+          LOCK IN. STAY HYPED.
         </span>
       </div>
     ),

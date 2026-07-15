@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
-import { PageLayout } from "@/components/PageLayout";
 import { manifesto } from "@/content/story";
 
 export const metadata: Metadata = {
@@ -22,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function StoryPage() {
   return (
-    <PageLayout>
+    <main className="pt-20">
       <article className="px-6 md:px-10">
         <div className="mx-auto max-w-[720px]">
           <div className="pt-16 pb-8">
@@ -34,7 +33,6 @@ export default function StoryPage() {
             </a>
           </div>
 
-          {/* Title */}
           <header className="pt-[60px] pb-[80px] md:pt-[80px] md:pb-[100px]">
             <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">THE HYPED MANIFESTO</p>
             <h1 className="mt-6 font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
@@ -46,7 +44,6 @@ export default function StoryPage() {
             </p>
           </header>
 
-          {/* Manifesto body */}
           <div className="pb-[80px] md:pb-[120px]">
             {manifesto.map((section, i) => {
               if (section.type === "divider") {
@@ -105,7 +102,6 @@ export default function StoryPage() {
                 );
               }
 
-              // body
               return (
                 <p
                   key={i}
@@ -118,6 +114,6 @@ export default function StoryPage() {
           </div>
         </div>
       </article>
-    </PageLayout>
+    </main>
   );
 }

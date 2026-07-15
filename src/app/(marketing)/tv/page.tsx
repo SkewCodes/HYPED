@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
-import { PageLayout } from "@/components/PageLayout";
 import { fetchChannelStreams } from "@/lib/youtube";
 import { VideoPlayer } from "@/components/VideoPlayer";
 
@@ -36,7 +35,7 @@ export default async function TVPage() {
   const gridVideos = streams.slice(live ? 0 : 1);
 
   return (
-    <PageLayout>
+    <main className="pt-20">
       <article className="px-6 md:px-10">
         <div className="mx-auto max-w-[1200px]">
           <div className="pt-16 pb-8">
@@ -48,7 +47,6 @@ export default async function TVPage() {
             </a>
           </div>
 
-          {/* Header */}
           <section className="py-[60px] md:py-[100px]">
             <h1 className="font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
               The grind, live.
@@ -61,7 +59,6 @@ export default async function TVPage() {
 
           {hasContent ? (
             <>
-              {/* Hero Video */}
               {heroVideo && (
                 <section
                   className="py-[60px] md:py-[100px]"
@@ -99,7 +96,6 @@ export default async function TVPage() {
                 </section>
               )}
 
-              {/* Content Grid */}
               {gridVideos.length > 0 && (
                 <section
                   className="py-[60px] md:py-[100px]"
@@ -170,7 +166,6 @@ export default async function TVPage() {
             </section>
           )}
 
-          {/* Subscribe CTAs */}
           <section
             className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
@@ -200,6 +195,6 @@ export default async function TVPage() {
           </section>
         </div>
       </article>
-    </PageLayout>
+    </main>
   );
 }

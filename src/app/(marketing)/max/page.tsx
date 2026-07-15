@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { site } from "@/content/site";
-import { PageLayout } from "@/components/PageLayout";
 import { Bolt } from "@/components/Bolt";
 
 export const metadata: Metadata = {
@@ -32,7 +31,7 @@ const domains = [
 
 export default function MaxPage() {
   return (
-    <PageLayout>
+    <main className="pt-20">
       <article className="px-6 md:px-10">
         <div className="mx-auto max-w-[1200px]">
           <div className="pt-16 pb-8">
@@ -44,7 +43,6 @@ export default function MaxPage() {
             </a>
           </div>
 
-          {/* Header */}
           <section className="py-[60px] md:py-[100px]">
             <div className="flex items-center gap-2.5">
               <Bolt width={16} height={22} />
@@ -66,7 +64,6 @@ export default function MaxPage() {
             </p>
           </section>
 
-          {/* Domains grid */}
           <section
             className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
@@ -91,7 +88,6 @@ export default function MaxPage() {
             </div>
           </section>
 
-          {/* How it works */}
           <section
             className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
@@ -133,7 +129,6 @@ export default function MaxPage() {
             </div>
           </section>
 
-          {/* HYPED Agents — TrueNorth */}
           <section
             className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
@@ -159,7 +154,6 @@ export default function MaxPage() {
             </a>
           </section>
 
-          {/* More coming */}
           <section
             className="py-[60px] md:py-[100px]"
             style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
@@ -177,6 +171,6 @@ export default function MaxPage() {
           </section>
         </div>
       </article>
-    </PageLayout>
+    </main>
   );
 }

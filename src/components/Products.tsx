@@ -23,7 +23,7 @@ export function ProductsContent() {
             Built from the culture.
           </h1>
           <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-muted md:text-[17px]">
-            One community. One ecosystem. Starting with the daily grind.
+            One ecosystem. Every product serves the arc — from daily discipline to on-chain markets.
           </p>
         </section>
 

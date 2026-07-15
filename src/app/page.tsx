@@ -13,7 +13,7 @@ const cards = [
   {
     label: "ECOSYSTEM",
     title: "Built from the culture.",
-    description: "One community. One ecosystem. Starting with the daily grind, expanding into on-chain markets.",
+    description: "Every product serves the arc — from daily discipline to on-chain markets.",
     href: "/products",
   },
   {
@@ -24,8 +24,8 @@ const cards = [
   },
   {
     label: "HYPED TV",
-    title: "The culture, live.",
-    description: "Alpha, building in public, and maxxing culture — on stream and on demand.",
+    title: "Locked in & live.",
+    description: "The arc in motion — markets, building, the grind. Streamed daily.",
     href: "/tv",
   },
 ] as const;

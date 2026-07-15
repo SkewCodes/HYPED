@@ -1,8 +1,8 @@
 export const tickerItems = [
   "Trade maxxing",
   "Code maxxing",
-  "Trench maxxing",
   "Gym maxxing",
   "Life maxxing",
-  "Lock in maxxing",
+  "Start your arc",
+  "Growth maxxing",
 ] as const;

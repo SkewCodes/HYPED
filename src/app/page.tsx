@@ -13,7 +13,7 @@ const cards = [
   {
     label: "ECOSYSTEM",
     title: "Built from the culture.",
-    description: "Four products. One identity. Starting with the daily lock-in, expanding into on-chain markets.",
+    description: "Every product serves the person who locks in. Starting with daily discipline, expanding everywhere.",
     href: "/products",
   },
   {

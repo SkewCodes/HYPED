@@ -44,7 +44,7 @@ export function Waitlist() {
           {site.mantra}
         </h2>
         <p className="mt-4 max-w-[480px] text-[15px] leading-[1.6] text-hyped-muted">
-          Be first to hyped.max — the daily lock-in app. Plus early access to the full ecosystem as it ships.
+          Early access to everything Hyped builds. Products, culture, community — as it ships.
         </p>
 
         {state === "success" ? (

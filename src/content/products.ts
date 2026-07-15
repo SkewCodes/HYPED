@@ -44,7 +44,7 @@ export const products: Product[] = [
   {
     id: "bet",
     name: "hyped.bet",
-    label: "STACK MAXXING",
+    label: "BET MAXXING",
     tagline: "For conviction with skin in the game.",
     description: "Prediction markets for anything with an outcome. Put your edge where your mouth is.",
     href: "#waitlist",

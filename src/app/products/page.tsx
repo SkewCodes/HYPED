@@ -5,10 +5,10 @@ import { ProductsContent } from "@/components/Products";
 
 export const metadata: Metadata = {
   title: "Ecosystem — HYPED",
-  description: "Four products. One identity. Built from the culture, for the person who locks in.",
+  description: "Built from the culture, for the person who locks in. Products that grow with the community.",
   openGraph: {
     title: "Ecosystem — HYPED",
-    description: "Four products. One identity. Built from the culture, for the person who locks in.",
+    description: "Built from the culture, for the person who locks in. Products that grow with the community.",
     url: `${site.url}/products`,
     siteName: site.name,
     type: "website",
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Ecosystem — HYPED",
-    description: "Four products. One identity. Built from the culture, for the person who locks in.",
+    description: "Built from the culture, for the person who locks in. Products that grow with the community.",
   },
 };
 

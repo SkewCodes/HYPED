@@ -23,7 +23,7 @@ export function ProductsContent() {
             Built from the culture.
           </h1>
           <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-muted md:text-[17px]">
-            Four products. One identity. Every product serves the person who locks in — from daily discipline to on-chain markets.
+            Every product serves the person who locks in — from daily discipline to on-chain markets and beyond.
           </p>
         </section>
 

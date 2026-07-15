@@ -19,16 +19,15 @@ export function Hero() {
 
         const el = glowRef.current;
         if (el) {
-          const blur1 = 8 + glow * 20;
-          const blur2 = 24 + glow * 50;
-          const alpha1 = 0.4 + glow * 0.5;
-          const alpha2 = 0.15 + glow * 0.35;
+          const blur = 10 + glow * 30;
+          const alpha = 0.3 + glow * 0.5;
           const fillAlpha = glow * 0.9;
           const strokeWidth = 2 - glow * 0.5;
 
           el.style.color = `rgba(0,240,255,${fillAlpha})`;
           el.style.webkitTextStroke = `${strokeWidth}px var(--accent)`;
-          el.style.filter = `drop-shadow(0 0 ${blur1}px rgba(0,240,255,${alpha1})) drop-shadow(0 0 ${blur2}px rgba(0,240,255,${alpha2}))`;
+          el.style.textShadow = `0 0 ${blur}px rgba(0,240,255,${alpha})`;
+          el.style.filter = "none";
         }
         ticking = false;
       });
@@ -77,8 +76,8 @@ export function Hero() {
             style={{
               color: "transparent",
               WebkitTextStroke: "2px var(--accent)",
-              filter: "drop-shadow(0 0 8px rgba(0,240,255,.4)) drop-shadow(0 0 24px rgba(0,240,255,.15))",
-              transition: "color .1s, filter .1s",
+              textShadow: "0 0 10px rgba(0,240,255,.3)",
+              transition: "color .1s, text-shadow .15s",
             }}
           >
             Dream Big.

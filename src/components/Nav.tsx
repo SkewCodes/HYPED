@@ -57,8 +57,8 @@ export function Nav({ variant = "marketing" }: NavProps) {
       className="fixed top-0 left-0 right-0 z-[100] mx-3 mt-3 flex items-center justify-between px-6 py-3.5 rounded-2xl transition-[background,border-color,box-shadow] duration-300 md:mx-5 md:px-8"
       style={{
         background: "rgba(255,255,255,.03)",
-        backdropFilter: "blur(32px) saturate(1.5)",
-        WebkitBackdropFilter: "blur(32px) saturate(1.5)",
+        backdropFilter: "blur(16px) saturate(1.4)",
+        WebkitBackdropFilter: "blur(16px) saturate(1.4)",
         border: "1px solid rgba(255,255,255,.06)",
       }}
     >
@@ -117,8 +117,8 @@ export function Nav({ variant = "marketing" }: NavProps) {
           className="absolute top-[calc(100%+8px)] left-0 right-0 mx-1 rounded-2xl px-6 pb-6 pt-4 sm:hidden"
           style={{
             background: "rgba(255,255,255,.05)",
-            backdropFilter: "blur(32px) saturate(1.5)",
-            WebkitBackdropFilter: "blur(32px) saturate(1.5)",
+            backdropFilter: "blur(16px) saturate(1.4)",
+            WebkitBackdropFilter: "blur(16px) saturate(1.4)",
             border: "1px solid rgba(255,255,255,.1)",
             boxShadow: "0 12px 40px rgba(0,0,0,.35)",
           }}

@@ -9,7 +9,6 @@ interface Band {
   frequency: number;
   speed: number;
   opacity: number;
-  blur: number;
   phase: number;
 }
 
@@ -20,8 +19,7 @@ const BANDS: Band[] = [
     amplitude: 0.12,
     frequency: 0.8,
     speed: 0.0004,
-    opacity: 0.12,
-    blur: 80,
+    opacity: 0.18,
     phase: 0,
   },
   {
@@ -30,8 +28,7 @@ const BANDS: Band[] = [
     amplitude: 0.15,
     frequency: 0.6,
     speed: 0.0003,
-    opacity: 0.1,
-    blur: 100,
+    opacity: 0.15,
     phase: 1.2,
   },
   {
@@ -40,8 +37,7 @@ const BANDS: Band[] = [
     amplitude: 0.1,
     frequency: 1.0,
     speed: 0.0005,
-    opacity: 0.07,
-    blur: 60,
+    opacity: 0.1,
     phase: 2.5,
   },
   {
@@ -50,13 +46,13 @@ const BANDS: Band[] = [
     amplitude: 0.08,
     frequency: 1.3,
     speed: 0.00035,
-    opacity: 0.06,
-    blur: 120,
+    opacity: 0.08,
     phase: 3.8,
   },
 ];
 
 const CURSOR_RADIUS = 350;
+const SCALE = 0.25;
 
 export default function Aurora() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -73,109 +69,118 @@ export default function Aurora() {
     const parent = canvas.parentElement;
     if (!parent) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const offscreen = document.createElement("canvas");
+    const oCtx = offscreen.getContext("2d");
+    if (!oCtx) return;
+
     let w = 0;
     let h = 0;
+    let ow = 0;
+    let oh = 0;
     let rafId = 0;
     let mouseX = -9999;
     let mouseY = -9999;
     let smoothX = -9999;
     let smoothY = -9999;
     let isVisible = true;
+    let lastFrameTime = 0;
+    const FRAME_INTERVAL = 1000 / 30;
 
     function resize() {
       const rect = parent!.getBoundingClientRect();
       w = rect.width;
       h = rect.height;
-      canvas!.width = w * dpr;
-      canvas!.height = h * dpr;
+      canvas!.width = w;
+      canvas!.height = h;
       canvas!.style.width = `${w}px`;
       canvas!.style.height = `${h}px`;
-      ctx!.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      ow = Math.ceil(w * SCALE);
+      oh = Math.ceil(h * SCALE);
+      offscreen.width = ow;
+      offscreen.height = oh;
     }
 
     function getWaveY(band: Band, nx: number, t: number): number {
       const wave1 = Math.sin(nx * Math.PI * 2 * band.frequency + t * band.speed * 1000 + band.phase);
       const wave2 = Math.sin(nx * Math.PI * 3.7 * band.frequency + t * band.speed * 700 + band.phase * 1.5) * 0.5;
       const wave3 = Math.sin(nx * Math.PI * 1.3 * band.frequency + t * band.speed * 500 + band.phase * 0.7) * 0.3;
-      return band.baseY * h + (wave1 + wave2 + wave3) * band.amplitude * h;
+      return band.baseY * oh + (wave1 + wave2 + wave3) * band.amplitude * oh;
     }
 
     function drawBand(band: Band, t: number) {
-      const step = 8;
-      const count = Math.ceil(w / step);
+      const step = 4;
+      const count = Math.ceil(ow / step);
 
-      ctx!.save();
+      oCtx!.save();
 
-      const gradient = ctx!.createLinearGradient(0, 0, w, 0);
+      const gradient = oCtx!.createLinearGradient(0, 0, ow, 0);
       gradient.addColorStop(0, `rgba(${band.color}, 0)`);
-      gradient.addColorStop(0.2, `rgba(${band.color}, ${band.opacity})`);
-      gradient.addColorStop(0.5, `rgba(${band.color}, ${band.opacity * 1.3})`);
-      gradient.addColorStop(0.8, `rgba(${band.color}, ${band.opacity})`);
+      gradient.addColorStop(0.15, `rgba(${band.color}, ${band.opacity})`);
+      gradient.addColorStop(0.5, `rgba(${band.color}, ${band.opacity * 1.4})`);
+      gradient.addColorStop(0.85, `rgba(${band.color}, ${band.opacity})`);
       gradient.addColorStop(1, `rgba(${band.color}, 0)`);
 
-      ctx!.filter = `blur(${band.blur}px)`;
-      ctx!.fillStyle = gradient;
-
-      ctx!.beginPath();
-      ctx!.moveTo(0, h);
+      oCtx!.fillStyle = gradient;
+      oCtx!.beginPath();
+      oCtx!.moveTo(0, oh);
 
       let prevY = getWaveY(band, 0, t);
-      ctx!.lineTo(0, prevY);
+      oCtx!.lineTo(0, prevY);
+
+      const cursorXScaled = smoothX > -1000 ? smoothX * SCALE : -9999;
+      const cursorYScaled = smoothY > -1000 ? smoothY * SCALE : -9999;
 
       for (let i = 1; i <= count; i++) {
         const x = i * step;
-        const nx = x / w;
+        const nx = x / ow;
         let y = getWaveY(band, nx, t);
 
-        if (smoothX > -1000) {
-          const dx = x - smoothX;
-          const dy = y - smoothY;
+        if (cursorXScaled > -1000) {
+          const dx = x - cursorXScaled;
+          const dy = y - cursorYScaled;
           const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CURSOR_RADIUS) {
-            const ci = (1 - dist / CURSOR_RADIUS) * 0.4;
+          const scaledRadius = CURSOR_RADIUS * SCALE;
+          if (dist < scaledRadius) {
+            const ci = (1 - dist / scaledRadius) * 0.4;
             y += dy * ci * -0.3;
           }
         }
 
         const cpX = x - step * 0.5;
-        ctx!.quadraticCurveTo(cpX, prevY, x, y);
+        oCtx!.quadraticCurveTo(cpX, prevY, x, y);
         prevY = y;
       }
 
-      ctx!.lineTo(w, h);
-      ctx!.closePath();
-      ctx!.fill();
-
-      ctx!.filter = "none";
-      ctx!.restore();
+      oCtx!.lineTo(ow, oh);
+      oCtx!.closePath();
+      oCtx!.fill();
+      oCtx!.restore();
     }
 
     function drawCursorGlow() {
       if (smoothX < -1000) return;
-      const grad = ctx!.createRadialGradient(
-        smoothX, smoothY, 0,
-        smoothX, smoothY, CURSOR_RADIUS,
-      );
-      grad.addColorStop(0, "rgba(0,240,255,.06)");
-      grad.addColorStop(0.3, "rgba(0,240,255,.02)");
+      const sx = smoothX * SCALE;
+      const sy = smoothY * SCALE;
+      const sr = CURSOR_RADIUS * SCALE;
+      const grad = oCtx!.createRadialGradient(sx, sy, 0, sx, sy, sr);
+      grad.addColorStop(0, "rgba(0,240,255,.08)");
+      grad.addColorStop(0.3, "rgba(0,240,255,.03)");
       grad.addColorStop(1, "rgba(0,240,255,0)");
-      ctx!.fillStyle = grad;
-      ctx!.fillRect(
-        smoothX - CURSOR_RADIUS,
-        smoothY - CURSOR_RADIUS,
-        CURSOR_RADIUS * 2,
-        CURSOR_RADIUS * 2,
-      );
+      oCtx!.fillStyle = grad;
+      oCtx!.fillRect(sx - sr, sy - sr, sr * 2, sr * 2);
     }
 
     function animate(ts: number) {
-      if (!isVisible) {
-        rafId = requestAnimationFrame(animate);
-        return;
-      }
+      rafId = requestAnimationFrame(animate);
 
-      ctx!.clearRect(0, 0, w, h);
+      if (!isVisible) return;
+
+      const delta = ts - lastFrameTime;
+      if (delta < FRAME_INTERVAL) return;
+      lastFrameTime = ts - (delta % FRAME_INTERVAL);
+
+      oCtx!.clearRect(0, 0, ow, oh);
 
       if (mouseX > -1000) {
         smoothX += (mouseX - smoothX) * 0.05;
@@ -188,7 +193,10 @@ export default function Aurora() {
         drawBand(BANDS[i], ts);
       }
 
-      rafId = requestAnimationFrame(animate);
+      ctx!.clearRect(0, 0, w, h);
+      ctx!.imageSmoothingEnabled = true;
+      ctx!.imageSmoothingQuality = "high";
+      ctx!.drawImage(offscreen, 0, 0, ow, oh, 0, 0, w, h);
     }
 
     function onMouseMove(e: MouseEvent) {
@@ -219,9 +227,13 @@ export default function Aurora() {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (prefersReduced) {
+      oCtx!.clearRect(0, 0, ow, oh);
       for (const band of BANDS) {
         drawBand(band, 0);
       }
+      ctx!.imageSmoothingEnabled = true;
+      ctx!.imageSmoothingQuality = "high";
+      ctx!.drawImage(offscreen, 0, 0, ow, oh, 0, 0, w, h);
     } else {
       document.addEventListener("mousemove", onMouseMove, { passive: true });
       document.addEventListener("mouseleave", onMouseLeave);
@@ -247,7 +259,7 @@ export default function Aurora() {
     <canvas
       ref={refCallback}
       className="absolute inset-0 hero-canvas-fade"
-      style={{ pointerEvents: "none" }}
+      style={{ pointerEvents: "none", willChange: "contents", contain: "strict" }}
     />
   );
 }

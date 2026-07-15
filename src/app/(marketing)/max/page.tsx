@@ -46,7 +46,7 @@ export default function MaxPage() {
           <section className="py-[60px] md:py-[100px]">
             <div className="flex items-center gap-2.5">
               <Bolt width={16} height={22} />
-              <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-warm)]">
+              <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-secondary)]">
                 COMING SOON
               </span>
             </div>
@@ -128,7 +128,7 @@ export default function MaxPage() {
           <section className="py-[60px] md:py-[100px]">
             <div className="divider mb-[60px] md:mb-[100px]" />
             <div className="glass-accent p-8 sm:p-10 md:p-12">
-              <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-warm)]">
+              <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-secondary)]">
                 HYPED AGENTS
               </p>
               <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">

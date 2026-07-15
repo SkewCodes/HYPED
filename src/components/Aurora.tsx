@@ -38,7 +38,7 @@ const BANDS: Band[] = [
     phase: 1.2,
   },
   {
-    color: "255, 209, 102",
+    color: "79, 255, 176",
     baseY: 0.55,
     amplitude: 0.1,
     frequency: 1.0,
@@ -49,7 +49,7 @@ const BANDS: Band[] = [
     phase: 2.5,
   },
   {
-    color: "0, 240, 255",
+    color: "0, 180, 220",
     baseY: 0.3,
     amplitude: 0.08,
     frequency: 1.3,

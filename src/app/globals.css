@@ -11,7 +11,7 @@
   --color-hyped-muted:    #A0A0B0;
   --color-hyped-dim:      #6B6B7B;
   --color-hyped-cyan:     #00F0FF;
-  --color-hyped-gold:     #FFD166;
+  --color-hyped-aurora:   #4FFFB0;
   --color-hyped-rekt:     #FF3B4E;
   --color-hyped-green:    #00D97E;
 
@@ -24,7 +24,7 @@
 
 :root {
   --accent: #00F0FF;
-  --accent-warm: #FFD166;
+  --accent-secondary: #4FFFB0;
 }
 
 * {

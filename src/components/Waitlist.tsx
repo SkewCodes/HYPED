@@ -40,7 +40,7 @@ export function Waitlist() {
     >
       <div className="divider mb-[120px] md:mb-[160px]" />
       <div className="mx-auto max-w-[1200px]">
-        <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-warm)]">
+        <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-secondary)]">
           JOIN THE FIRST WAVE
         </p>
         <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">

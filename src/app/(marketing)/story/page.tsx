@@ -34,7 +34,7 @@ export default function StoryPage() {
           </div>
 
           <header className="glass-static !rounded-2xl p-8 sm:p-10 md:p-12 mt-4 mb-12">
-            <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-warm)]">THE HYPED MANIFESTO</p>
+            <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">THE HYPED MANIFESTO</p>
             <h1 className="mt-6 font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
               The brand for maxxing culture.
             </h1>

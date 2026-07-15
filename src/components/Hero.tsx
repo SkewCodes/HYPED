@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TokenRain from "./TokenRain";
+import Aurora from "./Aurora";
 import { Ticker } from "./Ticker";
 import { site } from "@/content/site";
 
@@ -43,7 +43,7 @@ export function Hero() {
         }}
       />
       <div className="absolute inset-0">
-        <TokenRain />
+        <Aurora />
       </div>
       <div
         className="absolute inset-0 pointer-events-none"

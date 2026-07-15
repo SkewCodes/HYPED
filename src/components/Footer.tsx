@@ -60,7 +60,7 @@ export function Footer() {
           <div className="divider-subtle" />
           <div className="flex flex-wrap items-center justify-between gap-4 pt-5">
             <span className="font-mono text-[10px] tracking-[.06em] text-hyped-dim">{site.footer.legal}</span>
-            <span className="font-mono text-[10px] tracking-[.12em] text-[var(--accent)]">{site.mantra}</span>
+            <span className="font-mono text-[10px] tracking-[.12em] text-[var(--accent-warm)]">{site.mantra}</span>
           </div>
         </div>
       </div>

@@ -27,18 +27,18 @@ export default function StoryPage() {
           <div className="pt-16 pb-8">
             <a
               href="/"
-              className="inline-flex items-center gap-2 font-mono text-xs tracking-[.1em] text-hyped-muted transition-colors hover:text-hyped-white"
+              className="group inline-flex items-center gap-2 font-mono text-xs tracking-[.1em] text-hyped-muted transition-colors hover:text-hyped-white"
             >
-              &larr; Back
+              <span className="transition-transform group-hover:-translate-x-0.5">&larr;</span> Back
             </a>
           </div>
 
-          <header className="pt-[60px] pb-[80px] md:pt-[80px] md:pb-[100px]">
-            <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">THE HYPED MANIFESTO</p>
+          <header className="glass-static !rounded-2xl p-8 sm:p-10 md:p-12 mt-4 mb-12">
+            <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-warm)]">THE HYPED MANIFESTO</p>
             <h1 className="mt-6 font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
               The brand for maxxing culture.
             </h1>
-            <p className="mt-6 max-w-[520px] text-[17px] leading-[1.7] text-hyped-muted">
+            <p className="mt-6 max-w-[520px] text-[17px] leading-[1.7] text-hyped-bright">
               There&apos;s a type of person the internet was supposed to be
               built for but never was. This is for them.
             </p>
@@ -48,11 +48,7 @@ export default function StoryPage() {
             {manifesto.map((section, i) => {
               if (section.type === "divider") {
                 return (
-                  <div
-                    key={i}
-                    className="my-[48px] md:my-[64px]"
-                    style={{ borderTop: "1px solid rgba(255,255,255,.08)" }}
-                  />
+                  <div key={i} className="my-[48px] md:my-[64px] divider" />
                 );
               }
 
@@ -69,12 +65,11 @@ export default function StoryPage() {
 
               if (section.type === "products" && section.items) {
                 return (
-                  <div key={i} className="my-[32px] space-y-0">
+                  <div key={i} className="my-[32px] space-y-3">
                     {section.items.map((item) => (
                       <div
                         key={item.label}
-                        className="flex items-baseline justify-between gap-6 py-4"
-                        style={{ borderBottom: "1px solid rgba(255,255,255,.06)" }}
+                        className="glass flex items-baseline justify-between gap-6 p-5"
                       >
                         <span className="font-display font-[800] uppercase text-[clamp(18px,2.5vw,24px)] leading-[.95]">
                           {item.line}
@@ -93,8 +88,8 @@ export default function StoryPage() {
                   <div
                     key={i}
                     className="mt-[64px] pt-[48px] text-center md:mt-[80px] md:pt-[64px]"
-                    style={{ borderTop: "1px solid rgba(255,255,255,.08)" }}
                   >
+                    <div className="divider mb-[48px] md:mb-[64px]" />
                     <p className="font-display font-[900] uppercase text-[clamp(28px,4vw,48px)] leading-[.9] text-hyped-white">
                       {section.text}
                     </p>

@@ -41,9 +41,9 @@ export default async function TVPage() {
           <div className="pt-16 pb-8">
             <a
               href="/"
-              className="inline-flex items-center gap-2 font-mono text-xs tracking-[.1em] text-hyped-muted transition-colors hover:text-hyped-white"
+              className="group inline-flex items-center gap-2 font-mono text-xs tracking-[.1em] text-hyped-muted transition-colors hover:text-hyped-white"
             >
-              &larr; Back
+              <span className="transition-transform group-hover:-translate-x-0.5">&larr;</span> Back
             </a>
           </div>
 
@@ -51,7 +51,7 @@ export default async function TVPage() {
             <h1 className="font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
               The grind, live.
             </h1>
-            <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-muted md:text-[17px]">
+            <p className="mt-6 max-w-[520px] text-[16px] leading-[1.7] text-hyped-bright md:text-[17px]">
               Trading sessions, build streams, and everything in between.
               Real work. No scripts.
             </p>
@@ -60,10 +60,8 @@ export default async function TVPage() {
           {hasContent ? (
             <>
               {heroVideo && (
-                <section
-                  className="py-[60px] md:py-[100px]"
-                  style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-                >
+                <section className="py-[60px] md:py-[100px]">
+                  <div className="divider mb-[60px] md:mb-[100px]" />
                   {heroVideo.isLive && (
                     <div className="mb-5 flex items-center gap-2">
                       <span className="relative flex h-2 w-2">
@@ -74,11 +72,13 @@ export default async function TVPage() {
                     </div>
                   )}
 
-                  <VideoPlayer
-                    videoId={heroVideo.id}
-                    title={heroVideo.title}
-                    thumbnail={heroVideo.thumbnail}
-                  />
+                  <div className="rounded-xl overflow-hidden">
+                    <VideoPlayer
+                      videoId={heroVideo.id}
+                      title={heroVideo.title}
+                      thumbnail={heroVideo.thumbnail}
+                    />
+                  </div>
 
                   <div className="mt-5">
                     <h2 className="font-display font-[800] uppercase text-[clamp(20px,2.5vw,28px)] leading-[.95]">
@@ -89,7 +89,7 @@ export default async function TVPage() {
                         {heroVideo.show}
                       </p>
                     )}
-                    <time className="mt-2 block font-mono text-[11px] tracking-[.06em] text-hyped-muted">
+                    <time className="mt-2 block font-mono text-[11px] tracking-[.06em] text-hyped-dim">
                       {heroVideo.isLive ? "Streaming now" : formatDate(heroVideo.publishedAt)}
                     </time>
                   </div>
@@ -97,21 +97,19 @@ export default async function TVPage() {
               )}
 
               {gridVideos.length > 0 && (
-                <section
-                  className="py-[60px] md:py-[100px]"
-                  style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-                >
+                <section className="py-[60px] md:py-[100px]">
+                  <div className="divider mb-[60px] md:mb-[100px]" />
                   <h3 className="mb-8 font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">LATEST</h3>
-                  <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     {gridVideos.map((video) => (
                       <a
                         key={video.id}
                         href={`https://youtube.com/watch?v=${video.id}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group"
+                        className="glass group !p-0 overflow-hidden"
                       >
-                        <div className="relative aspect-video overflow-hidden bg-hyped-panel">
+                        <div className="relative aspect-video overflow-hidden">
                           {video.thumbnail ? (
                             <img
                               src={video.thumbnail}
@@ -119,7 +117,7 @@ export default async function TVPage() {
                               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                             />
                           ) : (
-                            <div className="h-full w-full bg-hyped-panel" />
+                            <div className="h-full w-full bg-hyped-surface" />
                           )}
                           <div className="absolute inset-0 bg-black/20 transition-colors group-hover:bg-black/10" />
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
@@ -130,17 +128,19 @@ export default async function TVPage() {
                             </div>
                           </div>
                         </div>
-                        <h4 className="mt-3 text-[14px] font-medium leading-[1.4] text-hyped-white line-clamp-2 group-hover:text-[var(--accent)] transition-colors">
-                          {video.title}
-                        </h4>
-                        {video.show !== video.title && (
-                          <p className="mt-1 text-[12px] text-hyped-muted">
-                            {video.show}
-                          </p>
-                        )}
-                        <time className="mt-1 block font-mono text-[10px] tracking-[.06em] text-hyped-muted">
-                          {formatDate(video.publishedAt)}
-                        </time>
+                        <div className="p-4">
+                          <h4 className="text-[14px] font-medium leading-[1.4] text-hyped-white line-clamp-2 group-hover:text-[var(--accent)] transition-colors">
+                            {video.title}
+                          </h4>
+                          {video.show !== video.title && (
+                            <p className="mt-1 text-[12px] text-hyped-muted">
+                              {video.show}
+                            </p>
+                          )}
+                          <time className="mt-1.5 block font-mono text-[10px] tracking-[.06em] text-hyped-dim">
+                            {formatDate(video.publishedAt)}
+                          </time>
+                        </div>
                       </a>
                     ))}
                   </div>
@@ -148,14 +148,9 @@ export default async function TVPage() {
               )}
             </>
           ) : (
-            <section
-              className="py-[60px] md:py-[100px]"
-              style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-            >
-              <div
-                className="p-7 sm:p-9"
-                style={{ border: "1px solid rgba(255,255,255,.06)" }}
-              >
+            <section className="py-[60px] md:py-[100px]">
+              <div className="divider mb-[60px] md:mb-[100px]" />
+              <div className="glass p-7 sm:p-9">
                 <p className="font-display font-[800] uppercase text-[24px] leading-[.92] text-hyped-muted sm:text-[28px]">
                   Hyped TV — Coming Soon
                 </p>
@@ -166,10 +161,8 @@ export default async function TVPage() {
             </section>
           )}
 
-          <section
-            className="py-[60px] md:py-[100px]"
-            style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-          >
+          <section className="py-[60px] md:py-[100px]">
+            <div className="divider mb-[60px] md:mb-[100px]" />
             <p className="font-display font-[800] uppercase text-[clamp(20px,2.5vw,28px)] leading-[.95] text-hyped-white">
               Never miss a session.
             </p>
@@ -178,7 +171,7 @@ export default async function TVPage() {
                 href={site.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+                className="cta-pulse inline-block rounded-lg font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
               >
                 Subscribe on YouTube →
               </a>
@@ -186,8 +179,8 @@ export default async function TVPage() {
                 href={site.social.x}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block font-mono text-[11px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
-                style={{ border: "1px solid rgba(255,255,255,.12)", padding: "14px 24px" }}
+                className="glass-static inline-block !rounded-lg font-mono text-[11px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
+                style={{ padding: "14px 24px" }}
               >
                 Follow on X →
               </a>

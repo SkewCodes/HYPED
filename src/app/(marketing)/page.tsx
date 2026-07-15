@@ -62,12 +62,9 @@ export default async function Home() {
             burns out. Maxxing is measurable, specific, and it compounds.
           </p>
 
-          <div className="mt-12 grid gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" style={{ background: "rgba(255,255,255,.06)" }}>
-            {maxxingDomains.map((domain, i) => (
-              <div
-                key={domain.label}
-                className={`bg-hyped-void p-6 ${i % 2 === 1 ? "bg-hyped-surface" : ""}`}
-              >
+          <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {maxxingDomains.map((domain) => (
+              <div key={domain.label} className="glass p-6">
                 <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">
                   {domain.label}
                 </span>
@@ -84,10 +81,10 @@ export default async function Home() {
       <section className="reveal px-6 py-[120px] md:px-10 md:py-[160px]">
         <div className="divider mb-[120px] md:mb-[160px]" />
         <div className="mx-auto max-w-[1200px]">
-          <div className="card-accent p-8 sm:p-10 md:p-12">
+          <div className="glass-accent p-8 sm:p-10 md:p-12">
             <div className="flex items-center gap-2.5">
               <Bolt width={14} height={20} />
-              <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">
+              <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-warm)]">
                 COMING SOON
               </span>
             </div>
@@ -104,7 +101,7 @@ export default async function Home() {
             </p>
             <a
               href="#waitlist"
-              className="cta-pulse mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+              className="cta-pulse mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 rounded-lg transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
             >
               JOIN THE WAITLIST
             </a>
@@ -142,7 +139,7 @@ export default async function Home() {
                 rel="noopener noreferrer"
                 className="group block"
               >
-                <div className="relative aspect-video overflow-hidden bg-hyped-surface">
+                <div className="relative aspect-video overflow-hidden rounded-xl bg-hyped-surface">
                   {latestVideo.thumbnail ? (
                     <img
                       src={latestVideo.thumbnail}
@@ -176,7 +173,7 @@ export default async function Home() {
               </a>
             </div>
           ) : (
-            <div className="mt-10 card-interactive p-8 sm:p-10">
+            <div className="mt-10 glass p-8 sm:p-10">
               <p className="text-[15px] text-hyped-bright">
                 Streams coming soon. Subscribe on{" "}
                 <a href="https://www.youtube.com/@52kskew" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:text-hyped-white transition-colors">

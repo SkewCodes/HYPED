@@ -40,7 +40,7 @@ export function Waitlist() {
     >
       <div className="divider mb-[120px] md:mb-[160px]" />
       <div className="mx-auto max-w-[1200px]">
-        <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
+        <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-warm)]">
           JOIN THE FIRST WAVE
         </p>
         <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
@@ -72,13 +72,13 @@ export function Waitlist() {
               placeholder="your@email"
               required
               disabled={disabled}
-              className="min-w-0 flex-1 bg-hyped-surface font-mono text-[13px] tracking-[.06em] text-hyped-white placeholder:text-hyped-dim outline-none transition-[border-color] focus:!border-[var(--accent)] disabled:opacity-50"
-              style={{ border: "1px solid rgba(255,255,255,.12)", padding: "16px 18px" }}
+              className="glass-static min-w-0 flex-1 !rounded-lg font-mono text-[13px] tracking-[.06em] text-hyped-white placeholder:text-hyped-dim outline-none transition-[border-color] focus:!border-[var(--accent)] disabled:opacity-50"
+              style={{ padding: "16px 18px" }}
             />
             <button
               type="submit"
               disabled={disabled}
-              className="cta-pulse font-mono text-[12px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5 disabled:opacity-50"
+              className="cta-pulse rounded-lg font-mono text-[12px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5 disabled:opacity-50"
               style={{ padding: "16px 28px" }}
             >
               {state === "loading" ? "..." : "LOCK IN"}

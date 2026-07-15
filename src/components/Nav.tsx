@@ -31,15 +31,15 @@ export function Nav({ variant = "marketing" }: NavProps) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 py-4 transition-all duration-300 md:px-10 ${scrolled ? "py-3" : ""}`}
+      className={`fixed top-0 left-0 right-0 z-[100] mx-3 mt-3 flex items-center justify-between px-6 py-3.5 rounded-2xl transition-all duration-300 md:mx-5 md:px-8 ${scrolled ? "py-3" : ""}`}
       style={{
-        background: scrolled ? "rgba(10,10,18,.92)" : "rgba(10,10,18,.5)",
-        backdropFilter: "blur(18px)",
-        WebkitBackdropFilter: "blur(18px)",
-        borderBottom: scrolled ? "1px solid rgba(255,255,255,.08)" : "1px solid rgba(255,255,255,.03)",
+        background: scrolled ? "rgba(255,255,255,.06)" : "rgba(255,255,255,.03)",
+        backdropFilter: "blur(32px) saturate(1.5)",
+        WebkitBackdropFilter: "blur(32px) saturate(1.5)",
+        border: scrolled ? "1px solid rgba(255,255,255,.12)" : "1px solid rgba(255,255,255,.06)",
+        boxShadow: scrolled ? "0 8px 32px rgba(0,0,0,.25)" : "none",
       }}
     >
-      {/* Left: Logo + Brand links */}
       <div className="flex items-center gap-8">
         <a href="/" className="flex items-center gap-2.5 text-hyped-white">
           <Bolt width={16} height={22} />
@@ -48,7 +48,6 @@ export function Nav({ variant = "marketing" }: NavProps) {
           </span>
         </a>
 
-        {/* Brand links — always visible on desktop */}
         <div className="hidden items-center gap-6 md:flex">
           {site.nav.links.map((link) => (
             <a
@@ -62,7 +61,6 @@ export function Nav({ variant = "marketing" }: NavProps) {
         </div>
       </div>
 
-      {/* Right: App links (when authenticated) + CTA */}
       <div className="flex items-center gap-6">
         {isApp && (
           <div className="hidden items-center gap-5 md:flex">
@@ -77,12 +75,11 @@ export function Nav({ variant = "marketing" }: NavProps) {
 
         <a
           href={site.nav.cta.href}
-          className="hidden font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-5 py-[11px] transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-px sm:inline-block"
+          className="hidden font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-5 py-[11px] rounded-lg transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-px sm:inline-block"
         >
           {site.nav.cta.label}
         </a>
 
-        {/* Mobile menu button */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className="flex h-8 w-8 flex-col items-center justify-center gap-1.5 sm:hidden"
@@ -93,15 +90,15 @@ export function Nav({ variant = "marketing" }: NavProps) {
         </button>
       </div>
 
-      {/* Mobile menu */}
       {menuOpen && (
         <div
-          className="absolute top-full left-0 right-0 px-6 pb-6 pt-4 sm:hidden"
+          className="absolute top-[calc(100%+8px)] left-0 right-0 mx-1 rounded-2xl px-6 pb-6 pt-4 sm:hidden"
           style={{
-            background: "rgba(10,10,18,.95)",
-            backdropFilter: "blur(18px)",
-            WebkitBackdropFilter: "blur(18px)",
-            borderBottom: "1px solid rgba(255,255,255,.06)",
+            background: "rgba(255,255,255,.05)",
+            backdropFilter: "blur(32px) saturate(1.5)",
+            WebkitBackdropFilter: "blur(32px) saturate(1.5)",
+            border: "1px solid rgba(255,255,255,.1)",
+            boxShadow: "0 12px 40px rgba(0,0,0,.35)",
           }}
           onClick={() => setMenuOpen(false)}
         >
@@ -116,7 +113,7 @@ export function Nav({ variant = "marketing" }: NavProps) {
                 DASHBOARD
               </a>
             )}
-            <a href={site.nav.cta.href} className="mt-1 block bg-[var(--accent)] px-5 py-3.5 text-center font-mono text-[11px] font-bold tracking-[.18em] text-hyped-void">
+            <a href={site.nav.cta.href} className="mt-1 block bg-[var(--accent)] rounded-lg px-5 py-3.5 text-center font-mono text-[11px] font-bold tracking-[.18em] text-hyped-void">
               {site.nav.cta.label}
             </a>
           </div>

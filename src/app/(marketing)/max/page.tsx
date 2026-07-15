@@ -37,16 +37,16 @@ export default function MaxPage() {
           <div className="pt-16 pb-8">
             <a
               href="/"
-              className="inline-flex items-center gap-2 font-mono text-xs tracking-[.1em] text-hyped-muted transition-colors hover:text-hyped-white"
+              className="group inline-flex items-center gap-2 font-mono text-xs tracking-[.1em] text-hyped-muted transition-colors hover:text-hyped-white"
             >
-              &larr; Back
+              <span className="transition-transform group-hover:-translate-x-0.5">&larr;</span> Back
             </a>
           </div>
 
           <section className="py-[60px] md:py-[100px]">
             <div className="flex items-center gap-2.5">
               <Bolt width={16} height={22} />
-              <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">
+              <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-warm)]">
                 COMING SOON
               </span>
             </div>
@@ -56,7 +56,7 @@ export default function MaxPage() {
             <p className="mt-3 font-display font-[800] uppercase text-[clamp(18px,2.5vw,28px)] leading-[.95] text-[var(--accent)]">
               Track your arc.
             </p>
-            <p className="mt-6 max-w-[540px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
+            <p className="mt-6 max-w-[540px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
               The daily lock-in app for everything you&apos;re maxxing. Stack
               streaks across every domain. Stay accountable. Watch the growth
               compound — because the person who tracks the work is the person
@@ -64,16 +64,14 @@ export default function MaxPage() {
             </p>
           </section>
 
-          <section
-            className="py-[60px] md:py-[100px]"
-            style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-          >
+          <section className="py-[60px] md:py-[100px]">
+            <div className="divider mb-[60px] md:mb-[100px]" />
             <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
               EVERY DOMAIN. ONE APP.
             </p>
-            <div className="mt-10 grid gap-px sm:grid-cols-2 lg:grid-cols-3" style={{ background: "rgba(255,255,255,.06)" }}>
+            <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {domains.map((d) => (
-                <div key={d.label} className="bg-hyped-void p-7">
+                <div key={d.label} className="glass p-7">
                   <div className="flex items-center gap-3">
                     <span className="text-[18px]">{d.icon}</span>
                     <span className="font-mono text-[11px] tracking-[.24em] text-hyped-white">
@@ -88,15 +86,13 @@ export default function MaxPage() {
             </div>
           </section>
 
-          <section
-            className="py-[60px] md:py-[100px]"
-            style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-          >
+          <section className="py-[60px] md:py-[100px]">
+            <div className="divider mb-[60px] md:mb-[100px]" />
             <h2 className="font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
               Lock in. Track. Compound.
             </h2>
-            <div className="mt-10 grid gap-10 sm:grid-cols-3">
-              <div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              <div className="glass p-7">
                 <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">01</span>
                 <h3 className="mt-3 font-display font-[800] uppercase text-[18px] leading-[.95]">
                   Set your domains
@@ -106,7 +102,7 @@ export default function MaxPage() {
                   whatever your arc looks like.
                 </p>
               </div>
-              <div>
+              <div className="glass p-7">
                 <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">02</span>
                 <h3 className="mt-3 font-display font-[800] uppercase text-[18px] leading-[.95]">
                   Log daily
@@ -116,7 +112,7 @@ export default function MaxPage() {
                   work is getting done.
                 </p>
               </div>
-              <div>
+              <div className="glass p-7">
                 <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">03</span>
                 <h3 className="mt-3 font-display font-[800] uppercase text-[18px] leading-[.95]">
                   Watch it compound
@@ -129,44 +125,44 @@ export default function MaxPage() {
             </div>
           </section>
 
-          <section
-            className="py-[60px] md:py-[100px]"
-            style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-          >
-            <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
-              HYPED AGENTS
-            </p>
-            <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
-              Start your trade maxxing arc.
-            </h2>
-            <p className="mt-6 max-w-[520px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
-              AI-powered trading intelligence that helps you build edge, not
-              just execute trades. Powered by TrueNorth — the first live
-              product in the Hyped ecosystem.
-            </p>
-            <a
-              href="https://truenorth.xyz"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
-            >
-              Explore HYPED Agents →
-            </a>
+          <section className="py-[60px] md:py-[100px]">
+            <div className="divider mb-[60px] md:mb-[100px]" />
+            <div className="glass-accent p-8 sm:p-10 md:p-12">
+              <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent-warm)]">
+                HYPED AGENTS
+              </p>
+              <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
+                Start your trade maxxing arc.
+              </h2>
+              <p className="mt-6 max-w-[520px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
+                AI-powered trading intelligence that helps you build edge, not
+                just execute trades. Powered by TrueNorth — the first live
+                product in the Hyped ecosystem.
+              </p>
+              <a
+                href="https://truenorth.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-8 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
+              >
+                Explore HYPED Agents
+                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+              </a>
+            </div>
           </section>
 
-          <section
-            className="py-[60px] md:py-[100px]"
-            style={{ borderTop: "1px solid rgba(255,255,255,.06)" }}
-          >
-            <p className="max-w-[480px] text-[16px] leading-[1.8] text-hyped-muted md:text-[17px]">
+          <section className="py-[60px] md:py-[100px]">
+            <div className="divider mb-[60px] md:mb-[100px]" />
+            <p className="max-w-[480px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
               hyped.max is the beginning. More products are coming — each one
               built from the culture, for the person who locks in.
             </p>
             <a
-              href="#waitlist"
-              className="mt-6 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
+              href="/#waitlist"
+              className="group mt-6 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
             >
-              Join the waitlist →
+              Join the waitlist
+              <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
             </a>
           </section>
         </div>

@@ -62,7 +62,7 @@ export function Nav({ variant = "marketing" }: NavProps) {
     >
       <div className="flex items-center gap-8">
         <a href="/" className="flex items-center gap-2.5 text-hyped-white">
-          <Bolt width={16} height={22} />
+          <Bolt width={26} height={26} />
           <span className="font-display text-xl font-[800] uppercase tracking-[.05em] leading-none sm:text-2xl">
             HYPED
           </span>

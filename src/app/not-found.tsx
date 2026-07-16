@@ -5,7 +5,7 @@ import { Bolt } from "@/components/Bolt";
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-      <Bolt width={32} height={44} />
+      <Bolt width={52} height={52} />
       <h1 className="mt-6 font-display font-[800] uppercase text-[clamp(2rem,5vw,4rem)] leading-[.88]">
         Rekt.
       </h1>

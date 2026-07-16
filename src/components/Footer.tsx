@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid gap-10 sm:grid-cols-3 md:gap-12">
           <div>
             <a href="/" className="inline-flex items-center gap-2.5">
-              <Bolt width={14} height={20} />
+              <Bolt width={24} height={24} />
               <span className="font-display text-[18px] font-[800] tracking-[.05em]">HYPED</span>
             </a>
             <p className="mt-3 font-mono text-[11px] tracking-[.06em] text-hyped-dim">

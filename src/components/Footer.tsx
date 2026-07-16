@@ -1,5 +1,4 @@
 import { site } from "@/content/site";
-import { Bolt } from "./Bolt";
 
 export function Footer() {
   return (
@@ -8,9 +7,8 @@ export function Footer() {
       <div className="mx-auto max-w-[1200px] pt-14 md:pt-16">
         <div className="grid gap-10 sm:grid-cols-3 md:gap-12">
           <div>
-            <a href="/" className="inline-flex items-center gap-2.5">
-              <Bolt width={14} height={20} />
-              <span className="font-display text-[18px] font-[800] tracking-[.05em]">HYPED</span>
+            <a href="/" className="aurora-text font-display text-[22px] font-[800] tracking-[.05em]">
+              HYPED
             </a>
             <p className="mt-3 font-mono text-[11px] tracking-[.06em] text-hyped-dim">
               {site.northStar}

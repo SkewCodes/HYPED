@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/content/site";
-import { Bolt } from "./Bolt";
 
 interface NavProps {
   variant?: "marketing" | "app";
@@ -61,11 +60,8 @@ export function Nav({ variant = "marketing" }: NavProps) {
       }}
     >
       <div className="flex items-center gap-8">
-        <a href="/" className="flex items-center gap-2.5 text-hyped-white">
-          <Bolt width={16} height={22} />
-          <span className="font-display text-xl font-[800] uppercase tracking-[.05em] leading-none sm:text-2xl">
-            HYPED
-          </span>
+        <a href="/" className="aurora-text font-display text-2xl font-[800] uppercase tracking-[.05em] leading-none sm:text-3xl">
+          HYPED
         </a>
 
         <div className="hidden items-center gap-6 md:flex">

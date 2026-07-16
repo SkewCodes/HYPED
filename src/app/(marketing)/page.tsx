@@ -1,6 +1,5 @@
 import { Hero } from "@/components/Hero";
 import { Waitlist } from "@/components/Waitlist";
-import { Bolt } from "@/components/Bolt";
 import { fetchChannelStreams } from "@/lib/youtube";
 
 const maxxingDomains = [
@@ -83,7 +82,7 @@ export default async function Home() {
         <div className="mx-auto max-w-[1200px]">
           <div className="glass-accent p-8 sm:p-10 md:p-12">
             <div className="flex items-center gap-2.5">
-              <Bolt width={14} height={20} />
+              <span className="aurora-text font-display text-lg font-[900]">H</span>
               <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-secondary)]">
                 COMING SOON
               </span>

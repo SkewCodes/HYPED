@@ -1,4 +1,3 @@
-import { Bolt } from "./Bolt";
 import { tickerItems } from "@/content/ticker";
 
 function TickerHalf() {
@@ -9,7 +8,7 @@ function TickerHalf() {
           <span className="font-mono text-[13px] tracking-[.12em] text-hyped-muted whitespace-nowrap transition-colors duration-200 hover:text-[var(--accent)] sm:text-[15px]">
             {item}
           </span>
-          <Bolt width={10} height={14} className="shrink-0 opacity-40" />
+          <span className="aurora-text shrink-0 text-[10px] font-[900] opacity-50">◆</span>
         </span>
       ))}
     </div>

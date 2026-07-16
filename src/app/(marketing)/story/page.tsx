@@ -4,10 +4,12 @@ import { manifesto } from "@/content/story";
 
 export const metadata: Metadata = {
   title: "Manifesto — HYPED",
-  description: "There's a type of person the internet was supposed to be built for but never was. Hyped exists for them.",
+  description:
+    "The daily, measurable commitment to getting better at the things that matter to you. This is what maxxing means. This is why Hyped exists.",
   openGraph: {
     title: "Manifesto — HYPED",
-    description: "There's a type of person the internet was supposed to be built for but never was. Hyped exists for them.",
+    description:
+      "The daily, measurable commitment to getting better at the things that matter to you. This is what maxxing means. This is why Hyped exists.",
     url: `${site.url}/story`,
     siteName: site.name,
     type: "website",
@@ -15,7 +17,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Manifesto — HYPED",
-    description: "The brand for maxxing culture. For the ones who wake up and lock in.",
+    description:
+      "Whatever you're maxxing — this is the home for it.",
   },
 };
 
@@ -36,11 +39,11 @@ export default function StoryPage() {
           <header className="glass-static !rounded-2xl p-8 sm:p-10 md:p-12 mt-4 mb-12">
             <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">THE HYPED MANIFESTO</p>
             <h1 className="mt-6 font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
-              The brand for maxxing culture.
+              Whatever you&apos;re maxxing.
             </h1>
             <p className="mt-6 max-w-[520px] text-[17px] leading-[1.7] text-hyped-bright">
-              There&apos;s a type of person the internet was supposed to be
-              built for but never was. This is for them.
+              The brand for the daily grind, the locked-in energy,
+              and the people who refuse to settle.
             </p>
           </header>
 
@@ -60,26 +63,6 @@ export default function StoryPage() {
                   >
                     {section.text}
                   </p>
-                );
-              }
-
-              if (section.type === "products" && section.items) {
-                return (
-                  <div key={i} className="my-[32px] space-y-3">
-                    {section.items.map((item) => (
-                      <div
-                        key={item.label}
-                        className="glass flex items-baseline justify-between gap-6 p-5"
-                      >
-                        <span className="font-display font-[800] uppercase text-[clamp(18px,2.5vw,24px)] leading-[.95]">
-                          {item.line}
-                        </span>
-                        <span className="shrink-0 font-mono text-[10px] tracking-[.24em] text-[var(--accent)]">
-                          {item.label}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
                 );
               }
 

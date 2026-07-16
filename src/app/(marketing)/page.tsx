@@ -30,8 +30,8 @@ export default async function Home() {
             built for but never was.
           </p>
           <p className="mt-6 max-w-[600px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
-            The person who wakes up and locks in. Who tracks their progress,
-            sharpens their edge, and shows up again tomorrow whether
+            The one who wakes up and locks in. Who tracks the progress,
+            sharpens the edge, and shows up again tomorrow whether
             anyone&apos;s watching or not.
           </p>
           <a

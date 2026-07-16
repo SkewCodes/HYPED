@@ -24,7 +24,7 @@ export async function GET() {
             </linearGradient>
           </defs>
           <path
-            d="M4,0 H28 V46 L52,34 L44,64 L72,50 V0 H96 V140 H72 V88 L48,100 L56,72 L28,82 V140 H4 Z"
+            d="M10,0 H34 L32,42 L58,26 L45,68 L71,50 L74,0 H98 L90,140 H66 L69,86 L55,102 L63,64 L29,86 L26,140 H2 Z"
             fill="url(#ag)"
           />
         </svg>

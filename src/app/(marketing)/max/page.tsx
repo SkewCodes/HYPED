@@ -45,7 +45,7 @@ export default function MaxPage() {
 
           <section className="py-[60px] md:py-[100px]">
             <div className="flex items-center gap-2.5">
-              <Bolt width={26} height={26} />
+              <Bolt width={16} height={22} />
               <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-secondary)]">
                 COMING SOON
               </span>

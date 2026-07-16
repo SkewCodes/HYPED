@@ -9,7 +9,7 @@ function TickerHalf() {
           <span className="font-mono text-[13px] tracking-[.12em] text-hyped-muted whitespace-nowrap transition-colors duration-200 hover:text-[var(--accent)] sm:text-[15px]">
             {item}
           </span>
-          <Bolt width={16} height={16} className="shrink-0 opacity-40" />
+          <Bolt width={10} height={14} className="shrink-0 opacity-40" />
         </span>
       ))}
     </div>

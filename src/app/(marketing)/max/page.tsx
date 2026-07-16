@@ -19,13 +19,13 @@ export const metadata: Metadata = {
 };
 
 const domains = [
-  { icon: "🏋️", label: "GYM", line: "Track lifts, streaks, and PRs." },
-  { icon: "📈", label: "TRADING", line: "Log trades, track P&L, sharpen edge." },
-  { icon: "🛠️", label: "BUILDING", line: "Ship logs, build streaks, stay accountable." },
-  { icon: "🧠", label: "FOCUS", line: "Deep work blocks, screen time, discipline." },
-  { icon: "💰", label: "MONEY", line: "Income, savings, investments — all tracked." },
-  { icon: "✨", label: "LOOKS", line: "Skincare, style, the full glow-up." },
-  { icon: "🔥", label: "LIFE", line: "All of the above. The whole arc." },
+  { label: "GYM", line: "Track lifts, streaks, and PRs." },
+  { label: "TRADING", line: "Log sessions, track progress, sharpen edge." },
+  { label: "BUILDING", line: "Ship logs, build streaks, stay accountable." },
+  { label: "FOCUS", line: "Deep work blocks, screen time, discipline." },
+  { label: "MONEY", line: "Income, savings, investments — all tracked." },
+  { label: "LOOKS", line: "Skincare, style, the full glow-up." },
+  { label: "LIFE", line: "All of the above. The whole arc." },
 ] as const;
 
 export default function MaxPage() {
@@ -68,12 +68,9 @@ export default function MaxPage() {
             <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {domains.map((d) => (
                 <div key={d.label} className="glass p-7">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[18px]">{d.icon}</span>
-                    <span className="font-mono text-[11px] tracking-[.24em] text-hyped-white">
-                      {d.label}
-                    </span>
-                  </div>
+                  <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent)]">
+                    {d.label}
+                  </span>
                   <p className="mt-3 text-[14px] leading-[1.6] text-hyped-muted">
                     {d.line}
                   </p>
@@ -128,12 +125,12 @@ export default function MaxPage() {
                 HYPED AGENTS
               </p>
               <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(24px,3.5vw,36px)] leading-[.92]">
-                Start your trade maxxing arc.
+                AI that helps you lock in.
               </h2>
               <p className="mt-6 max-w-[520px] text-[16px] leading-[1.8] text-hyped-bright md:text-[17px]">
-                AI-powered trading intelligence that helps you build edge, not
-                just execute trades. Powered by TrueNorth — the first live
-                product in the Hyped ecosystem.
+                Intelligent tools that help you build edge, stay accountable,
+                and compound progress across your domains. Powered by
+                TrueNorth.
               </p>
               <a
                 href="https://truenorth.xyz"
@@ -141,7 +138,7 @@ export default function MaxPage() {
                 rel="noopener noreferrer"
                 className="group mt-8 inline-flex items-center gap-2 font-mono text-[12px] tracking-[.18em] text-[var(--accent)] transition-colors hover:text-hyped-white"
               >
-                Explore HYPED Agents
+                Learn more
                 <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
               </a>
             </div>

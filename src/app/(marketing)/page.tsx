@@ -4,7 +4,7 @@ import { fetchChannelStreams } from "@/lib/youtube";
 
 const maxxingDomains = [
   { label: "GYM", description: "PRs, streaks, never missing a session." },
-  { label: "TRADING", description: "Markets as a craft. Edge compounding daily." },
+  { label: "TRADING", description: "Skill, edge, and daily reps. Markets as a craft." },
   { label: "BUILDING", description: "Shipping code, content, brands — in public." },
   { label: "FOCUS", description: "Deep work, dopamine control, daily discipline." },
   { label: "LOOKS", description: "Skincare, style, aesthetics — levelling up." },

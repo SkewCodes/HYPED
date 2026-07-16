@@ -43,12 +43,9 @@ export default function MaxPage() {
           </div>
 
           <section className="py-[60px] md:py-[100px]">
-            <div className="flex items-center gap-2.5">
-              <span className="aurora-text font-display text-xl font-[900]">H</span>
-              <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-secondary)]">
-                COMING SOON
-              </span>
-            </div>
+            <span className="font-mono text-[11px] tracking-[.24em] text-[var(--accent-secondary)]">
+              COMING SOON
+            </span>
             <h1 className="mt-6 font-display font-[900] uppercase text-[clamp(36px,5.5vw,64px)] leading-[.9] tracking-[.01em]">
               hyped.max
             </h1>

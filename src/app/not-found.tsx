@@ -3,8 +3,7 @@
 export default function NotFound() {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center px-6 text-center">
-      <span className="aurora-text font-display text-5xl font-[900] uppercase">H</span>
-      <h1 className="mt-6 font-display font-[800] uppercase text-[clamp(2rem,5vw,4rem)] leading-[.88]">
+      <h1 className="aurora-text font-display font-[900] uppercase text-[clamp(2.5rem,6vw,5rem)] leading-[.88]">
         Rekt.
       </h1>
       <p className="mt-4 text-hyped-muted">

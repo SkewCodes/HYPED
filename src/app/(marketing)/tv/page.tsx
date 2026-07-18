@@ -46,6 +46,14 @@ export default async function TVPage() {
 
           {/* Hero Player Area */}
           <section className="py-[40px] md:py-[60px]">
+            <h1 className="font-display font-[900] uppercase text-[clamp(32px,5vw,56px)] leading-[.9] tracking-[.01em]">
+              Hyped TV
+            </h1>
+            <p className="mt-4 max-w-[480px] text-[15px] leading-[1.7] text-hyped-muted">
+              The grind, live. Sessions, streams, and the daily lock-in — unfiltered.
+            </p>
+
+            <div className="mt-10">
             {live ? (
               <>
                 <div className="mb-5 flex items-center gap-3">
@@ -115,6 +123,7 @@ export default async function TVPage() {
                 </div>
               </>
             )}
+            </div>
           </section>
 
           {/* Replay Library */}

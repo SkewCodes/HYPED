@@ -153,13 +153,36 @@ export default async function TVPage() {
           ) : (
             <section className="py-[60px] md:py-[100px]">
               <div className="divider mb-[60px] md:mb-[100px]" />
-              <div className="glass p-7 sm:p-9">
-                <p className="font-display font-[800] uppercase text-[24px] leading-[.92] text-hyped-muted sm:text-[28px]">
-                  Hyped TV — Coming Soon
+              <div className="glass p-8 sm:p-10 md:p-12">
+                <p className="font-mono text-[11px] tracking-[.26em] text-[var(--accent)]">
+                  BETWEEN SESSIONS
                 </p>
-                <p className="mt-4 max-w-[420px] text-[15px] leading-[1.6] text-hyped-muted">
-                  Subscribe to catch every stream.
+                <h2 className="mt-6 font-display font-[800] uppercase text-[clamp(22px,3vw,32px)] leading-[.92]">
+                  No live session right now — but the archive is always open.
+                </h2>
+                <p className="mt-5 max-w-[480px] text-[15px] leading-[1.7] text-hyped-muted">
+                  Past streams, full sessions, and raw unedited work — all
+                  on the channel. Subscribe to get notified when the next one goes live.
                 </p>
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <a
+                    href={`${site.social.youtube}/streams`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block rounded-lg font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+                  >
+                    Browse past streams →
+                  </a>
+                  <a
+                    href={site.social.youtube}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass-static inline-block !rounded-lg font-mono text-[11px] tracking-[.18em] text-hyped-muted transition-colors hover:text-[var(--accent)]"
+                    style={{ padding: "14px 24px" }}
+                  >
+                    Subscribe on YouTube
+                  </a>
+                </div>
               </div>
             </section>
           )}

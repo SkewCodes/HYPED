@@ -1,6 +1,7 @@
 import { Hero } from "@/components/Hero";
 import { Waitlist } from "@/components/Waitlist";
 import { fetchChannelStreams } from "@/lib/youtube";
+import { site } from "@/content/site";
 
 const maxxingDomains = [
   { label: "GYM", description: "PRs, streaks, never missing a session." },
@@ -173,12 +174,19 @@ export default async function Home() {
             </div>
           ) : (
             <div className="mt-10 glass p-8 sm:p-10">
-              <p className="text-[15px] text-hyped-bright">
-                Streams coming soon. Subscribe on{" "}
-                <a href="https://www.youtube.com/@52kskew" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:text-hyped-white transition-colors">
-                  YouTube
+              <p className="font-display font-[800] uppercase text-[clamp(18px,2vw,24px)] leading-[.92] text-hyped-white">
+                Between sessions.
+              </p>
+              <p className="mt-3 text-[15px] text-hyped-muted">
+                No live stream right now.{" "}
+                <a href={`${site.social.youtube}/streams`} target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:text-hyped-white transition-colors">
+                  Browse past sessions
                 </a>{" "}
-                to catch every session.
+                or{" "}
+                <a href={site.social.youtube} target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] hover:text-hyped-white transition-colors">
+                  subscribe
+                </a>{" "}
+                to catch the next one.
               </p>
             </div>
           )}

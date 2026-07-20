@@ -89,7 +89,7 @@ export default async function TVPage() {
                   {/* Offline branded slate */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
                     <div className="absolute inset-0 opacity-[.04]" style={{
-                      backgroundImage: "linear-gradient(rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px)",
+                      backgroundImage: "linear-gradient(var(--hero-grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--hero-grid-color) 1px,transparent 1px)",
                       backgroundSize: "48px 48px",
                     }} />
                     <div className="relative">
@@ -105,7 +105,7 @@ export default async function TVPage() {
                           href={site.social.youtube}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="rounded-lg font-mono text-[10px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-5 py-2.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+                          className="rounded-lg font-mono text-[10px] font-bold tracking-[.18em] bg-[var(--accent)] text-white dark:text-hyped-void px-5 py-2.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
                         >
                           SUBSCRIBE
                         </a>
@@ -167,7 +167,7 @@ export default async function TVPage() {
                 href={site.social.youtube}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cta-pulse inline-block rounded-lg font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+                className="cta-pulse inline-block rounded-lg font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-white dark:text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
               >
                 Subscribe on YouTube →
               </a>
@@ -213,7 +213,7 @@ function ReplayCard({ video }: { video: { id: string; title: string; show: strin
         <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity group-hover:opacity-100">
           <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[var(--accent)]">
             <svg width="16" height="18" viewBox="0 0 24 28" fill="none">
-              <path d="M4 2l18 12L4 26V2z" fill="#0A0A12" />
+              <path d="M4 2l18 12L4 26V2z" fill="white" className="dark:fill-[#0A0A12]" />
             </svg>
           </div>
         </div>

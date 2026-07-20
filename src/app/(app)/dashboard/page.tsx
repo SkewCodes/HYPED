@@ -21,7 +21,7 @@ export default function DashboardPage() {
         </p>
         <a
           href="/#waitlist"
-          className="mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void px-6 py-3.5 transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+          className="mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-white dark:text-hyped-void px-6 py-3.5 rounded-lg transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
         >
           JOIN THE WAITLIST
         </a>

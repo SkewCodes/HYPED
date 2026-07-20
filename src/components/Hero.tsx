@@ -1,14 +1,28 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Aurora from "./Aurora";
 import { Ticker } from "./Ticker";
 import { site } from "@/content/site";
 
 export function Hero() {
   const glowRef = useRef<HTMLSpanElement>(null);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
+    const root = document.documentElement;
+    setIsDark(root.classList.contains("dark"));
+
+    const observer = new MutationObserver(() => {
+      setIsDark(root.classList.contains("dark"));
+    });
+    observer.observe(root, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isDark) return;
+
     let ticking = false;
     const onScroll = () => {
       if (ticking) return;
@@ -34,32 +48,39 @@ export function Hero() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isDark]);
 
   return (
     <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden">
+      {/* Grid background */}
       <div
         className="absolute inset-0"
         style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px)",
+          backgroundImage: `linear-gradient(var(--hero-grid-color) 1px,transparent 1px),linear-gradient(90deg,var(--hero-grid-color) 1px,transparent 1px)`,
           backgroundSize: "72px 72px",
           maskImage: "radial-gradient(ellipse 90% 80% at 62% 40%,black 30%,transparent 78%)",
           WebkitMaskImage: "radial-gradient(ellipse 90% 80% at 62% 40%,black 30%,transparent 78%)",
         }}
       />
+
+      {/* Radial glow (dark only) */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 hidden dark:block"
         style={{
           background: "radial-gradient(ellipse 55% 60% at 72% 42%,rgba(0,240,255,.08),transparent 65%),radial-gradient(ellipse 70% 60% at 25% 30%,rgba(26,10,46,.7),transparent 75%)",
         }}
       />
-      <div className="absolute inset-0">
+
+      {/* Aurora canvas (dark only) */}
+      <div className="absolute inset-0 hidden dark:block">
         <Aurora />
       </div>
+
+      {/* Bottom fade */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "linear-gradient(180deg,rgba(10,10,18,.25) 0%,transparent 40%,rgba(10,10,18,.9) 84%,#0A0A12 100%)",
+          background: `linear-gradient(180deg,transparent 0%,transparent 40%,var(--hero-gradient-bottom) 84%,var(--hero-gradient-bottom-solid) 100%)`,
         }}
       />
 
@@ -70,18 +91,31 @@ export function Hero() {
 
         <h1 className="mt-6 m-0 font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88] tracking-[.01em]">
           <span className="hero-stagger-2 block">Be Hyped.</span>
-          <span
-            ref={glowRef}
-            className="hero-stagger-3 block"
-            style={{
-              color: "transparent",
-              WebkitTextStroke: "2px var(--accent)",
-              textShadow: "0 0 10px rgba(0,240,255,.3)",
-              transition: "color .1s, text-shadow .15s",
-            }}
-          >
-            Dream Big.
-          </span>
+          {isDark ? (
+            <span
+              ref={glowRef}
+              className="hero-stagger-3 block"
+              style={{
+                color: "transparent",
+                WebkitTextStroke: "2px var(--accent)",
+                textShadow: "0 0 10px rgba(0,240,255,.3)",
+                transition: "color .1s, text-shadow .15s",
+              }}
+            >
+              Dream Big.
+            </span>
+          ) : (
+            <span
+              className="hero-stagger-3 block"
+              style={{
+                color: "var(--accent)",
+                WebkitTextStroke: "2px var(--accent)",
+                transition: "color .3s",
+              }}
+            >
+              Dream Big.
+            </span>
+          )}
         </h1>
 
         <p className="hero-stagger-4 mt-6 max-w-[500px] text-[17px] leading-[1.6] text-hyped-bright md:text-[19px]">

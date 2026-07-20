@@ -78,7 +78,7 @@ export function Waitlist() {
             <button
               type="submit"
               disabled={disabled}
-              className="cta-pulse rounded-lg font-mono text-[12px] font-bold tracking-[.18em] bg-[var(--accent)] text-hyped-void transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5 disabled:opacity-50"
+              className="cta-pulse rounded-lg font-mono text-[12px] font-bold tracking-[.18em] bg-[var(--accent)] text-white dark:text-hyped-void transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5 disabled:opacity-50"
               style={{ padding: "16px 28px" }}
             >
               {state === "loading" ? "..." : "LOCK IN"}

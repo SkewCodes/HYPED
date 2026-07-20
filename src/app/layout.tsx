@@ -25,7 +25,10 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0A0A12",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F4F3EF" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A12" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -50,6 +53,17 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+(function(){
+  try {
+    var t = localStorage.getItem('theme');
+    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    }
+  } catch(e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -59,8 +73,10 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${bigShoulders.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://i.ytimg.com" />
@@ -70,7 +86,7 @@ export default function RootLayout({
           src="https://plausible.io/js/script.js"
         />
       </head>
-      <body className="bg-hyped-void text-hyped-white font-body antialiased">
+      <body className="bg-hyped-void text-hyped-white font-body antialiased transition-colors duration-300">
         {children}
         <div
           className="pointer-events-none fixed inset-0 z-[300] opacity-[.025]"

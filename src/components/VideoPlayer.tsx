@@ -47,7 +47,7 @@ export function VideoPlayer({ videoId, title, thumbnail }: VideoPlayerProps) {
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--accent)] transition-transform group-hover:scale-110 sm:h-20 sm:w-20">
           <svg width="24" height="28" viewBox="0 0 24 28" fill="none">
-            <path d="M4 2l18 12L4 26V2z" fill="white" className="dark:fill-[#0A0A12]" />
+            <path d="M4 2l18 12L4 26V2z" fill="#0A0A0A" />
           </svg>
         </div>
       </div>

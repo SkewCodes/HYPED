@@ -19,11 +19,11 @@ const BANDS: Band[] = [
     amplitude: 0.12,
     frequency: 0.8,
     speed: 0.0004,
-    opacity: 0.12,
+    opacity: 0.15,
     phase: 0,
   },
   {
-    color: "123, 47, 190",
+    color: "139, 92, 246",
     baseY: 0.45,
     amplitude: 0.15,
     frequency: 0.6,
@@ -32,12 +32,12 @@ const BANDS: Band[] = [
     phase: 1.2,
   },
   {
-    color: "79, 255, 176",
+    color: "109, 40, 217",
     baseY: 0.55,
     amplitude: 0.1,
     frequency: 1.0,
     speed: 0.0005,
-    opacity: 0.07,
+    opacity: 0.08,
     phase: 2.5,
   },
   {
@@ -261,7 +261,7 @@ export default function Aurora() {
       className="absolute inset-0 hero-canvas-fade"
       style={{
         pointerEvents: "none",
-        filter: "blur(40px)",
+        filter: "blur(30px)",
         willChange: "transform",
       }}
     />

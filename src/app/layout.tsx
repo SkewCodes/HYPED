@@ -26,8 +26,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F4F3EF" },
-    { media: "(prefers-color-scheme: dark)", color: "#0A0A12" },
+    { media: "(prefers-color-scheme: dark)", color: "#0A0A0A" },
+    { media: "(prefers-color-scheme: light)", color: "#F8F4ED" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -57,8 +57,8 @@ const themeScript = `
 (function(){
   try {
     var t = localStorage.getItem('theme');
-    if (t === 'dark' || (!t && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
+    if (t === 'light') {
+      document.documentElement.classList.add('light');
     }
   } catch(e) {}
 })();

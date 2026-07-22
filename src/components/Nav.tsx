@@ -100,7 +100,7 @@ export function Nav({ variant = "marketing" }: NavProps) {
 
         <a
           href={site.nav.cta.href}
-          className="hidden font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-white dark:text-hyped-void px-5 py-[11px] rounded-lg transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-px sm:inline-block"
+          className="hidden font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-[#0A0A0A] px-5 py-[11px] rounded-lg transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-px sm:inline-block"
         >
           {site.nav.cta.label}
         </a>
@@ -136,7 +136,7 @@ export function Nav({ variant = "marketing" }: NavProps) {
                 DASHBOARD
               </a>
             )}
-            <a href={site.nav.cta.href} className="mt-1 block bg-[var(--accent)] rounded-lg px-5 py-3.5 text-center font-mono text-[11px] font-bold tracking-[.18em] text-white dark:text-hyped-void">
+            <a href={site.nav.cta.href} className="mt-1 block bg-[var(--accent)] rounded-lg px-5 py-3.5 text-center font-mono text-[11px] font-bold tracking-[.18em] text-[#0A0A0A]">
               {site.nav.cta.label}
             </a>
           </div>

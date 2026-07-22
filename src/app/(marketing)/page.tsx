@@ -98,7 +98,7 @@ export default async function Home() {
             </p>
             <a
               href="#waitlist"
-              className="cta-pulse mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-white dark:text-hyped-void px-6 py-3.5 rounded-lg transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
+              className="cta-pulse mt-8 inline-block font-mono text-[11px] font-bold tracking-[.18em] bg-[var(--accent)] text-[#0A0A0A] px-6 py-3.5 rounded-lg transition-[filter,transform] hover:brightness-[1.12] hover:-translate-y-0.5"
             >
               JOIN THE WAITLIST
             </a>
@@ -153,7 +153,7 @@ export default async function Home() {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="flex h-16 w-16 items-center justify-center rounded-full bg-[var(--accent)] transition-transform group-hover:scale-110 sm:h-20 sm:w-20">
                       <svg width="24" height="28" viewBox="0 0 24 28" fill="none">
-                        <path d="M4 2l18 12L4 26V2z" fill="white" className="dark:fill-[#0A0A12]" />
+                        <path d="M4 2l18 12L4 26V2z" fill="#0A0A0A" />
                       </svg>
                     </div>
                   </div>

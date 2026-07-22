@@ -2,26 +2,27 @@
 
 import { useEffect, useRef, useState } from "react";
 import Aurora from "./Aurora";
+import { Particles } from "./Particles";
 import { Ticker } from "./Ticker";
 import { site } from "@/content/site";
 
 export function Hero() {
   const glowRef = useRef<HTMLSpanElement>(null);
-  const [isDark, setIsDark] = useState(false);
+  const [isLight, setIsLight] = useState(false);
 
   useEffect(() => {
     const root = document.documentElement;
-    setIsDark(root.classList.contains("dark"));
+    setIsLight(root.classList.contains("light"));
 
     const observer = new MutationObserver(() => {
-      setIsDark(root.classList.contains("dark"));
+      setIsLight(root.classList.contains("light"));
     });
     observer.observe(root, { attributes: true, attributeFilter: ["class"] });
     return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
-    if (!isDark) return;
+    if (isLight) return;
 
     let ticking = false;
     const onScroll = () => {
@@ -48,7 +49,7 @@ export function Hero() {
     };
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [isDark]);
+  }, [isLight]);
 
   return (
     <section className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden">
@@ -63,18 +64,29 @@ export function Hero() {
         }}
       />
 
-      {/* Radial glow (dark only) */}
-      <div
-        className="absolute inset-0 hidden dark:block"
-        style={{
-          background: "radial-gradient(ellipse 55% 60% at 72% 42%,rgba(0,240,255,.08),transparent 65%),radial-gradient(ellipse 70% 60% at 25% 30%,rgba(26,10,46,.7),transparent 75%)",
-        }}
-      />
+      {/* Particles (dark only — background plane) */}
+      {!isLight && (
+        <div className="absolute inset-0">
+          <Particles />
+        </div>
+      )}
 
-      {/* Aurora canvas (dark only) */}
-      <div className="absolute inset-0 hidden dark:block">
-        <Aurora />
-      </div>
+      {/* Radial glow (dark only) */}
+      {!isLight && (
+        <div
+          className="absolute inset-0"
+          style={{
+            background: "radial-gradient(ellipse 55% 60% at 72% 42%,rgba(0,240,255,.08),transparent 65%),radial-gradient(ellipse 70% 60% at 25% 30%,rgba(26,10,46,.7),transparent 75%)",
+          }}
+        />
+      )}
+
+      {/* Aurora canvas (dark only — mid-ground plane) */}
+      {!isLight && (
+        <div className="absolute inset-0">
+          <Aurora />
+        </div>
+      )}
 
       {/* Bottom fade */}
       <div
@@ -90,8 +102,8 @@ export function Hero() {
         </p>
 
         <h1 className="mt-6 m-0 font-display font-[800] uppercase text-[clamp(40px,7vw,88px)] leading-[.88] tracking-[.01em]">
-          <span className="hero-stagger-2 block">Be Hyped.</span>
-          {isDark ? (
+          <span className={`hero-stagger-2 block ${!isLight ? "neon-glow" : ""}`}>Be Hyped.</span>
+          {!isLight ? (
             <span
               ref={glowRef}
               className="hero-stagger-3 block"
